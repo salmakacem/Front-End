@@ -24,6 +24,7 @@ import { TeamComponent } from './components/pages/team/team.component';
 import { TeamTwoComponent } from './components/pages/team-two/team-two.component';
 import { ContactComponent } from './components/pages/contact/contact.component';
 import { LoginComponent } from './components/pages/login/login.component';
+import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { LoginComponent } from './components/pages/login/login.component';
     TeamTwoComponent,
     ContactComponent,
     LoginComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

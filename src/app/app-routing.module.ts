@@ -18,7 +18,7 @@ import { TeamComponent } from './components/pages/team/team.component';
 import { TeamTwoComponent } from './components/pages/team-two/team-two.component';
 import { ContactComponent } from './components/pages/contact/contact.component';
 import { LoginComponent } from './components/pages/login/login.component';
-
+import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
 const routes: Routes = [
     {path: '', component: HomeOneComponent},
     {path: 'home-two', component: HomeTwoComponent},
@@ -38,6 +38,7 @@ const routes: Routes = [
     {path: 'team-two', component: TeamTwoComponent},
     {path: 'contact', component: ContactComponent},
     {path:'login' , component:LoginComponent},
+    {path:'dashboard' , component: DashboardComponent},
     // Here add new pages component
 
     {path: '**', component: ErrorComponent} // This line will remain down from the whole pages component list

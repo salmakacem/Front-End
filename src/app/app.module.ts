@@ -25,6 +25,10 @@ import { TeamTwoComponent } from './components/pages/team-two/team-two.component
 import { ContactComponent } from './components/pages/contact/contact.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
+import { RegisterComponent } from './components/pages/register/register.component';
+import { DetailsComponent } from './components/pages/details/details.component';
+import { AdresseComponent } from './components/pages/adresse/adresse.component';
+import { MotdepasseComponent } from './components/pages/motdepasse/motdepasse.component';
 
 
 @NgModule({
@@ -52,7 +56,11 @@ import { DashboardComponent } from './components/pages/dashboard/dashboard.compo
     ContactComponent,
     LoginComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    RegisterComponent,
+    DetailsComponent,
+    AdresseComponent,
+    MotdepasseComponent
   ],
   imports: [
     BrowserModule,

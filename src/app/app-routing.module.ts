@@ -19,6 +19,11 @@ import { TeamTwoComponent } from './components/pages/team-two/team-two.component
 import { ContactComponent } from './components/pages/contact/contact.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
+import { RegisterComponent } from './components/pages/register/register.component';
+import { DetailsComponent } from './components/pages/details/details.component';
+import { AdresseComponent } from './components/pages/adresse/adresse.component';
+import { MotdepasseComponent } from './components/pages/motdepasse/motdepasse.component';
+
 const routes: Routes = [
     {path: '', component: HomeOneComponent},
     {path: 'home-two', component: HomeTwoComponent},
@@ -39,6 +44,12 @@ const routes: Routes = [
     {path: 'contact', component: ContactComponent},
     {path:'login' , component:LoginComponent},
     {path:'dashboard' , component: DashboardComponent},
+    {path:'Register' , component: RegisterComponent},
+    {path:'details' , component: DetailsComponent},
+    {path:'adresse' , component: AdresseComponent},
+    {path:'motdepasse' , component:  MotdepasseComponent},
+
+   
     // Here add new pages component
 
     {path: '**', component: ErrorComponent} // This line will remain down from the whole pages component list

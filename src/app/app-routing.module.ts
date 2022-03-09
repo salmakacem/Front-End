@@ -10,15 +10,21 @@ import { ServiceThreeComponent } from './components/pages/service-three/service-
 import { ServiceDetailsComponent } from './components/pages/service-details/service-details.component';
 import { BlogComponent } from './components/pages/blog/blog.component';
 import { BlogRightSidebarComponent } from './components/pages/blog-right-sidebar/blog-right-sidebar.component';
-import { BlogDetailsComponent } from './components/pages/blog-details/blog-details.component';
+
 import { PricingComponent } from './components/pages/pricing/pricing.component';
 import { RecentProjectComponent } from './components/pages/recent-project/recent-project.component';
 import { ErrorComponent } from './components/pages/error/error.component';
 import { TeamComponent } from './components/pages/team/team.component';
-import { TeamTwoComponent } from './components/pages/team-two/team-two.component';
+
 import { ContactComponent } from './components/pages/contact/contact.component';
 import { LoginComponent } from './components/pages/login/login.component';
-import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
+
+import { RegisterComponent } from './components/pages/register/register.component';
+import { DetailsComponent } from './components/pages/details/details.component';
+import { AdresseComponent } from './components/pages/adresse/adresse.component';
+import { MotdepasseComponent } from './components/pages/motdepasse/motdepasse.component';
+import { DashbordComponent } from './dash/dashbord/dashbord.component';
+
 const routes: Routes = [
     {path: '', component: HomeOneComponent},
     {path: 'home-two', component: HomeTwoComponent},
@@ -30,15 +36,22 @@ const routes: Routes = [
     {path: 'service-details', component: ServiceDetailsComponent},
     {path: 'blog', component: BlogComponent},
     {path: 'blog-right-sidebar', component: BlogRightSidebarComponent},
-    {path: 'blog-details', component: BlogDetailsComponent},
+    
     {path: 'pricing', component: PricingComponent},
     {path: 'recent-project', component: RecentProjectComponent},
     {path: 'error', component: ErrorComponent},
     {path: 'team', component: TeamComponent},
-    {path: 'team-two', component: TeamTwoComponent},
+
     {path: 'contact', component: ContactComponent},
     {path:'login' , component:LoginComponent},
-    {path:'dashboard' , component: DashboardComponent},
+   
+    {path:'Register' , component: RegisterComponent},
+    {path:'details' , component: DetailsComponent},
+    {path:'adresse' , component: AdresseComponent},
+    {path:'motdepasse' , component:  MotdepasseComponent},
+    {path:'dashbord' , component:   DashbordComponent},
+
+   
     // Here add new pages component
 
     {path: '**', component: ErrorComponent} // This line will remain down from the whole pages component list

@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PreloaderComponent } from './components/layouts/preloader/preloader.component';
@@ -16,19 +19,20 @@ import { ServiceThreeComponent } from './components/pages/service-three/service-
 import { ServiceDetailsComponent } from './components/pages/service-details/service-details.component';
 import { BlogComponent } from './components/pages/blog/blog.component';
 import { BlogRightSidebarComponent } from './components/pages/blog-right-sidebar/blog-right-sidebar.component';
-import { BlogDetailsComponent } from './components/pages/blog-details/blog-details.component';
+
 import { PricingComponent } from './components/pages/pricing/pricing.component';
 import { RecentProjectComponent } from './components/pages/recent-project/recent-project.component';
 import { ErrorComponent } from './components/pages/error/error.component';
 import { TeamComponent } from './components/pages/team/team.component';
-import { TeamTwoComponent } from './components/pages/team-two/team-two.component';
+
 import { ContactComponent } from './components/pages/contact/contact.component';
 import { LoginComponent } from './components/pages/login/login.component';
-import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
+
 import { RegisterComponent } from './components/pages/register/register.component';
 import { DetailsComponent } from './components/pages/details/details.component';
 import { AdresseComponent } from './components/pages/adresse/adresse.component';
 import { MotdepasseComponent } from './components/pages/motdepasse/motdepasse.component';
+import { DashbordComponent } from './dash/dashbord/dashbord.component';
 
 
 @NgModule({
@@ -47,24 +51,27 @@ import { MotdepasseComponent } from './components/pages/motdepasse/motdepasse.co
     ServiceDetailsComponent,
     BlogComponent,
     BlogRightSidebarComponent,
-    BlogDetailsComponent,
+    
     PricingComponent,
     RecentProjectComponent,
     ErrorComponent,
     TeamComponent,
-    TeamTwoComponent,
+    
     ContactComponent,
     LoginComponent,
     LoginComponent,
-    DashboardComponent,
+   
     RegisterComponent,
     DetailsComponent,
     AdresseComponent,
-    MotdepasseComponent
+    MotdepasseComponent,
+    DashbordComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

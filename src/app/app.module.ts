@@ -33,6 +33,7 @@ import { DetailsComponent } from './components/pages/details/details.component';
 import { AdresseComponent } from './components/pages/adresse/adresse.component';
 import { MotdepasseComponent } from './components/pages/motdepasse/motdepasse.component';
 import { DashbordComponent } from './dash/dashbord/dashbord.component';
+import { ProfileComponent } from './dash/profile/profile.component';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { DashbordComponent } from './dash/dashbord/dashbord.component';
     DetailsComponent,
     AdresseComponent,
     MotdepasseComponent,
-    DashbordComponent
+    DashbordComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

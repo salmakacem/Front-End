@@ -24,6 +24,8 @@ import { DetailsComponent } from './components/pages/details/details.component';
 import { AdresseComponent } from './components/pages/adresse/adresse.component';
 import { MotdepasseComponent } from './components/pages/motdepasse/motdepasse.component';
 import { DashbordComponent } from './dash/dashbord/dashbord.component';
+import { ProfileComponent } from './dash/profile/profile.component';
+
 
 const routes: Routes = [
     {path: '', component: HomeOneComponent},
@@ -50,6 +52,8 @@ const routes: Routes = [
     {path:'adresse' , component: AdresseComponent},
     {path:'motdepasse' , component:  MotdepasseComponent},
     {path:'dashbord' , component:   DashbordComponent},
+
+    {path: 'profile', component: ProfileComponent},
 
    
     // Here add new pages component

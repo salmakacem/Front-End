@@ -4,8 +4,8 @@
 /* Color Variables */
 
 $white-color:#ffffff;
-$blue-color:#031888;
-$light-blue:#6096fd;
+$blue-color:#380404;
+$light-blue:#af5858;
 $black-color:#111111;
 $paragraph-color:#646464;
 
@@ -269,8 +269,9 @@ button:focus,
         padding: 0;
         position: relative;
         transition: .5s;
+        
         .navbar {
-            padding: 15px 0;
+            padding: 6px 0;
             .navbar-nav {
                 .nav-item {
                     a {
@@ -354,11 +355,11 @@ button:focus,
                 a {
                     color: #ffffffff;
                     background: rgb(19, 18, 18);
-                    padding: 10px 37px;
-                    border-radius: 5px;
+                    padding: 6px 20px;
+                    border-radius: 2px;
                     position: relative;
                     z-index: 0;
-                    font-size: 16px;
+                    font-size: 6px;
                     &::before {
                         position: absolute;
                         content: '';
@@ -369,7 +370,7 @@ button:focus,
                         left: 0;
                         bottom: 0;
                         right: 0;
-                        border-radius: 5px;
+                        border-radius: 3px;
                         z-index: -1;
                         transition: .5s;
                     }

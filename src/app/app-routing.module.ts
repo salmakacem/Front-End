@@ -26,6 +26,8 @@ import { MotdepasseComponent } from './components/pages/motdepasse/motdepasse.co
 import { DashbordComponent } from './dash/dashbord/dashbord.component';
 import { ProfileComponent } from './dash/profile/profile.component';
 
+import { GestionadherentsComponent } from './dash/gestionadherents/gestionadherents.component';
+import { GestioneventComponent } from './dash/gestionevent/gestionevent.component';
 
 const routes: Routes = [
     {path: '', component: HomeOneComponent},
@@ -54,6 +56,9 @@ const routes: Routes = [
     {path:'dashbord' , component:   DashbordComponent},
 
     {path: 'profile', component: ProfileComponent},
+    {path: 'gestionadherents', component: GestionadherentsComponent},
+
+    {path: 'gestionevent', component: GestioneventComponent },
 
    
     // Here add new pages component

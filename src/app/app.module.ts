@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -72,7 +71,7 @@ import { ProfileComponent } from './dash/profile/profile.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+  
 
   ],
   providers: [],

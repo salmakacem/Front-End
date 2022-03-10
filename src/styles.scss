@@ -51,7 +51,7 @@ ul {
 }
 
 p {
-    color: $paragraph-color;
+    color: #111111;
     line-height: 1.8;
 }
 
@@ -153,6 +153,7 @@ button:focus,
     }
     p {
         margin-bottom: 0;
+        font-size: x-large;
     }
 }
 
@@ -3504,13 +3505,13 @@ button:focus,
     background-image: url();
     background-position: center center;
     background-size: cover;
-    height: 350px;
+    height: 200px;
     position: relative;
     z-index: 0;
     &::before {
         position: absolute;
         content: '';
-        background: rgba(3, 24, 136, 0.35);
+        background: linear-gradient(180deg, #7a150a 10%, #e38f87);
         width: 100%;
         height: 100%;
         left: 0;
@@ -3523,25 +3524,30 @@ button:focus,
     .about-title-text {
         text-align: center;
         h2 {
-            font-size: 40px;
+            font-size: 60px;
             color: $white-color;
             font-weight: 600;
             margin-bottom: 5px;
+            FONT-FAMILY: 'IcoFont';
+            FONT-VARIANT: petite-caps;
         }
         ul {
             padding-left: 0;
             li {
-                font-size: 18px;
                 color: $white-color;
                 font-weight: 500;
+                font-style: italic;
+                font-family: 'IcoFont';
+                font-size: xx-large;
                 a {
                     color: $white-color;
                     &:hover {
-                        color: $light-blue;
+                        color: #500000;
+                        ;
                     }
                 }
                 i {
-                    color: $blue-color;
+                    color: #750000;
                 }
             }
         }
@@ -3911,7 +3917,7 @@ button:focus,
     &::before {
         position: absolute;
         content: '';
-        background: rgba(141, 1, 1, 0.877);
+        background: linear-gradient(180deg, #7a150a 10%, #e38f87);
         width: 100%;
         height: 100%;
         left: 0;
@@ -4056,22 +4062,13 @@ button:focus,
     background-image: url();
     background-position: center center;
     background-size: cover;
-    height: 350px;
+    height: 200px;
     position: relative;
     z-index: 0;
-    &.bg-1 {
-        background-image: url();
-    }
-    &.bg-2 {
-        background-image: url();
-    }
-    &.bg-3 {
-        background-image: url();
-    }
     &::before {
         position: absolute;
         content: '';
-        background: rgba(3, 24, 136, 0.35);
+        background: linear-gradient(180deg, #7a150a 10%, #e38f87);
         width: 100%;
         height: 100%;
         left: 0;
@@ -4084,25 +4081,30 @@ button:focus,
     .service-title-text {
         text-align: center;
         h2 {
-            font-size: 40px;
+            font-size: 60px;
             color: $white-color;
             font-weight: 600;
             margin-bottom: 5px;
+            FONT-FAMILY: 'IcoFont';
+            FONT-VARIANT: petite-caps;
         }
         ul {
             padding-left: 0;
             li {
-                font-size: 18px;
                 color: $white-color;
                 font-weight: 500;
+                font-style: italic;
+                font-family: 'IcoFont';
+                font-size: xx-large;
                 a {
                     color: $white-color;
                     &:hover {
-                        color: $blue-color;
+                        color: #500000;
+                        ;
                     }
                 }
                 i {
-                    color: $blue-color;
+                    color: #750000;
                 }
             }
         }
@@ -4130,7 +4132,7 @@ button:focus,
         &::before {
             position: absolute;
             content: '';
-            background: $blue-color;
+            background: linear-gradient(180deg, #7a150a 10%, #e38f87);
             width: 100%;
             height: 0;
             bottom: 0;
@@ -4179,13 +4181,13 @@ button:focus,
         }
         .theme-button {
             .default-btn {
-                color: $light-blue;
+                color: #031888;
                 margin-right: 0;
                 padding: 10px 40px;
-                border: 1px solid $light-blue;
+                border: 1px solid #031888;
                 &:hover::before {
                     display: none;
-                    color: $light-blue;
+                    color: #031888;
                 }
             }
         }
@@ -4226,7 +4228,7 @@ button:focus,
             .form-control {
                 height: 50px;
                 width: 100%;
-                border: 1px solid $light-blue;
+                border: 1px solid #031888;
                 border-radius: 5px;
                  ::placeholder {
                     color: #464646;
@@ -4364,13 +4366,13 @@ button:focus,
     background-image: url();
     background-position: center center;
     background-size: cover;
-    height: 350px;
+    height: 200px;
     position: relative;
     z-index: 0;
     &::before {
         position: absolute;
         content: '';
-        background: rgba(3, 24, 136, 0.7);
+        background: linear-gradient(180deg, #7a150a 10%, #e38f87);
         width: 100%;
         height: 100%;
         left: 0;
@@ -4383,25 +4385,30 @@ button:focus,
     .team-title-text {
         text-align: center;
         h2 {
-            font-size: 40px;
+            font-size: 60px;
             color: $white-color;
             font-weight: 600;
             margin-bottom: 5px;
+            FONT-FAMILY: 'IcoFont';
+            FONT-VARIANT: petite-caps;
         }
         ul {
             padding-left: 0;
             li {
-                font-size: 18px;
                 color: $white-color;
                 font-weight: 500;
+                font-style: italic;
+                font-family: 'IcoFont';
+                font-size: xx-large;
                 a {
                     color: $white-color;
                     &:hover {
-                        color: $light-blue
+                        color: #500000;
+                        ;
                     }
                 }
                 i {
-                    color: $blue-color;
+                    color: #750000;
                 }
             }
         }

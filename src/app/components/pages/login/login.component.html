@@ -17,18 +17,22 @@
                                         font-weight: revert;color: #b94a4a;text-decoration: underline;">Bienvenue! à Forum De La République!</h4>
                                     <h6>Connectez-vous à votre compte</h6>
                                 </div>
-                                <form class="user">
+
+                                <form class="user" formGroup="loginform">
                                     <div class="form-group" style="color: #b94a4a;font-size: 100%;
                                         FONT-FAMILY: -webkit-body;
-                                        FONT-WEIGHT: bold;"><label>Nom d'utilisateur</label><input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Entrer votre nom d'utilisateur..." name="email"></div>
+                                        FONT-WEIGHT: bold;"><label>Nom d'utilisateur</label>
+                                        <input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" formControlName="email" placeholder="Entrer votre nom d'utilisateur..." name="email"></div>
                                     <div class="form-group" style="color: #b94a4a;font-size: 100%;
                                         FONT-FAMILY: -webkit-body;
-                                        FONT-WEIGHT: bold;"><label>Mot De Passe</label><input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="*******" name="password"></div>
+                                        FONT-WEIGHT: bold;"><label>Mot De Passe</label>
+                                        <input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="*******" formControlName="password" name="password"></div>
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox small">
-                                            <div class="form-check"><input class="form-check-input custom-control-input" type="checkbox" id="formCheck-1"><label class="form-check-label custom-control-label" for="formCheck-1">Rester connecté</label></div>
+                                            <div class="form-check">
+                                                <input class="form-check-input custom-control-input" type="checkbox" id="formCheck-1"><label class="form-check-label custom-control-label" for="formCheck-1">Rester connecté</label></div>
                                         </div>
-                                    </div><button class="btn btn-primary btn-block text-white btn-user" type="submit" style=" 
+                                    </div><button class="btn btn-primary btn-block text-white btn-user" (click)="login()" type="button" style=" 
                                             color: #fff;
                                             background-color: #b94a4a;
                                             border-color: #b94a4a;">S'authentifier</button>
@@ -41,11 +45,11 @@
                                         background-color: #c53b3b00;
                                         font-size: 100%;
     font-weight: 400;">Mot De Passe oublié?</a></div>
-                                <div class="text-center"><a class="small"  style="    color: #121212;
+                                <div class="text-center"><a class="small" style="    color: #121212;
                                         text-decoration: underline;
                                         background-color: #c53b3b00;
                                         font-size: 100%;
-    font-weight: 400;"  a routerLink="/Register" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Nouveau! Créer un compte</a></div>
+    font-weight: 400;" a routerLink="/Register" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Nouveau! Créer un compte</a></div>
                             </div>
                         </div>
                     </div>

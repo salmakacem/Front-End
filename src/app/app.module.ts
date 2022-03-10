@@ -33,6 +33,9 @@ import { AdresseComponent } from './components/pages/adresse/adresse.component';
 import { MotdepasseComponent } from './components/pages/motdepasse/motdepasse.component';
 import { DashbordComponent } from './dash/dashbord/dashbord.component';
 import { ProfileComponent } from './dash/profile/profile.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormGroup } from '@angular/forms';
+import { JwtInterceptor } from './services/authconfig';
 
 
 @NgModule({
@@ -71,10 +74,11 @@ import { ProfileComponent } from './dash/profile/profile.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
   
 
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

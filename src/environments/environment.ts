@@ -5,6 +5,10 @@
 export const environment = {
   production: false
 };
+export const CONFIG = {
+  production: false,
+  URL: 'http://localhost:8090/api/v1/',
+};
 
 /*
  * For easier debugging in development mode, you can import the following file

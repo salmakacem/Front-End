@@ -19,6 +19,8 @@
                                 </div>
 
                                 <form class="user" [formGroup]="loginForm">
+
+
                                     <div class="form-group" style="color: #b94a4a;font-size: 100%;
                                         FONT-FAMILY: -webkit-body;
                                         FONT-WEIGHT: bold;"><label>Nom d'utilisateur</label>
@@ -39,14 +41,16 @@
                                             <div class="form-check">
                                                 <input class="form-check-input custom-control-input" type="checkbox" id="formCheck-1"><label class="form-check-label custom-control-label" for="formCheck-1">Rester connecté</label></div>
                                         </div>
-                                    </div>
-                                    <button class="btn btn-primary btn-block text-white btn-user" type="button" (click)="submitForm()" style=" 
+
+                                        <button class="btn btn-primary btn-block text-white btn-user" type="button" (click)="submitForm()" style=" 
+
                                             color: #fff;
                                             background-color: #b94a4a;
                                             border-color: #b94a4a;">S'authentifier</button>
 
+
+                                    </div>
                                 </form>
-                                <br>
                                 <br>
                                 <div class="text-center"><a class="small" a routerLink="/motdepasse" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" style="    color: #121212;
                                         text-decoration: underline;
@@ -60,6 +64,7 @@
     font-weight: 400;" a routerLink="/Register" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Nouveau! Créer un compte</a></div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

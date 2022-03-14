@@ -10,6 +10,7 @@ import { AuthServiceService } from './../../../services/auth-service.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
   loginForm;
   submitted:Boolean=false;
   constructor(private AuthServiceService: AuthServiceService , private route: Router) { }
@@ -31,4 +32,5 @@ console.log(this.loginForm.value ,"test");
  this.AuthServiceService.login(this.loginForm.value)
  this.route.navigateByUrl('/dashbord')
 }
+
 }

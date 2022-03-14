@@ -4,8 +4,8 @@
 /* Color Variables */
 
 $white-color:#ffffff;
-$blue-color:#031888;
-$light-blue:#6096fd;
+$blue-color:linear-gradient(90deg, #bd3327 20%, rgba(0, 0, 0, 0) 100%);
+$light-blue:#e21313;
 $black-color:#111111;
 $paragraph-color:#646464;
 
@@ -266,8 +266,9 @@ button:focus,
         padding: 0;
         position: relative;
         transition: .5s;
+        
         .navbar {
-            padding: 15px 0;
+            padding: 6px 0;
             .navbar-nav {
                 .nav-item {
                     a {
@@ -351,22 +352,22 @@ button:focus,
                 a {
                     color: #ffffffff;
                     background: rgb(19, 18, 18);
-                    padding: 10px 37px;
-                    border-radius: 5px;
+                    padding: 6px 20px;
+                    border-radius: 2px;
                     position: relative;
                     z-index: 0;
-                    font-size: 16px;
+                    font-size: 6px;
                     &::before {
                         position: absolute;
                         content: '';
                         width: 100%;
                         height: 0;
-                        background: rgb(71, 1, 1);
+                        background: rgb(204, 20, 20);
                         top: 0;
                         left: 0;
                         bottom: 0;
                         right: 0;
-                        border-radius: 5px;
+                        border-radius: 3px;
                         z-index: -1;
                         transition: .5s;
                     }
@@ -405,7 +406,7 @@ button:focus,
     &::before {
         position: absolute;
         content: '';
-        background: linear-gradient(90deg, rgba(3, 24, 136, 0.8463760504201681) 20%, rgba(0, 0, 0, 0) 100%);
+        background: linear-gradient(90deg, #e21313 20%, rgba(0, 0, 0, 0) 100%);
         width: 100%;
         height: 100%;
         left: 0;
@@ -2812,7 +2813,7 @@ button:focus,
     &::before {
         position: absolute;
         content: '';
-        background: rgba(3, 24, 136, 0.9);
+        background: rgba(170, 12, 12, 0.9);
         width: 100%;
         z-index: -1;
         height: 100%;
@@ -3780,7 +3781,7 @@ button:focus,
                     border-bottom: 1px dashed #c9acac;
                     &:hover {
                         color: $white-color;
-                        background-color: #7ab8fc;
+                        background-color: #c9acac;
                     }
                 }
             }
@@ -3871,7 +3872,7 @@ button:focus,
             font-weight: 500;
             border: 0;
             box-shadow: 0 0 20px 0 #0000002e;
-            color: #031888;
+            color: #861111;
             &:hover {
                 background: $blue-color;
                 color: $white-color;
@@ -4177,13 +4178,13 @@ button:focus,
         }
         .theme-button {
             .default-btn {
-                color: #031888;
+                color: #880303;
                 margin-right: 0;
                 padding: 10px 40px;
-                border: 1px solid #031888;
+                border: 1px solid #880303;
                 &:hover::before {
                     display: none;
-                    color: #031888;
+                    color: #880303;
                 }
             }
         }
@@ -4224,7 +4225,7 @@ button:focus,
             .form-control {
                 height: 50px;
                 width: 100%;
-                border: 1px solid #031888;
+                border: 1px solid #880303;
                 border-radius: 5px;
                  ::placeholder {
                     color: #464646;
@@ -4466,7 +4467,7 @@ button:focus,
                 transform: translateY(0) scale(0);
                 width: 100%;
                 height: 100%;
-                background: rgba(3, 24, 136, 0.85);
+                background: rgba(184, 67, 67, 0.85);
                 padding-left: 30%;
                 padding-top: 45%;
                 border-radius: 10px;
@@ -4496,7 +4497,7 @@ button:focus,
 
 .error-title {
     height: 300px;
-    background: $light-blue;
+    background: $white-color;
     text-align: center;
     h2 {
         font-size: 40px;

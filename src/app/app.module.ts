@@ -35,6 +35,8 @@ import { DashbordComponent } from './dash/dashbord/dashbord.component';
 import { ProfileComponent } from './dash/profile/profile.component';
 import { GestionadherentsComponent } from './dash/gestionadherents/gestionadherents.component';
 import { GestioneventComponent } from './dash/gestionevent/gestionevent.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -75,6 +77,7 @@ import { GestioneventComponent } from './dash/gestionevent/gestionevent.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
   
 
   ],

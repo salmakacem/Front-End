@@ -171,7 +171,7 @@
                                     <td></td>
                                     <td></td>
                                     <td ><div><div class="btn-group">
-                                        <div class="container-fluid"><button class="btn btn-primary"  type="button"><i class="fa fa-trash" aria-hidden="true"></i></button></div>
+                                        <div class="container-fluid"><button type="button" class="btn btn-primary" id="b3" data-bs-toggle="modal" data-bs-target="#exampleModal2"><i class="fa fa-trash" aria-hidden="true"></i></button></div>
             
                                         <!-- Button trigger modal -->
                                         <div class="container-fluid"><button type="button" class="btn btn-primary" id="b2" data-bs-toggle="modal" data-bs-target="#exampleModal1">
@@ -184,7 +184,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel1">Modifier Adhèrent</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          
         </div>
         <div class="modal-body">
             
@@ -215,7 +215,33 @@
         </div>
       </div>
     </div>
-  </div></td>
+  </div>
+
+  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel2">Supprimer Adhèrent</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            
+                <form class="user">
+                    <p align="center">Etes-vous sur de vouloir supprimer cet adhérent? </p>
+                    
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Oui</button>
+          <button type="button" class="btn btn-primary">Nom</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</td>
 
                                 </tr>
                   
@@ -267,7 +293,7 @@
                                     <td></td>
                                     <td>
                                         <div class="btn-group">
-                                            <div class="container-fluid"><button class="btn btn-primary"  type="button"><i class="fa fa-trash" aria-hidden="true"></i></button></div>
+                                            <div class="container-fluid"><button type="button" class="btn btn-primary" id="b3" data-bs-toggle="modal" data-bs-target="#exampleModal3"><i class="fa fa-trash" aria-hidden="true"></i></button></div>
                                             <div class="container-fluid"><button type="button" class="btn btn-primary" id="b1" data-bs-toggle="modal" data-bs-target="#exampleModal">
         <i class="fa fa-wrench" aria-hidden="true"></i>
       </button></div>
@@ -306,6 +332,29 @@
                                               </div>
                                             </div>
                                           </div>
+
+                                          <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                              <div class="modal-content">
+                                                <div class="modal-header">
+                                                  <h5 class="modal-title" id="exampleModalLabel2">Supprimer Adresse</h5>
+                                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    
+                                                        <form class="user">
+                                                            <p align="center">Etes-vous sur de vouloir supprimer cet adresse? </p>
+                                                            
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Oui</button>
+                                                  <button type="button" class="btn btn-primary">Nom</button>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        
                                     
                                     </td>
                                         </tr>

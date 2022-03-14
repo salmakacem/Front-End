@@ -24,10 +24,11 @@ submitForm() {
 
 this.submitted=true;
 if (this.loginForm.invalid) {
-  console.log(this.loginForm.value ,"test");
   return ;
 }
+console.log(this.loginForm.value ,"test");
+
  this.AuthServiceService.login(this.loginForm.value)
- this.route.navigateByUrl('/')
+ this.route.navigateByUrl('/dashbord')
 }
 }

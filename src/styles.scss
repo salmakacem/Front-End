@@ -13,7 +13,7 @@ $paragraph-color:#646464;
 
 $body-font:'Poppins';
 body {
-    color: $paragraph-color;
+    color: black;
     font-family: $body-font;
     line-height: 1.8;
     padding: 0;
@@ -139,16 +139,13 @@ button:focus,
         display: inline-block;
     }
     h2 {
-        font-size: 40px;
-        color: $black-color;
-        font-weight: 600;
-        margin-bottom: 20px;
-        line-height: 1;
-        span {
-            color: $light-blue;
+        h2 {
+            font-size: 60px;
+            color: black;
             font-weight: 600;
-            font-size: 40px;
-            margin-bottom: 0;
+            margin-bottom: 5px;
+            FONT-FAMILY: 'IcoFont';
+            FONT-VARIANT: petite-caps;
         }
     }
     p {

@@ -35,8 +35,12 @@ import { DashbordComponent } from './dash/dashbord/dashbord.component';
 import { ProfileComponent } from './dash/profile/profile.component';
 import { GestionadherentsComponent } from './dash/gestionadherents/gestionadherents.component';
 import { GestioneventComponent } from './dash/gestionevent/gestionevent.component';
-import { HttpClientModule } from '@angular/common/http';
 
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -55,16 +59,12 @@ import { HttpClientModule } from '@angular/common/http';
     ServiceDetailsComponent,
     BlogComponent,
     BlogRightSidebarComponent,
-    
     PricingComponent,
     RecentProjectComponent,
     ErrorComponent,
     TeamComponent,
-    
     ContactComponent,
     LoginComponent,
-    LoginComponent,
-   
     RegisterComponent,
     DetailsComponent,
     AdresseComponent,
@@ -78,9 +78,14 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule
   
 
   ],
+  // providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },],
   providers: [],
   bootstrap: [AppComponent]
 })

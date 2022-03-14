@@ -34,8 +34,9 @@ import { MotdepasseComponent } from './components/pages/motdepasse/motdepasse.co
 import { DashbordComponent } from './dash/dashbord/dashbord.component';
 import { ProfileComponent } from './dash/profile/profile.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { FormGroup } from '@angular/forms';
-import { JwtInterceptor } from './services/authconfig';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -54,16 +55,12 @@ import { JwtInterceptor } from './services/authconfig';
     ServiceDetailsComponent,
     BlogComponent,
     BlogRightSidebarComponent,
-    
     PricingComponent,
     RecentProjectComponent,
     ErrorComponent,
     TeamComponent,
-    
     ContactComponent,
     LoginComponent,
-    LoginComponent,
-   
     RegisterComponent,
     DetailsComponent,
     AdresseComponent,
@@ -75,10 +72,15 @@ import { JwtInterceptor } from './services/authconfig';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule
   
 
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },],
+  // providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

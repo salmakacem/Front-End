@@ -23,10 +23,8 @@ import { PricingComponent } from './components/pages/pricing/pricing.component';
 import { RecentProjectComponent } from './components/pages/recent-project/recent-project.component';
 import { ErrorComponent } from './components/pages/error/error.component';
 import { TeamComponent } from './components/pages/team/team.component';
-
 import { ContactComponent } from './components/pages/contact/contact.component';
 import { LoginComponent } from './components/pages/login/login.component';
-
 import { RegisterComponent } from './components/pages/register/register.component';
 import { DetailsComponent } from './components/pages/details/details.component';
 import { AdresseComponent } from './components/pages/adresse/adresse.component';
@@ -35,13 +33,14 @@ import { DashbordComponent } from './dash/dashbord/dashbord.component';
 import { ProfileComponent } from './dash/profile/profile.component';
 import { GestionadherentsComponent } from './dash/gestionadherents/gestionadherents.component';
 import { GestioneventComponent } from './dash/gestionevent/gestionevent.component';
-
-
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+
 import { ProfileeComponent } from './Adhèrents/profilee/profilee.component';
+
+
+
 
 
 
@@ -88,7 +87,7 @@ import { ProfileeComponent } from './Adhèrents/profilee/profilee.component';
   
 
   ],
-  // providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },],
+  //providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },],
   providers: [],
   bootstrap: [AppComponent]
 })

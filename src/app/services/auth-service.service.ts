@@ -1,25 +1,42 @@
+
+
+
+import { Role } from './../components/model/role';
 import { HttpClient,HttpResponse , HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { CONFIG } from 'src/environments/environment';
+import { Observable } from 'rxjs';
+import { User } from '../components/model/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthServiceService {
-  baseUrl="/api";
+  CONFIG: string;
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
+  
  
 
 
-  constructor(private  httpClient: HttpClient, private route: Router) { }
+  constructor(private  httpClient: HttpClient, private route: Router) {
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem("currentUser")) );
+    this.currentUser = this.currentUserSubject.asObservable();
+
+   }
+   public get currentUserValue(): User {
+    return this.currentUserSubject.value;
+  }
+
 
   isLoginSubject = new BehaviorSubject<boolean>(this.isAuthentificated())
 
   addUser(user){
-    // const  token = localStorage.getItem('token');
-    // const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
-    // this.httpClient.post<any>(this.baseUrl+'users/addUser',user,{ headers: headers }).subscribe(
-      this.httpClient.post<any>(this.baseUrl+'users/addUser',user ).subscribe(
+     const  token = localStorage.getItem('token');
+     const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
+     this.httpClient.post<any>(this.CONFIG+'users/addUser',user,{ headers: headers }).subscribe(
     (msg) => {
         console.log(msg),
         location.reload()
@@ -28,30 +45,38 @@ export class AuthServiceService {
     );
   }
   getUser(){
-    const user= this.httpClient.get(this.baseUrl+'users/allUsers');
+    const user= this.httpClient.get(this.CONFIG+'users/allUsers');
     return user;
   }
   
   login(log){
-  // this.httpClient.post(this.baseUrl+'/logins/login',log) .subscribe((response:any) => {
-  //   if (response.token) {
-      console.log("ok");
-      
-      localStorage.setItem('token',"response.token" );
-      localStorage.setItem('role',"response.user" );
-      this.isLoginSubject.next(true);
+  this.httpClient.post<any>(`${CONFIG.URL}auth/login`,log) .subscribe((response:any) => {
+  
+     if (response.token) {
      
-  //   }
-  //   (error) => console.log(error.message)
+      console.log(response);
       
-  //  })
+      localStorage.setItem('token',response.token );
+      localStorage.setItem('role',response.roles[0].name);
+      // localStorage.setItem('role', JSON.stringify(Role));
+
+      // let data = JSON.parse(localStorage.getItem('roles'));
+
+      // console.log(Role);
+
+        
+    }
+   
+   (error) => console.log(error.message)
+      
+    })
 
       
   }
   
   public isAuthentificated(): boolean {
     const token = localStorage.getItem('token');
-    const user = localStorage.getItem('role');
+    const User = localStorage.getItem('roles');
     if (token == null) {
       return false;
     } else {
@@ -77,4 +102,9 @@ export class AuthServiceService {
     this.route.navigateByUrl('/admin')
     
   }
+
+
+   resetpassword(email) {
+    return this.httpClient.get(`${CONFIG.URL}contact/réinitialisationPassword?email=${email}`)
+  } 
 }

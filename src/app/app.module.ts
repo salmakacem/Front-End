@@ -41,6 +41,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { ProfileeComponent } from './Adhèrents/profilee/profilee.component';
+
 
 
 @NgModule({
@@ -72,7 +74,8 @@ import { RouterModule } from '@angular/router';
     DashbordComponent,
     ProfileComponent,
     GestionadherentsComponent,
-    GestioneventComponent
+    GestioneventComponent,
+    ProfileeComponent
   ],
   imports: [
     BrowserModule,

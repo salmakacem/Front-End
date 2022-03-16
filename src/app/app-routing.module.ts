@@ -25,9 +25,9 @@ import { AdresseComponent } from './components/pages/adresse/adresse.component';
 import { MotdepasseComponent } from './components/pages/motdepasse/motdepasse.component';
 import { DashbordComponent } from './dash/dashbord/dashbord.component';
 import { ProfileComponent } from './dash/profile/profile.component';
-
 import { GestionadherentsComponent } from './dash/gestionadherents/gestionadherents.component';
 import { GestioneventComponent } from './dash/gestionevent/gestionevent.component';
+
 
 const routes: Routes = [
     {path: '', component: HomeOneComponent},
@@ -63,7 +63,8 @@ const routes: Routes = [
    
     // Here add new pages component
 
-    {path: '**', component: ErrorComponent} // This line will remain down from the whole pages component list
+    {path: '**', component: ErrorComponent}, // This line will remain down from the whole pages component list
+    
 ];
 
 @NgModule({

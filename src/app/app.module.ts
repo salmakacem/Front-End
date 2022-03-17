@@ -36,7 +36,8 @@ import { GestioneventComponent } from './dash/gestionevent/gestionevent.componen
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { JwtInterceptor } from '@auth0/angular-jwt';
+
+
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import { JwtInterceptor } from '@auth0/angular-jwt';
     DashbordComponent,
     ProfileComponent,
     GestionadherentsComponent,
-    GestioneventComponent
+    GestioneventComponent,
+    
   ],
   imports: [
     BrowserModule,

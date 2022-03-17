@@ -8,6 +8,7 @@ export const environment = {
 export const CONFIG = {
   production: false,
   URL: 'http://localhost:8090/api/v1/',
+  
 };
 
 /*

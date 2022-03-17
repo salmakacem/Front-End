@@ -36,6 +36,9 @@ import { GestioneventComponent } from './dash/gestionevent/gestionevent.componen
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { ProfileeComponent } from './Adhèrents/profilee/profilee.component';
+
+
 
 
 
@@ -70,7 +73,9 @@ import { RouterModule } from '@angular/router';
     ProfileComponent,
     GestionadherentsComponent,
     GestioneventComponent,
-    
+
+    ProfileeComponent
+
   ],
   imports: [
     BrowserModule,

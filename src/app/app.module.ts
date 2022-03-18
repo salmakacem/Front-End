@@ -16,7 +16,7 @@ import { ServiceComponent } from './components/pages/service/service.component';
 import { ServiceTwoComponent } from './components/pages/service-two/service-two.component';
 import { ServiceThreeComponent } from './components/pages/service-three/service-three.component';
 import { ServiceDetailsComponent } from './components/pages/service-details/service-details.component';
-import { BlogComponent } from './components/pages/blog/blog.component';
+
 import { BlogRightSidebarComponent } from './components/pages/blog-right-sidebar/blog-right-sidebar.component';
 
 import { PricingComponent } from './components/pages/pricing/pricing.component';
@@ -58,7 +58,7 @@ import { ProfileeComponent } from './Adhèrents/profilee/profilee.component';
     ServiceTwoComponent,
     ServiceThreeComponent,
     ServiceDetailsComponent,
-    BlogComponent,
+  
     BlogRightSidebarComponent,
     PricingComponent,
     RecentProjectComponent,

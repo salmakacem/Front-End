@@ -1,8 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PreloaderComponent } from './components/layouts/preloader/preloader.component';
@@ -18,7 +15,6 @@ import { ServiceThreeComponent } from './components/pages/service-three/service-
 import { ServiceDetailsComponent } from './components/pages/service-details/service-details.component';
 import { BlogComponent } from './components/pages/blog/blog.component';
 import { BlogRightSidebarComponent } from './components/pages/blog-right-sidebar/blog-right-sidebar.component';
-
 import { PricingComponent } from './components/pages/pricing/pricing.component';
 import { RecentProjectComponent } from './components/pages/recent-project/recent-project.component';
 import { ErrorComponent } from './components/pages/error/error.component';

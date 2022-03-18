@@ -13,10 +13,10 @@
                             </div>
                             <form class="user" [formGroup]="DetailsForm" (ngSubmit)="saveD()">
                                 <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="exampleFirstName" [(ngModel)]="details.age" placeholder="Age" name="age" required></div>
-                                    <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="nationalité" placeholder="nationalité" [(ngModel)]="details.nationalite" name="nationalité"></div>
+
+                                    <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="nationalite" placeholder="nationalité" [(ngModel)]="details.nationalite" name="nationalite"></div>
                                 </div>
-                                <div class="form-group"><input class="form-control form-control-user" type="phone" id="téléphone" aria-describedby="phoneHelp" [(ngModel)]="details.telephone" placeholder="téléphone" name="téléphone"></div>
+                                <div class="form-group"><input class="form-control form-control-user" type="phone" id="telephone" aria-describedby="phoneHelp" [(ngModel)]="details.telephone" placeholder="téléphone" name="telephone"></div>
 
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="password" id="profession" [(ngModel)]="details.profession" placeholder="Profession" name="profession"></div>
@@ -59,7 +59,7 @@
                                     <div class="form-group row">
                                         <div><button mat-raised-button type="submit" class="btn btn-primary btn-sm">  <span class="material-icons">
                                       
-                                        </span> confirmer</button>
+                                        </span> Confirmer</button>
                                             <button type="button" class="btn btn-secondary btn-sm"><a routerLink="/Register"  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Retourner</a></button></div>
                                     </div>
                                 </div>

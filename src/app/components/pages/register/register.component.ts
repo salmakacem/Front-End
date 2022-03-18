@@ -15,8 +15,6 @@ import { data } from 'jquery';
 export class RegisterComponent implements OnInit {
 
   registerForm:FormGroup;
-  submitted=false;
-  hide = true;
   users:Users = new Users();
 
   constructor(private registerService: RegisterService , private router: Router) { }
@@ -44,18 +42,7 @@ export class RegisterComponent implements OnInit {
       alert("register successfully!")
       
     },error=>alert("does not work"));
-    
-    // this.submitted=true;
-    
-    // console.log(this.registerForm.value);
-    
-    // if (this.registerForm.invalid) {
-    //   return;
-    // }
-    // this.authServiceService.addUser(this.registerForm.value)
-    // this.router.navigate(['/details']);
-    
-  
+ 
   
   }
 

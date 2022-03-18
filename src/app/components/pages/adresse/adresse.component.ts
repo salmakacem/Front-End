@@ -1,6 +1,8 @@
+import { AdressService } from './../../../adress.service';
+import { Adress } from './../../../adress';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CONFIG } from 'src/environments/environment';
 
@@ -15,26 +17,39 @@ import { CONFIG } from 'src/environments/environment';
   styleUrls: ['./adresse.component.scss']
 })
 export class AdresseComponent implements OnInit {
-  form!:FormGroup;
+  adressform:FormGroup;
+  adress:Adress = new Adress();
 
-  constructor(private formBuilder: FormBuilder,
+
+  constructor(private adressService:AdressService,
     private http: HttpClient,
     private router: Router) { }
 
   ngOnInit(): void {
-     this.form= this.formBuilder.group({
-      FirstName:'',
-      LastName:'',
-      Email:'',
-      password:'',
-      
+     this.adressform=  new FormGroup({
+      city_name:new FormControl('', [Validators.required]),
+      country :new FormControl('', [Validators.required]),
+      home_adress:new FormControl('', [Validators.required]),
+      region! :new FormControl('', [Validators.required]),
+      work_adress: new FormControl('', [Validators.required]),
+      zip :new FormControl('', [Validators.required]),
+      etats:new FormControl('', [Validators.required]),
     });
     
   }
 
-  submit(){
-    this.http.post(CONFIG.URL, this.form.getRawValue()).subscribe(() =>{
-      this.router.navigate(['/']);
-    })
+  saveadress(){
+    console.log(this.adress);
+    this.router.navigateByUrl('/login')
+    this.adressService.saveadress(this.adress).subscribe(
+      
+      data=>{
+        
+      alert("register successfully!")
+      
+    },error=>alert("does not work"));
+ 
+  
   }
+
 }

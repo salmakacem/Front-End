@@ -1,4 +1,8 @@
+import { DetailsService } from './../../../details.service';
+import { Details } from './../../../details';
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -7,9 +11,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsComponent implements OnInit {
 
-  constructor() { }
+  DetailsForm:FormGroup;
+  details:Details = new Details();
+
+  constructor(private detailsService: DetailsService , private router: Router) { }
 
   ngOnInit(): void {
+    this.DetailsForm = new FormGroup({ 
+      
+      
+      age  :new FormControl('', [Validators.required]),
+      nationalité :new FormControl('', [Validators.required]),
+      profession  :new FormControl('', [Validators.required]),
+      cin  :new FormControl('', [Validators.required]),
+      sexe  :new FormControl('', [Validators.required]),
+      date_de_naissance  :new FormControl('', [Validators.required]),
+      statut_social :new FormControl('', [Validators.required]),
+      
+    });
+    
+  }
+  saveD(){
+    console.log(this.details);
+    this.router.navigateByUrl('/adresse')
+    this.detailsService.saveD(this.details).subscribe(
+      
+      data=>{
+        
+      alert("register successfully!")
+      
+    },error=>alert("does not work"));
+ 
   }
 
 }

@@ -36,7 +36,8 @@ export class AuthServiceService {
   addUser(user){
      const  token = localStorage.getItem('token');
      const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
-     this.httpClient.post<any>(this.CONFIG+'users/addUser',user,{ headers: headers }).subscribe(
+     this.httpClient.post<any>(CONFIG.URL+'users/addUser',user,{ headers: headers }).subscribe(
+
     (msg) => {
         console.log(msg),
         location.reload()
@@ -57,7 +58,7 @@ export class AuthServiceService {
       console.log(response);
       
       localStorage.setItem('token',response.token );
-      localStorage.setItem('role',response.roles[0].name);
+      localStorage.setItem('role',response.ROLE[0].name);
       // localStorage.setItem('role', JSON.stringify(Role));
 
       // let data = JSON.parse(localStorage.getItem('roles'));

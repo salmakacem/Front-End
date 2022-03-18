@@ -17,7 +17,7 @@ export class DetailsService {
     const token = localStorage.getItem('token');
    // headers = headers.set('Authorization', 'Bearer ' +user.token);
     let us= JSON.stringify(details);
-
-    return this.httpClient.post(CONFIG.URL + "user-details/ajoutd",details,{ headers: headers, responseType: 'text' });
+console.log(us)
+    return this.httpClient.post(CONFIG.URL + "user-details/ajoutd",us,{ headers: headers, responseType: 'text' });
   }
 }

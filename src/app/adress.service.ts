@@ -6,6 +6,7 @@ import { CONFIG } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AdressService {
+  
 
   constructor(private httpClient:HttpClient) { }
   saveadress(adress){
@@ -19,4 +20,18 @@ export class AdressService {
     console.log(us)
     return this.httpClient.post(CONFIG.URL + "adress/save",us,{ headers: headers, responseType: 'text' });
   }
+
+  getadresse(adres){
+    const adresse= this.httpClient.get(CONFIG.URL +'adress/GetAll');
+    return adresse;
+  }
+
+
+  getClientbyid(id){
+    const adresse= this.httpClient.get(CONFIG.URL+'adress/find/{id}/'+id);
+    return adresse;
+  }
+
+
+
 }

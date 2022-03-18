@@ -1,3 +1,4 @@
+import { Users } from './../../../users';
 
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -10,7 +11,7 @@ import { AuthServiceService } from './../../../services/auth-service.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  users = new Users();
   loginForm;
   submitted:Boolean=false;
   constructor(private AuthServiceService: AuthServiceService , private route: Router) { }

@@ -13,9 +13,11 @@ import { data } from 'jquery';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+  submitted=false;
 
   registerForm:FormGroup;
   users:Users = new Users();
+
 
   constructor(private registerService: RegisterService , private router: Router) { }
 
@@ -25,7 +27,7 @@ export class RegisterComponent implements OnInit {
       
       firstName  :new FormControl('', [Validators.required]),
       lastName :new FormControl('', [Validators.required]),
-      email  :new FormControl('', [Validators.required]),
+      email  :new FormControl('', [Validators.required,Validators.email]),
       password  :new FormControl('', [Validators.required]),
       
     });
@@ -33,6 +35,12 @@ export class RegisterComponent implements OnInit {
     
   }
   save(){
+   
+    this.submitted=true;
+    if (this.registerForm.invalid) {
+      return ;  
+    }
+   
     console.log(this.users);
     this.router.navigateByUrl('/details')
     this.registerService.Save(this.users).subscribe(

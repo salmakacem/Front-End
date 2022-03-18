@@ -3,4 +3,5 @@ export class Users {
     lastName!:string;
     email!:string;
     password!:string;
+    roles!:string[];
 }

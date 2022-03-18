@@ -19,7 +19,7 @@ import { CONFIG } from 'src/environments/environment';
 export class AdresseComponent implements OnInit {
   adressform:FormGroup;
   adress:Adress = new Adress();
-
+  submitted:Boolean=false;
 
   constructor(private adressService:AdressService,
     private http: HttpClient,
@@ -39,6 +39,10 @@ export class AdresseComponent implements OnInit {
   }
 
   saveadress(){
+    this.submitted=true;
+if (this.adressform.invalid) {
+  return ;
+}
     console.log(this.adress);
     this.router.navigateByUrl('/login')
     this.adressService.saveadress(this.adress).subscribe(

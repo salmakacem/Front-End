@@ -15,18 +15,27 @@
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input class="form-control form-control-user" type="text" id="firstname" name="firstname" formControlName="firstName" placeholder="Prénom" [(ngModel)]="users.firstName">
+                                        <small class="text-danger" *ngIf="submitted && registerForm.get('firstName').hasError('required')">firstName is required.</small>
 
                                     </div>
 
 
                                     <div class="col-sm-6">
-                                        <input class="form-control form-control-user" type="text" id="lastname" formControlName="lastName" [(ngModel)]="users.lastName" placeholder="Nom" name="lastame"></div>
+                                        <input class="form-control form-control-user" type="text" id="lastname" formControlName="lastName" [(ngModel)]="users.lastName" placeholder="Nom" name="lastame">
+                                        <small class="text-danger" *ngIf="submitted && registerForm.get('lastName').hasError('required')">lastName is required.</small>
+
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control form-control-user" type="email" id="email" formControlName="email" aria-describedby="emailHelp" [(ngModel)]="users.email" placeholder="Email Address" name="email"></div>
+                                <small class="text-danger" *ngIf="submitted && registerForm.get('email').hasError('required')">email is required.</small>
+                                <small class="text-danger" *ngIf="submitted && registerForm.get('email').hasError('email')">email is invalid.</small>
+
+
                                 <div class="form-group row">
 
                                     <input class="form-control form-control-user" type="password" formControlName="password" id="examplePasswordInput" [(ngModel)]="users.password" placeholder="Mot de passe" name="password">
+                                    <small class="text-danger" *ngIf="submitted && registerForm.get('password').hasError('required')">password is required.</small>
 
 
 

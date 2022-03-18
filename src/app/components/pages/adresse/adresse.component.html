@@ -13,29 +13,49 @@
                             <form class="user" [formGroup]="adressform" (ngSubmit)="saveadress()">
 
                                 <div class="form-group row">
-                                    <div class="form-group"><input class="form-control form-control-user" type="text" formControlName="city_name" [(ngModel)]="adress.city_name" id="city_name" aria-describedby="phoneHelp" placeholder="city_name" name="city_name"></div>
+                                    <div class="form-group"><input class="form-control form-control-user" type="text" formControlName="city_name" [(ngModel)]="adress.city_name" id="city_name" aria-describedby="phoneHelp" placeholder="city_name" name="city_name">
+                                        <small class="text-danger" *ngIf="submitted && adressform.get('city_name').hasError('required')">city_name is required.</small>
+
+                                    </div>
 
                                 </div>
                                 <div class="form-group row">
-                                    <div class="form-group"><input class="form-control form-control-user" type="text" formControlName="work_adress" [(ngModel)]="adress.work_adress" id="work_adress" aria-describedby="phoneHelp" placeholder="work_adress" name="work_adress"></div>
+                                    <div class="form-group"><input class="form-control form-control-user" type="text" formControlName="work_adress" [(ngModel)]="adress.work_adress" id="work_adress" aria-describedby="phoneHelp" placeholder="work_adress" name="work_adress">
+                                        <small class="text-danger" *ngIf="submitted && adressform.get('work_adress').hasError('required')">work_adress is required.</small>
+
+                                    </div>
 
                                 </div>
                                 <div class="form-group row">
-                                    <div class="form-group"><input class="form-control form-control-user" type="text" id="country" formControlName="country" aria-describedby="phoneHelp" [(ngModel)]="adress.country" placeholder="adresse_de_travail" name="country"></div>
+                                    <div class="form-group"><input class="form-control form-control-user" type="text" id="country" formControlName="country" aria-describedby="phoneHelp" [(ngModel)]="adress.country" placeholder="adresse_de_travail" name="country">
+                                        <small class="text-danger" *ngIf="submitted && adressform.get('country').hasError('required')">country is required.</small>
+
+                                    </div>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="home_adress" formControlName="home_adress" [(ngModel)]="adress.home_adress" placeholder="home_adress" name="home_adress"></div>
-                                    <div class="col-sm-6"><input class="form-control form-control-user" type="text" formControlName="zip" id="zip" [(ngModel)]="adress.zip" placeholder="ZIP" name="zip"></div>
+                                    <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="home_adress" formControlName="home_adress" [(ngModel)]="adress.home_adress" placeholder="home_adress" name="home_adress">
+                                        <small class="text-danger" *ngIf="submitted && adressform.get('home_adress').hasError('required')">home_adress is required.</small>
+
+                                    </div>
+                                    <div class="col-sm-6"><input class="form-control form-control-user" type="text" formControlName="zip" id="zip" [(ngModel)]="adress.zip" placeholder="ZIP" name="zip">
+                                        <small class="text-danger" *ngIf="submitted && adressform.get('zip').hasError('required')">zip is required.</small>
+
+                                    </div>
                                 </div>
                                 <div class="form-group row">
 
-                                    <div class="col-sm-6"><input class="form-control form-control-user" type="text" formControlName="region" id="region" [(ngModel)]="adress.region" placeholder="region" name="region"></div>
+                                    <div class="col-sm-6"><input class="form-control form-control-user" type="text" formControlName="region" id="region" [(ngModel)]="adress.region" placeholder="region" name="region">
+                                        <small class="text-danger" *ngIf="submitted && adressform.get('region').hasError('required')">region is required.</small>
+
+                                    </div>
                                 </div>
 
 
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <label for="inputState" class="form-label">Etats</label>
                                     <select id="etats" class="form-select" formControlName="etats" [(ngModel)]="adress.etats">
+                                        <small class="text-danger" *ngIf="submitted && adressform.get('etats').hasError('required')">etats is required.</small>
+                                        
         <option selected>Ariana</option>
         <option>Béja</option>
         <option>Ben Arous</option>

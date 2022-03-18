@@ -25,13 +25,15 @@ export class DetailsComponent implements OnInit {
       sexe  :new FormControl('', [Validators.required]),
       date_de_naissance  :new FormControl('', [Validators.required]),
       statut_social :new FormControl('', [Validators.required]),
+      telephone  :new FormControl('', [Validators.required]),
+    
       
     });
     
   }
   saveD(){
     console.log(this.details);
-    this.router.navigateByUrl('/adresse')
+     this.router.navigateByUrl('/adresse')
     this.detailsService.saveD(this.details).subscribe(
       
       data=>{

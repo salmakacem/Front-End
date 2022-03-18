@@ -16,7 +16,7 @@ export class AdressService {
     const token = localStorage.getItem('token');
    // headers = headers.set('Authorization', 'Bearer ' +user.token);
     let us= JSON.stringify(adress);
-
-    return this.httpClient.post(CONFIG.URL + "adress/save",adress,{ headers: headers, responseType: 'text' });
+    console.log(us)
+    return this.httpClient.post(CONFIG.URL + "adress/save",us,{ headers: headers, responseType: 'text' });
   }
 }

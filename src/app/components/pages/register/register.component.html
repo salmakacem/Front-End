@@ -11,22 +11,22 @@
                             <div class="text-center">
                                 <h4 class="text-dark mb-4">Create an Account!</h4>
                             </div>
-                            <form class="user" (ngSubmit)="save()">
+                            <form class="user" [formGroup]="registerForm" (ngSubmit)="save()">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input class="form-control form-control-user" type="text" id="firstname" name="firstname" placeholder="Prénom" [(ngModel)]="users.firstName">
+                                        <input class="form-control form-control-user" type="text" id="firstname" name="firstname" formControlName="firstName" placeholder="Prénom" [(ngModel)]="users.firstName">
 
                                     </div>
 
 
                                     <div class="col-sm-6">
-                                        <input class="form-control form-control-user" type="text" id="lastname" [(ngModel)]="users.lastName" placeholder="Nom" name="lastame"></div>
+                                        <input class="form-control form-control-user" type="text" id="lastname" formControlName="lastName" [(ngModel)]="users.lastName" placeholder="Nom" name="lastame"></div>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control form-control-user" type="email" id="email" aria-describedby="emailHelp" [(ngModel)]="users.email" placeholder="Email Address" name="email"></div>
+                                    <input class="form-control form-control-user" type="email" id="email" formControlName="email" aria-describedby="emailHelp" [(ngModel)]="users.email" placeholder="Email Address" name="email"></div>
                                 <div class="form-group row">
 
-                                    <input class="form-control form-control-user" type="password" id="examplePasswordInput" [(ngModel)]="users.password" placeholder="Mot de passe" name="password">
+                                    <input class="form-control form-control-user" type="password" formControlName="password" id="examplePasswordInput" [(ngModel)]="users.password" placeholder="Mot de passe" name="password">
 
 
 

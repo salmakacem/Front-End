@@ -1,7 +1,7 @@
 export class Details {
    
-    cin!:string;
-    date_de_naissance!:string;
+    cin!:any;
+    date_de_naissance!:Date;
     nationalite!: string;
     profession!: string;
     sexe!: string;

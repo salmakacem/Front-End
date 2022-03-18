@@ -19,9 +19,7 @@ export class DetailsComponent implements OnInit {
   ngOnInit(): void {
     this.DetailsForm = new FormGroup({ 
       
-      
-      age  :new FormControl('', [Validators.required]),
-      nationalité :new FormControl('', [Validators.required]),
+      nationalite :new FormControl('', [Validators.required]),
       profession  :new FormControl('', [Validators.required]),
       cin  :new FormControl('', [Validators.required]),
       sexe  :new FormControl('', [Validators.required]),

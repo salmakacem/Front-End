@@ -4,7 +4,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
-import { ProfileeService } from 'src/profilee.service';
+import { RegisterService } from 'src/app/register.service';
 
 
 @Component({
@@ -20,27 +20,17 @@ export class ProfileeComponent implements OnInit {
  
 
 
-  constructor(private route: Router, private profileservice: ProfileeService,
+  constructor(private route:Router, 
     
     ) { }
 
   ngOnInit(): void {
-    this.profileForm = new FormGroup({
-      nom : new FormControl('', [Validators.required]),
-      prénom: new FormControl('', [Validators.required]),
-      email : new FormControl('', [Validators.required]),
+    
      
-     
-    })
+    
     
   }
 
-  submitClient() {
-    this.submited = true;
-    if (this.profileForm.invalid) {
-      return;
-    }
-  }
 
   
 

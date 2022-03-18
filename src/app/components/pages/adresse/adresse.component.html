@@ -12,23 +12,28 @@
                     </div>
 
 
-                            <form class="user" formGroup="adresseform">
+                            <form class="user" [formGroup]="adressform" (ngSubmit)="saveadress()">
 
                                 <div class="form-group row">
-                                    <div class="form-group"><input class="form-control form-control-user" type="text" formControlName="adresse" id="telephone" aria-describedby="phoneHelp" placeholder="adresse_de_maison" name="phone"></div>
+                                    <div class="form-group"><input class="form-control form-control-user" type="text" [(ngModel)]="adress.city_name" id="city_name" aria-describedby="phoneHelp" placeholder="adresse_de_maison" name="city_name"></div>
 
                                 </div>
                                 <div class="form-group row">
-                                    <div class="form-group"><input class="form-control form-control-user" type="phone" id="telephone" aria-describedby="phoneHelp" formControlName="adresse_de_travail" placeholder="adresse_de_travail" name="phone"></div>
+                                    <div class="form-group"><input class="form-control form-control-user" type="text" [(ngModel)]="adress.work_adress" id="work_adress" aria-describedby="phoneHelp" placeholder="work_adress" name="work_adress"></div>
+
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="exampleFirstName" formControlName="Région" placeholder="Région" name="Région"></div>
-                                    <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" formControlName="ZIP" placeholder="ZIP" name="ZIP"></div>
+                                    <div class="form-group"><input class="form-control form-control-user" type="text" id="country" aria-describedby="phoneHelp" [(ngModel)]="adress.country" placeholder="adresse_de_travail" name="country"></div>
                                 </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="home_adress" [(ngModel)]="adress.home_adress" placeholder="home_adress" name="home_adress"></div>
+                                    <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="zip" [(ngModel)]="adress.zip" placeholder="ZIP" name="zip"></div>
+                                </div>
+
 
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <label for="inputState" class="form-label" formControlName="Etats">Etats</label>
-                                    <select id="inputState" class="form-select">
+                                    <label for="inputState" class="form-label">Etats</label>
+                                    <select id="etats" class="form-select" [(ngModel)]="adress.etats">
         <option selected>Ariana</option>
         <option>Béja</option>
         <option>Ben Arous</option>
@@ -60,8 +65,8 @@
 
                                 <div style="text-align: center;">
                                     <div class="form-group row">
-                                        <div><button type="button" class="btn btn-primary btn-sm" style="margin-right: 50px;">inscription</button>
-                                            <button type="button" class="btn btn-secondary btn-sm" (click)="submit()"><a routerLink="/details"
+                                        <div><button type="submit" class="btn btn-primary btn-sm" style="margin-right: 50px;">S'inscrire</button>
+                                            <button type="button" class="btn btn-secondary btn-sm"><a routerLink="/details"
         routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Retourner</a></button></div>
                                     </div>
                                 </div>

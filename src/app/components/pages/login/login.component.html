@@ -93,14 +93,15 @@
                                         FONT-FAMILY: -webkit-body;
                                         FONT-WEIGHT: bold;"><label>Nom d'utilisateur</label>
 
-                                        <input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" formControlName="email" placeholder="Entrer votre email..." name="email">
+                                        <input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" formControlName="email" [(ngModel)]="users.email" placeholder="Entrer votre email..." name="email">
                                         <small class="text-danger" *ngIf="submitted && loginForm.get('email').hasError('required')">Email is required.</small>
-                                        <small class="text-danger" *ngIf="submitted && loginForm.get('email').hasError('email')">Email non valid.</small>
+                                        <small class="text-danger" *ngIf="submitted && loginForm.get('email').hasError('email')">email is invalid.</small>
+
                                     </div>
                                     <div class="form-group" style="color: #b94a4a;font-size: 100%;
                                         FONT-FAMILY: -webkit-body;
                                         FONT-WEIGHT: bold;"><label>Mot De Passe</label>
-                                        <input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="*******" formControlName="password" name="password">
+                                        <input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="*******" formControlName="password" [(ngModel)]="users.password" name="password">
                                         <small class="text-danger" *ngIf="submitted && loginForm.get('password').hasError('required')">Password is required.</small>
                                         <br>
                                     </div>

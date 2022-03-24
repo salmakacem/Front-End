@@ -1,3 +1,4 @@
+import { Users } from './../users';
 
 
 
@@ -14,6 +15,10 @@ import { User } from '../components/model/user.model';
   providedIn: 'root'
 })
 export class AuthServiceService {
+ // users:Users[]=[{"firstName":"marwen","lastName":"sghaier","email":"marwen@dipower.fr","password":"12345","roles":['ADMIN']},
+  //               {"firstName":"selma","lastName":"kacem","email":"selma@dipower.fr","password":"salma","roles":['ADHERENT']}];
+
+  public roles:string[];
   CONFIG: string;
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
@@ -59,7 +64,7 @@ export class AuthServiceService {
       localStorage.setItem('email', log.email);
       localStorage.setItem('token',response.token );
       localStorage.setItem('role',response.ROLE[0].name);
-      // localStorage.setItem('role', JSON.stringify(Role));
+      //localStorage.setItem('role', JSON.stringify(Role));
 
       // let data = JSON.parse(localStorage.getItem('roles'));
 

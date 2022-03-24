@@ -21,7 +21,7 @@ export class AdressService {
     return this.httpClient.post(CONFIG.URL + "adress/save",us,{ headers: headers, responseType: 'text' });
   }
 
-  getadresse(adres){
+  getadresse(){
     const adresse= this.httpClient.get(CONFIG.URL +'adress/GetAll');
     return adresse;
   }

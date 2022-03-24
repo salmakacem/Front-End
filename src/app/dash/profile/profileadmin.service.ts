@@ -8,7 +8,7 @@ import { CONFIG } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class ProfileService {
+export class ProfileadmineService {
   
   constructor(private http: HttpClient) { }
 
@@ -20,16 +20,6 @@ export class ProfileService {
     
   }
 
-  getAdresseByIdUser(id){
-    const  token = localStorage.getItem('token');
-    const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
-    const adress= this.http.get(CONFIG.URL +'adress/find/'+id,{ headers: headers });
-    return adress;
-  }
-
-
-
-
   getDetailsByIdUser(id){
     const  token = localStorage.getItem('token');
     const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
@@ -37,9 +27,10 @@ export class ProfileService {
     return details;
   }
 
-
-
-
-
-
+  getAdresseByIdUser(id){
+    const  token = localStorage.getItem('token');
+    const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
+    const adress= this.http.get(CONFIG.URL +'adress/find/'+id,{ headers: headers });
+    return adress;
+  }
 }

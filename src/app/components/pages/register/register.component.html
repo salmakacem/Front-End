@@ -13,25 +13,19 @@
                             </div>
                             <form class="user" [formGroup]="registerForm" (ngSubmit)="save()">
                                 <div class="form-group row">
-
-                                   
-                                
-                               
-
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input class="form-control form-control-user" type="text" id="firstname" name="firstname" formControlName="firstName" placeholder="Prénom" [(ngModel)]="users.firstName">
-
                                     </div>
-
-
                                     <div class="col-sm-6">
                                         <input class="form-control form-control-user" type="text" id="lastname" formControlName="lastName" [(ngModel)]="users.lastName" placeholder="Nom" name="lastame"></div>
-                                </div>
-                                <div class="form-group">
+                                    </div>
+                                    <div class="form-group">
                                     <input class="form-control form-control-user" type="email" id="email" formControlName="email" aria-describedby="emailHelp" [(ngModel)]="users.email" placeholder="Email Address" name="email"></div>
-                                <div class="form-group row">
+                                    <div class="form-group ">
+                                         <input class="form-control form-control-user" type="password" formControlName="password" id="examplePasswordInput" [(ngModel)]="users.password" placeholder="Mot de passe" name="password"></div>
 
-                                    <input class="form-control form-control-user" type="password" formControlName="password" id="examplePasswordInput" [(ngModel)]="users.password" placeholder="Mot de passe" name="password">
+                                    <div class="form-group ">
+                                        <input class="form-control form-control-user" type="tel" id="telephone" formControlName="telephone" aria-describedby="phoneHelp" [(ngModel)]="users.telephone" placeholder="téléphone" name="telephone"></div>
 
 
 
@@ -41,7 +35,7 @@
                                     <button mat-raised-button type="submit" class="btn btn-primary btn-sm">  <span class="material-icons">
                                       
 
-                                        </span> Confirmer</button></div>
+                                        </span> Confirmer</button>
 
                             </form>
                             <div class="text-center"><a class="small" a routerLink="/motdepasse" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" style="color: brown;">Mot de passe oublié?</a></div>

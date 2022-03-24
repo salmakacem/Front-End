@@ -6,5 +6,6 @@ export class Details {
     profession!: string;
     sexe!: string;
     statut_social!:string;
-    telephone!:string;
+    
+   
 }

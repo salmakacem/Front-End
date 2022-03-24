@@ -170,30 +170,31 @@
                                         <p class="text-primary m-0 font-weight-bold">Paramètres d'utilisateur</p>
                                     </div>
                                     <div class="card-body">
-                                        <form [formGroup]="form" (ngSubmit)="getuser()">
+                                        <form [formGroup]="form" >
                                             <div class="form-row">
                                                 <div class="col">
-                                                    <div class="form-group"><label for="firstName"><strong>Nom</strong></label><input class="form-control" type="text" formControlName="firstName" [ngModel]="users.firstName" placeholder="votre nom" name="firstName"></div>
+                                                    <div class="form-group"><label for="firstName"><strong>Nom</strong></label><input class="form-control" type="text" formControlName="firstName" [(ngModel)]="user.firstName" placeholder="votre nom" name="firstName"></div>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="form-group"><label for="lastName"><strong>Prénom</strong></label><input class="form-control" type="email" formControlName="lastName" [ngModel]="users.lastName" placeholder="Votre prénom" name="lastName"></div>
+                                                    <div class="form-group"><label for="lastName"><strong>Prénom</strong></label><input class="form-control" type="email" formControlName="lastName" [(ngModel)]="user.lastName" placeholder="Votre prénom" name="lastName"></div>
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="col">
-                                                    <div class="form-group"><label for="email"><strong>Email</strong></label><input class="form-control" type="text" formControlName="email" [ngModel]="users.email" placeholder="Votre Email" name=" email"></div>
+                                                    <div class="form-group"><label for="email"><strong>Email</strong></label><input class="form-control" type="text" formControlName="email" [(ngModel)]="user.email" placeholder="Votre Email" name=" email"></div>
                                                 </div>
+                                                <div class="col">
+                                                    <div class="form-group"><label for="telephone"><strong>Télèphone</strong></label><input class="form-control" type="tel" formControlName="telephone" [(ngModel)]="user.telephone"  placeholder="Votre télèphone" name="telephone"></div>
+                                                   </div>
                                                 
                                                 
                                             </div>
                                             </form>
-                                        <form [formGroup]="formdetail" (ngSubmit)="getdetail()">
+                                        <form [formGroup]="formdetail">
                                             <div class="form-row">
-                                            <div class="col">
-                                            <div class="form-group"><label for="telephone"><strong>Télèphone</strong></label><input class="form-control" type="text" formArrayName="telephone" [ngModel]="detail.telephone"  placeholder="Votre télèphone" name="telephone"></div>
-                                           </div>
+                                            
                                                 <div class="col">
-                                                    <div class="form-group"><label for="profession"><strong>Profession</strong></label><input class="form-control" type="text" formControlName="profession" [ngModel]="detail.profession" placeholder="Votre Profession" name="profession"></div>
+                                                    <div class="form-group"><label for="profession"><strong>Profession</strong></label><input class="form-control" type="text" formControlName="profession" [(ngModel)]="details.profession" placeholder="Votre Profession" name="profession"></div>
                                                         </div>
                                             </div>
 
@@ -201,10 +202,10 @@
 
                                             <div class="form-row">
                                                 <div class="col">
-                                                    <div class="form-group"><label for="date_de_naissance"><strong>Date de naissance</strong></label><input class="form-control" type="text" formControlName="date_de_naissance" [ngModel]="detail.date_de_naissance" placeholder="Votre date de naissance" name="date_de_naissance"></div>
+                                                    <div class="form-group"><label for="date_de_naissance"><strong>Date de naissance</strong></label><input class="form-control" type="text" formControlName="date_de_naissance" [(ngModel)]="details.date_de_naissance" placeholder="Votre date de naissance" name="date_de_naissance"></div>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="form-group"><label for="statut_social"><strong>Statut Social</strong></label><input class="form-control" type="text" formControlName="statut_social" [ngModel]="detail.statut_social" placeholder="Votre statut social" name="statut_social"></div>
+                                                    <div class="form-group"><label for="statut_social"><strong>Statut Social</strong></label><input class="form-control" type="text" formControlName="statut_social" [(ngModel)]="details.statut_social" placeholder="Votre statut social" name="statut_social"></div>
                                                 </div>
                                             </div>
                                             
@@ -215,27 +216,38 @@
                                             
                                                 
                                             
-                                        <form [formGroup]="formadresse" (ngSubmit)="getadresse()">
+                                        <form [formGroup]="formadresse">
                                             <div class="form-row">
                                                 <div class="col">
-                                                    <div class="form-group"><label for="city_name"><strong>Non de ville</strong></label><input class="form-control" type="text" formControlName="city_name" [ngModel]="adress.city_name" placeholder="Nom de ville" name="city_name"></div>
+                                                    <div class="form-group"><label for="city_name"><strong>Non de ville</strong></label><input class="form-control" type="text" formControlName="city_name" [(ngModel)]="adresse.city_name" placeholder="Nom de ville" name="city_name"></div>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="form-group"><label for="home_adress"><strong>Adresse de maison</strong></label><input class="form-control" type="text" formControlName="home_adress" [ngModel]="adress.home_adress" placeholder="Votre adresse de maison" name="home_adress"></div>
+                                                    <div class="form-group"><label for="home_adress"><strong>Adresse de maison</strong></label><input class="form-control" type="text" formControlName="home_adress" [(ngModel)]="adresse.home_adress" placeholder="Votre adresse de maison" name="home_adress"></div>
                                                 </div>
                                             </div>
 
                                             <div class="form-row">
                                                 <div class="col">
-                                                    <div class="form-group"><label for="work_adress"><strong>Adresse de travail</strong></label><input class="form-control" type="text" formArrayName="work_adress" [ngModel]="adress.work_adress" placeholder="votre adresse de travail" name="work_adress"></div>
+                                                    <div class="form-group"><label for="work_adress"><strong>Adresse de travail</strong></label><input class="form-control" type="text" formControlName="work_adress" [(ngModel)]="adresse.work_adress" placeholder="votre adresse de travail" name="work_adress"></div>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="form-group"><label for=" region"><strong>Region</strong></label><input class="form-control" type="text" formControlName="region" [(ngModel)]="adress.region" placeholder="Votre region" name=" region"></div>
+                                                    <div class="form-group"><label for=" region"><strong>Region</strong></label><input class="form-control" type="text" formControlName="region" [(ngModel)]="adresse.region" placeholder="Votre region" name=" region"></div>
                                                 </div>
                                             </div>
 
 
-                                            <div class="form-group"><button class="btn btn-primary btn-sm" type="submit">Modifier</button></div>
+                                            <div class="form-row">
+                                            <div class="form-group">
+                                            <div>
+                                            <div class="form-group"> <input type="button" class="profile-edit-btn" name="btnAddMore"
+                                                value="Edit Profile" /></div>
+                                             <div *ngIf="">
+                                                <input type="button"  class="profile-edit-btn" name="btnAddMore"
+                                                    value="Annuler" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
                                         </form>
                                     </div>
                                 </div>

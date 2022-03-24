@@ -20,16 +20,8 @@ export class RegisterComponent implements OnInit {
   constructor(private registerService: RegisterService , private router: Router) { }
 
   ngOnInit(): void {
-    this.registerForm = new FormGroup({ 
-      
-      
-      firstName  :new FormControl('', [Validators.required]),
-      lastName :new FormControl('', [Validators.required]),
-      email  :new FormControl('', [Validators.required]),
-      password  :new FormControl('', [Validators.required]),
-      
-    });
-    
+   
+  
     
   }
   save(){

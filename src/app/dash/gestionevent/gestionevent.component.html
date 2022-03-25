@@ -24,6 +24,7 @@
 
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
+<<<<<<< HEAD
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
                         <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
@@ -200,6 +201,86 @@
                                                             </div>
                                                         </div>
                                                     </div>
+=======
+                
+            
+            <div class="container-fluid">
+               <br><br>
+                <div class="card shadow" >
+                    
+                    <div class="card-header py-3">
+                        <p class="text-primary m-0 font-weight-bold">Evénements info</p>
+                    </div>
+                    <div class="card-body" style="width: 700px;">
+                        <div class="row">
+                            <div class="col-md-6 text-nowrap">
+                                <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label>Show&nbsp;<select class="form-control form-control-sm custom-select custom-select-sm"><option value="10" selected="">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select>&nbsp;</label></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-md-right dataTables_filter" id="dataTable_filter"><label><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label></div>
+                            </div>
+                        </div>
+                        <div class="table-responsive table mt-2" style="display: inline;" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                            <table class="table my-0" id="dataTable" >
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                       
+                                       
+                                        <th>Image</th>
+                                        
+                                        
+                                        <th>nom_de_event</th>
+                                       
+                                       
+                                        <th>Date</th>
+
+                                        <th>Actions</th>
+                                       
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                       
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        
+                                        <td></td>
+                                   
+                                        <td ><div class="btn-group"> <div class="container-fluid"><button class="btn btn-primary"  type="button"><i class="fa fa-trash" aria-hidden="true"></i></button></div>
+                                            <div class="container-fluid"><button type="button" class="btn btn-primary" id="b1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                <i class="fa fa-wrench" aria-hidden="true"></i>
+                                              </button></div>
+                                            </div>
+                                              
+                                              <!-- Modal -->
+                                              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                  <div class="modal-content">
+                                                    <div class="modal-header">
+                                                      <h5 class="modal-title" id="exampleModalLabel">Modifier Evénements</h5>
+                                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        
+                                                            <form class="user">
+                                                                <div class="form-group row">
+                                                                    <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="nom_de_event" name="nom_event"></div>
+                                                                    <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Date" name="date"></div>
+                                                                </div>
+                                                               
+                                                                
+                                                                
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                                      <button type="button" class="btn btn-primary">Enregistrer</button>
+                                                    </div>
+                                                  </div>
+>>>>>>> 88a79c85bff7c543817a5cad4917519374a121d8
                                                 </div>
                                             </td>
 
@@ -210,6 +291,7 @@
                                 </table>
                             </div>
                         </div>
+<<<<<<< HEAD
                     </div>
 
                     <br>
@@ -258,6 +340,39 @@
 
                                                         <!-- Button trigger modal -->
                                                         <div class="container-fluid"><button type="button" class="btn btn-primary" id="b1" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+=======
+                        <div class="table-responsive table mt-2" style="display: inline;" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                            <table class="table my-0" id="dataTable" >
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                       
+                                        <th>Région</th>
+                                        <th>Nom_de_ville</th>
+                                        <th>Adresse_de_maison</th>
+                                        <th>Adresse_de_travail</th>
+                                        
+                                        <th>ZIP</th>
+
+                                        <th>Actions</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor=" let adres of listadress ">
+                                        <td>{{adres.id}}</td>
+                                    <td>{{adres.region}}</td>
+                                    <td>{{adres.city_name}}</td>
+                                    <td>{{adres.home_adress}}</td>
+                                    <td>{{adres.work_adress}}</td>
+                                    <td>{{adres.zip}}</td>
+                                        <td>
+                                        <div><div class="btn-group">
+                                            <div class="container-fluid"><button class="btn btn-primary"  type="button"><i class="fa fa-trash"  aria-hidden="true"></i></button></div>
+                
+                                            <!-- Button trigger modal -->
+                                            <div class="container-fluid"><button type="button" class="btn btn-primary" id="b1" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+>>>>>>> 88a79c85bff7c543817a5cad4917519374a121d8
         <i class="fa fa-wrench" id="1" aria-hidden="true"></i>
       </button></div>
                                                     </div>
@@ -311,8 +426,12 @@
                             </div>
                         </div>
 
+<<<<<<< HEAD
 
 
+=======
+                        <br>
+>>>>>>> 88a79c85bff7c543817a5cad4917519374a121d8
                         <div class="row">
                             <div class="col-md-6 align-self-center">
 

@@ -56,7 +56,7 @@ export class AuthServiceService {
      if (response.token) {
      
       console.log(response);
-      
+      localStorage.setItem('email', log.email);
       localStorage.setItem('token',response.token );
       localStorage.setItem('user',response.roles[0].name);
     

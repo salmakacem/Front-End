@@ -14,7 +14,7 @@ import { ServiceComponent } from './components/pages/service/service.component';
 import { ServiceTwoComponent } from './components/pages/service-two/service-two.component';
 import { ServiceThreeComponent } from './components/pages/service-three/service-three.component';
 import { ServiceDetailsComponent } from './components/pages/service-details/service-details.component';
-import { BlogComponent } from './components/pages/blog/blog.component';
+
 import { BlogRightSidebarComponent } from './components/pages/blog-right-sidebar/blog-right-sidebar.component';
 import { PricingComponent } from './components/pages/pricing/pricing.component';
 import { RecentProjectComponent } from './components/pages/recent-project/recent-project.component';
@@ -42,6 +42,7 @@ import { ChangermdpComponent } from './components/pages/changermdp/changermdp.co
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +57,7 @@ import { ChangermdpComponent } from './components/pages/changermdp/changermdp.co
     ServiceTwoComponent,
     ServiceThreeComponent,
     ServiceDetailsComponent,
-    BlogComponent,
+  
     BlogRightSidebarComponent,
     PricingComponent,
     RecentProjectComponent,
@@ -77,8 +78,13 @@ import { ChangermdpComponent } from './components/pages/changermdp/changermdp.co
     ChangermdpComponent,
     
 
+<<<<<<< HEAD
  
     
+=======
+    ProfileeComponent,
+   
+>>>>>>> 88a79c85bff7c543817a5cad4917519374a121d8
 
   ],
   imports: [

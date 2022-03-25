@@ -28,7 +28,7 @@ export class DetailsComponent implements OnInit {
       sexe  :new FormControl('', [Validators.required]),
       date_de_naissance  :new FormControl('', [Validators.required]),
       statut_social :new FormControl('', [Validators.required]),
-      telephone  :new FormControl('', [Validators.required]),
+     
     
       
     });

@@ -9,27 +9,34 @@
 
                         <div class="p-5">
                             <div class="text-center">
-                                <h4 class="text-dark mb-4">Create an Account!</h4>
+                                <h4 class="text-dark mb-4">Créer un compte</h4>
                             </div>
                             <form class="user" [formGroup]="registerForm" (ngSubmit)="save()">
                                 <div class="form-group row">
+                                    
+                                    <div class="col-sm-6 mb-3 mb-sm-0 ">
+                                       
+                                        <input class="form-control form-control-user" type="text" id="lastname" formControlName="lastName" [(ngModel)]="users.lastName" placeholder="Nom" name="lastame">
+                                        <small class="text-danger" *ngIf="submitted && registerForm.get('lastName').hasError('required')">lastName is required.</small>
+
+                                    </div>
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input class="form-control form-control-user" type="text" id="firstname" name="firstname" formControlName="firstName" placeholder="Prénom" [(ngModel)]="users.firstName">
                                         <small class="text-danger" *ngIf="submitted && registerForm.get('firstName').hasError('required')">firstName is required.</small>
 
                                     </div>
+                                   
+                                        
+                                    
+                                      
 
-
-                                    <div class="col-sm-6">
-                                        <input class="form-control form-control-user" type="text" id="lastname" formControlName="lastName" [(ngModel)]="users.lastName" placeholder="Nom" name="lastame">
-                                        <small class="text-danger" *ngIf="submitted && registerForm.get('lastName').hasError('required')">lastName is required.</small>
-
-                                    </div>
+                                    
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control form-control-user" type="email" id="email" formControlName="email" aria-describedby="emailHelp" [(ngModel)]="users.email" placeholder="Email Address" name="email"></div>
                                 <small class="text-danger" *ngIf="submitted && registerForm.get('email').hasError('required')">email is required.</small>
                                 <small class="text-danger" *ngIf="submitted && registerForm.get('email').hasError('email')">email is invalid.</small>
+                            
 
 
                                 <div class="form-group row">
@@ -39,15 +46,25 @@
 
 
 
-                                    <div class="col-sm-6">
-                                    </div>
+                                </div>
+                                <div class="form-group row">
+
+                                    <input class="form-control form-control-user" type="tel" formControlName="telephone" id="exampletelephone" [(ngModel)]="users.telephone" placeholder="Télèphone" name="telephone">
+                                    <small class="text-danger" *ngIf="submitted && registerForm.get('password').hasError('required')">password is required.</small>
+
+
+
+                                </div>
                                     <br>
                                     <button mat-raised-button type="submit" class="btn btn-primary btn-sm">  <span class="material-icons">
                                       
-                                        </span> Confirmer</button></div>
+
+                                        </span> Confirmer</button>
+                              
                             </form>
-                            <div class="text-center"><a class="small" a routerLink="/motdepasse" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" style="color: brown;">Forgot Password?</a></div>
-                            <div class="text-center"><a class="small" a routerLink="/login" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" style="color: brown;">Already have an account? Login!</a></div>
+                           
+                            <div class="text-center"><a class="small" a routerLink="/motdepasse" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" style="color: brown;">Mot de passe oublié?</a></div>
+                            <div class="text-center"><a class="small" a routerLink="/login" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" style="color: brown;">Avez-vous déjà un mot de passe? Authentifier!</a></div>
                         </div>
                     </div>
 

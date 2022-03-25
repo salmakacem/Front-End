@@ -11,6 +11,8 @@ import { CONFIG } from 'src/environments/environment';
 
 
 
+
+
 @Component({
   selector: 'app-adresse',
   templateUrl: './adresse.component.html',
@@ -36,8 +38,17 @@ export class AdresseComponent implements OnInit {
       etats:new FormControl('', [Validators.required]),
     });
     
+
+    
   }
 
+
+ 
+  
+
+ 
+
+  
   saveadress(){
     this.submitted=true;
 if (this.adressform.invalid) {
@@ -54,6 +65,7 @@ if (this.adressform.invalid) {
     },error=>alert("does not work"));
  
   
+
   }
 
 }

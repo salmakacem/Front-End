@@ -22,6 +22,7 @@ export class RegisterComponent implements OnInit {
   constructor(private registerService: RegisterService , private router: Router) { }
 
   ngOnInit(): void {
+
     this.registerForm = new FormGroup({ 
       
       
@@ -32,6 +33,7 @@ export class RegisterComponent implements OnInit {
       
     });
     
+
     
   }
   save(){

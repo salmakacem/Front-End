@@ -6,6 +6,7 @@
                     <div class="sidebar-brand-icon rotate-n-15"><img src="./assets/img/forum.png" class="logo"></div>
                     <div class="sidebar-brand-text mx-3"><span style="color: #db695f;">Forum de la 
                     <br>république</span></div>
+<<<<<<< HEAD
                 </a>
                 <br><br><br>
 
@@ -18,6 +19,148 @@
 
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+=======
+            </a>
+            <br><br><br>
+        
+            <hr class="sidebar-divider my-0">
+            <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                <li class="nav-item"><a class="nav-link active" a routerLink="/dashbord" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                <li class="nav-item"><a class="nav-link active" a routerLink="/profile" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i class="fas fa-user"></i><span>Profile</span></a></li>
+                <li class="nav-item"><a class="nav-link active" a routerLink="/gestionadherents" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i class="fas fa-table"></i><span>Géstion des adhérents</span></a></li>
+                <li class="nav-item"><a class="nav-link active" a routerLink="/gestionevent" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i class="fas fa-table"></i><span>Géstion des Evénements</span></a></li>
+                
+            </ul>
+            <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+        </div>
+    </nav>
+    
+    <div class="d-flex flex-column" id="content-wrapper">
+        <div id="content">
+            
+        
+        <div class="container-fluid">
+            <h3 class="text-dark mb-4">Membres</h3>
+            <div class="card shadow" >
+                
+                <div class="card-header py-3">
+                    <p class="text-primary m-0 font-weight-bold">Adhérents info</p>
+                </div>
+                <div class="card-body" style="width: 700px;">
+                    <div class="row">
+                        <div class="col-md-6 text-nowrap">
+                            <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label>Show&nbsp;<select class="form-control form-control-sm custom-select custom-select-sm"><option value="10" selected="">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select>&nbsp;</label></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-md-right dataTables_filter" id="dataTable_filter"><label><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label></div>
+                        </div>
+                    </div>
+                    <div class="table-responsive table mt-2" style="display: inline;" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                        <table class="table my-0" id="dataTable" >
+                            <thead>
+                                <tr >
+                                    <th>#</th>
+                                    <th>Nom</th>
+                                    <th>Prénom</th>
+                                    <th>Email</th>
+                                    
+                                    
+                                    <th>Télèphone</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor=" let use of listuser ">
+                                    
+                                    <td>{{use.id}}</td>
+                                    <td>{{use.firstName}}</td>
+                                    <td>{{use.lastName}}</td>
+                                    <td>{{use.email}}</td>
+                                 
+                                    <td>{{use.telephone}}</td>
+                                   
+                                   
+                                    <td ><div><div class="btn-group">
+                                        <div class="container-fluid"><button type="button" class="btn btn-primary" id="b3" data-bs-toggle="modal" data-bs-target="#exampleModal2"><i class="fa fa-trash" aria-hidden="true"></i></button></div>
+            
+                                        <!-- Button trigger modal -->
+                                        <div class="container-fluid"><button type="button" class="btn btn-primary" id="b2" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+    <i class="fa fa-wrench" aria-hidden="true"></i>
+  </button></div></div></div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel1">Modifier Adhèrent</h5>
+          
+        </div>
+        <div class="modal-body">
+            
+                <form class="user">
+                    <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Nom" name="nom"></div>
+                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Prénom" name="prénom"></div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Date_de_naissance" name="date_de_naissance"></div>
+                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Profession" name="profession"></div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="password" id="examplePasswordInput" placeholder="Sexe" name="sexe"></div>
+                        <div class="col-sm-6"><input class="form-control form-control-user" type="password" id="exampleRepeatPasswordInput" placeholder="Nationalité" name="nationalité"></div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Age" name="age"></div>
+                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Statut_social" name="statut_social"></div>
+                    </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-primary">Enregistrer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel2">Supprimer Adhèrent</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            
+                <form class="user">
+                    <p align="center">Etes-vous sur de vouloir supprimer cet adhérent? </p>
+                    
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Oui</button>
+          <button type="button" class="btn btn-primary">Nom</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</td>
+
+                                </tr>
+                  
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+>>>>>>> 88a79c85bff7c543817a5cad4917519374a121d8
             </div>
         </nav>
 
@@ -254,6 +397,7 @@
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
 
                     <br>
                     <div class="card shadow">
@@ -298,6 +442,37 @@
                                                 <div class="btn-group">
                                                     <div class="container-fluid"><button type="button" class="btn btn-primary" id="b3" data-bs-toggle="modal" data-bs-target="#exampleModal3"><i class="fa fa-trash" aria-hidden="true"></i></button></div>
                                                     <div class="container-fluid"><button type="button" class="btn btn-primary" id="b1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+=======
+                    <div class="table-responsive table mt-2" style="display: inline;" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                        <table class="table" id="dataTable" >
+                            <thead > 
+                                <tr>
+                                    <th>#</th>
+                                    
+                                    <th >Région</th>
+                                    <th>Nom_de_ville</th>
+                                    <th >Adresse_de_maison</th>
+                                    <th >Adresse_de_travail</th>
+                                    
+                                    <th>ZIP</th>
+                                    <th>Actions</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor=" let adres of listadress " >
+                                    <td>{{adres.id}}</td>
+                                    <td>{{adres.region}}</td>
+                                    <td>{{adres.city_name}}</td>
+                                    <td>{{adres.home_adress}}</td>
+                                    <td>{{adres.work_adress}}</td>
+                                    <td>{{adres.zip}}</td>
+                                    
+                                    <td>
+                                        <div class="btn-group">
+                                            <div class="container-fluid"><button type="button" class="btn btn-primary" id="b3" data-bs-toggle="modal" data-bs-target="#exampleModal3"><i class="fa fa-trash" aria-hidden="true"></i></button></div>
+                                            <div class="container-fluid"><button type="button" class="btn btn-primary" id="b1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+>>>>>>> 88a79c85bff7c543817a5cad4917519374a121d8
         <i class="fa fa-wrench" aria-hidden="true"></i>
       </button></div>
 

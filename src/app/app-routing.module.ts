@@ -9,7 +9,7 @@ import { ServiceComponent } from './components/pages/service/service.component';
 import { ServiceTwoComponent } from './components/pages/service-two/service-two.component';
 import { ServiceThreeComponent } from './components/pages/service-three/service-three.component';
 import { ServiceDetailsComponent } from './components/pages/service-details/service-details.component';
-import { BlogComponent } from './components/pages/blog/blog.component';
+
 import { BlogRightSidebarComponent } from './components/pages/blog-right-sidebar/blog-right-sidebar.component';
 
 import { PricingComponent } from './components/pages/pricing/pricing.component';
@@ -42,7 +42,7 @@ const routes: Routes = [
     {path: 'service-two', component: ServiceTwoComponent},
     {path: 'service-three', component: ServiceThreeComponent},
     {path: 'service-details', component: ServiceDetailsComponent},
-    {path: 'blog', component: BlogComponent},
+   
     {path: 'blog-right-sidebar', component: BlogRightSidebarComponent},
     {path: 'pricing', component: PricingComponent},
     {path: 'recent-project', component: RecentProjectComponent},

@@ -1,0 +1,27 @@
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form class="login100-form validate-form" [formGroup]="forgotloginform">
+                <span class="login100-form-logo">
+            <img src="assets/img/logo.png" class="user-image2" alt="User Image" />
+          </span>
+                <span class="login100-form-title p-b-34 p-t-27">
+            Mot de passe oublié ?
+          </span>
+                <div class="wrap-input100 validate-input">
+                    <input required formControlName="email" email class="form-control input100" type="email" name="email" placeholder="Email">
+                    <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                </div>
+                <div class="erreur-msg" *ngIf="forgotloginform.get('email').invalid && (forgotloginform.get('email').dirty || forgotloginform.get('email').touched)">
+                    <div *ngIf="forgotloginform.get('email').errors.required">Email est obligatoire.</div>
+                    <div *ngIf="forgotloginform.hasError('email', 'email')">Email invalide</div>
+                </div>
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn" (click)="Restlogin(forgotloginform.get('email').value)">
+                        Envoyer
+            </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

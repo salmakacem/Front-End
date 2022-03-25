@@ -1,5 +1,6 @@
+
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
 import { HomeOneComponent } from './components/pages/home-one/home-one.component';
 import { HomeTwoComponent } from './components/pages/home-two/home-two.component';
 import { HomeThreeComponent } from './components/pages/home-three/home-three.component';
@@ -22,14 +23,14 @@ import { LoginComponent } from './components/pages/login/login.component';
 import { RegisterComponent } from './components/pages/register/register.component';
 import { DetailsComponent } from './components/pages/details/details.component';
 import { AdresseComponent } from './components/pages/adresse/adresse.component';
-import { MotdepasseComponent } from './components/pages/motdepasse/motdepasse.component';
+import { ForgotloginComponent } from './components/pages/forgotlogin/forgotlogin.component';
 import { DashbordComponent } from './dash/dashbord/dashbord.component';
 import { ProfileComponent } from './dash/profile/profile.component';
 import { GestionadherentsComponent } from './dash/gestionadherents/gestionadherents.component';
 import { GestioneventComponent } from './dash/gestionevent/gestionevent.component';
-
-
 import { ProfileeComponent } from './Adhèrents/profilee/profilee.component';
+import { AuthGuard } from './auth.guard';
+import { ChangermdpComponent } from './components/pages/changermdp/changermdp.component';
 
 
 const routes: Routes = [
@@ -43,37 +44,37 @@ const routes: Routes = [
     {path: 'service-details', component: ServiceDetailsComponent},
     {path: 'blog', component: BlogComponent},
     {path: 'blog-right-sidebar', component: BlogRightSidebarComponent},
-    
     {path: 'pricing', component: PricingComponent},
     {path: 'recent-project', component: RecentProjectComponent},
     {path: 'error', component: ErrorComponent},
     {path: 'team', component: TeamComponent},
-
     {path: 'contact', component: ContactComponent},
-    {path:'login' , component:LoginComponent},
-   
+    {path:'login' , component:LoginComponent},  
     {path:'Register' , component: RegisterComponent},
     {path:'details' , component: DetailsComponent},
     {path:'adresse' , component: AdresseComponent},
-    {path:'motdepasse' , component:  MotdepasseComponent},
     {path:'dashbord' , component:   DashbordComponent},
-
+    {path:'forgotlogin',component:ForgotloginComponent},
     {path: 'profile', component: ProfileComponent},
     {path: 'gestionadherents', component: GestionadherentsComponent},
-
     {path: 'gestionevent', component: GestioneventComponent },
-
     {path: 'profilee', component: ProfileeComponent },
-
+   {path:'authGuard',component: AuthGuard},
+   {path:'changemdp',component:ChangermdpComponent},
+   {
+    path: 'reset/finish',
+    component:ChangermdpComponent ,
+   },
+ 
    
     // Here add new pages component
 
     {path: '**', component: ErrorComponent}, // This line will remain down from the whole pages component list
-    
+   
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
+    imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
 })
 export class AppRoutingModule { }

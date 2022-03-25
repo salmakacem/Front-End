@@ -1,8 +1,4 @@
-import { Users } from './../users';
 
-
-
-import { Role } from './../components/model/role';
 import { HttpClient,HttpResponse , HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
@@ -15,9 +11,6 @@ import { User } from '../components/model/user.model';
   providedIn: 'root'
 })
 export class AuthServiceService {
- // users:Users[]=[{"firstName":"marwen","lastName":"sghaier","email":"marwen@dipower.fr","password":"12345","roles":['ADMIN']},
-  //               {"firstName":"selma","lastName":"kacem","email":"selma@dipower.fr","password":"salma","roles":['ADHERENT']}];
-
   public roles:string[];
   CONFIG: string;
   private currentUserSubject: BehaviorSubject<User>;
@@ -56,6 +49,8 @@ export class AuthServiceService {
   }
   
   login(log){
+   
+    console.log(log)
   this.httpClient.post<any>(`${CONFIG.URL}auth/login`,log) .subscribe((response:any) => {
   
      if (response.token) {
@@ -63,15 +58,30 @@ export class AuthServiceService {
       console.log(response);
       
       localStorage.setItem('token',response.token );
-      localStorage.setItem('role',response.ROLE[0].name);
-      //localStorage.setItem('role', JSON.stringify(Role));
+      localStorage.setItem('user',response.roles[0].name);
+    
+    const role = response.roles[0].name;
 
-      // let data = JSON.parse(localStorage.getItem('roles'));
+      console.log(role);
+      if(role==='ADMIN'){
+        this.route.navigateByUrl('/dashbord')
 
-      // console.log(Role);
+      }else if(role==='ADHERENT'){
+        
+        this.route.navigateByUrl('/gestionadherents')
+      }
+
+      }
+    
+   
+     //localStorage.setItem('role', JSON.stringify(Role));
+
+      //let data = JSON.parse(localStorage.getItem('roles'));
+
+      //console.log(Role);
 
         
-    }
+    
    
    (error) => console.log(error.message)
       
@@ -79,6 +89,9 @@ export class AuthServiceService {
 
       
   }
+ 
+
+ 
   
   public isAuthentificated(): boolean {
     const token = localStorage.getItem('token');
@@ -93,6 +106,8 @@ export class AuthServiceService {
   public UserAuthentificated(): boolean {
    
     const user = localStorage.getItem('role');
+   
+    
     if (user ==="admin") {
       return true;
     } else {
@@ -105,12 +120,12 @@ export class AuthServiceService {
     localStorage.removeItem('token');
     localStorage.removeItem('authentificated_user');
     this.isLoginSubject.next(false);
-    this.route.navigateByUrl('/admin')
+    this.route.navigateByUrl('/login')
     
   }
 
 
-   resetpassword(email) {
-    return this.httpClient.get(`${CONFIG.URL}contact/réinitialisationPassword?email=${email}`)
+  reset_password(email) {
+    return this.httpClient.get(`${CONFIG.URL}reset_password`,email)
   } 
 }

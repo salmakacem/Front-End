@@ -13,9 +13,12 @@ export class DetailsComponent implements OnInit {
 
   DetailsForm:FormGroup;
   details:Details = new Details();
+  imgURL:any;
+  userFile;
+ 
 
   constructor(private detailsService: DetailsService , private router: Router) { }
-
+ 
   ngOnInit(): void {
     this.DetailsForm = new FormGroup({ 
       
@@ -43,5 +46,24 @@ export class DetailsComponent implements OnInit {
     },error=>alert("does not work"));
  
   }
+  // onSelectFile(event){
+  //   if(event.target.files.length > 0)
+  //   {
+  //     const file =event.target.files[0];
+  //     this.userFile =file;
+  //     this.f['profile'].setValue(file);
+  //     var mimeType=event.target.files[0].type;
+  //     if(mimeType.match(/image\/*/)==null){
+  //       this.message="only images supported";
+  //       return;
+  //     }
+  //     var reader = new FileReader();
+  //     this.imagePath=file;
+  //     reader.readAsDataURL(file);
+  //     reader.onload= (_event)=>{
+  //       this.imgURL = reader.result;
+  //     }
+  //   }
+  // }
 
 }

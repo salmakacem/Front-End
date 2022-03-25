@@ -1,3 +1,4 @@
+
 import { Users } from './../../../users';
 
 import { Component, OnInit } from '@angular/core';
@@ -14,12 +15,15 @@ export class LoginComponent implements OnInit {
   users = new Users();
   loginForm;
   submitted:Boolean=false;
-  constructor(private AuthServiceService: AuthServiceService , private route: Router) { }
+  
+  
+  constructor(private authServiceService: AuthServiceService , private route: Router) { }
 
   ngOnInit(): void {
     this.loginForm= new FormGroup({
       email: new FormControl('',[Validators.required,Validators.email]),
       password: new FormControl('',[Validators.required])
+      
   })
 }
 submitForm() {
@@ -28,11 +32,15 @@ this.submitted=true;
 if (this.loginForm.invalid) {
   return ;
 }
-console.log(this.loginForm.value ,"test");
+console.log(this.loginForm.value );
 
- this.AuthServiceService.login(this.loginForm.value)
- this.route.navigateByUrl('/dashbord')
+ this.authServiceService.login(this.loginForm.value)
+  
+
+ //this.route.navigateByUrl('/dashbord')
 }
+
+
 
 
 }

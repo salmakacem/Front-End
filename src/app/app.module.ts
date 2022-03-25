@@ -78,13 +78,10 @@ import { ChangermdpComponent } from './components/pages/changermdp/changermdp.co
     ChangermdpComponent,
     
 
-<<<<<<< HEAD
- 
-    
-=======
+
     ProfileeComponent,
    
->>>>>>> 88a79c85bff7c543817a5cad4917519374a121d8
+
 
   ],
   imports: [

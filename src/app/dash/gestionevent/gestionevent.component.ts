@@ -40,4 +40,8 @@ export class GestioneventComponent implements OnInit {
       
   }
 
+  deleteAdress(){
+    
+  }
+
 }

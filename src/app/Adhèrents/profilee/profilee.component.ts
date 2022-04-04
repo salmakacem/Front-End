@@ -31,6 +31,13 @@ adresse
   details
   user
   email
+
+  edit: boolean = false;
+  
+  submitted: boolean = false;
+  messageService: any;
+  id: any;
+
   
  
  
@@ -46,19 +53,20 @@ adresse
     
 
     this.form = new FormGroup({
+      id:new FormControl(''), 
       firstName:new FormControl('',[Validators.required]), 
       lastName:new FormControl('',[Validators.required]),
       email:new FormControl('',[Validators.required]),
       telephone: new FormControl ('', [Validators.required]),
 
 
-    })
+    });
     this.formdetail = new FormGroup ({
       date_de_naissance:new FormControl('', [Validators.required]),
       profession:new FormControl('', [Validators.required]),
       
       statut_social: new FormControl('', [Validators.required]),
-    })
+    });
     
 
     this.formadresse =new FormGroup ({
@@ -67,7 +75,7 @@ adresse
       work_adress : new FormControl ('',[Validators.required]),
       region :new FormControl ('',[Validators.required]),
 
-    })
+    });
   
     
     }
@@ -108,6 +116,42 @@ getAdresseByIdUser(id) {
 }
 
 
+updateUser() {
+  this.edit = true;
+  this.form.patchValue(this.user)
+ 
+}
+
+AnnulerUpdateUser() {
+  this.edit = false;
+
+}
+sauvgarderUpdateUser(){
+  this.profileservice.updateUser(this.form.value).subscribe(
+    (msg) => {
+      console.log(msg)
+    },
+    (error) => {
+      console.log(error)
+      this.messageService.add({ severity: 'error ', summary: 'Erreur', detail: 'Profile Non modifié', life: 3000 })
+    },
+    () => {
+      this.messageService.add({ severity: 'success', summary: 'Succès', detail: 'Profile Modifié', life: 3000 });
+      this.edit = false;
+      this.ngOnInit();
+    }
+  );
+
+}
+
+
+  
+  
+  
+
+
+
+
 
 
 }
@@ -115,6 +159,7 @@ getAdresseByIdUser(id) {
 
 
   
+
 
 
 

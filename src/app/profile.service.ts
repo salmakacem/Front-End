@@ -38,6 +38,19 @@ export class ProfileService {
   }
 
 
+  updateUser(users){
+
+    // const users = JSON.parse(localStorage.getItem('currentUser'));
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+
+    const token = localStorage.getItem('token');
+    headers = headers.set("Authorization", 'Bearer ' + token);
+    
+    return this.http.put(CONFIG.URL + 'users/update/'+users.id,users,{ headers: headers, responseType: 'text' });
+    }
+
+
 
 
 

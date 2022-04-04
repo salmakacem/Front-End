@@ -31,6 +31,14 @@ import { GestioneventComponent } from './dash/gestionevent/gestionevent.componen
 
 import { ProfileeComponent } from './Adhèrents/profilee/profilee.component';
 
+import { Gestionadherent1Component } from './dash/gestionadherent1/gestionadherent1.component';
+
+import { MapComponent } from './map/map.component';
+
+
+
+
+
 
 const routes: Routes = [
     {path: '', component: HomeOneComponent},
@@ -64,6 +72,16 @@ const routes: Routes = [
     {path: 'gestionevent', component: GestioneventComponent },
 
     {path: 'profilee', component: ProfileeComponent },
+    {path: 'gestionadherent1', component: Gestionadherent1Component },
+
+    {path: 'map', component: MapComponent },
+  
+
+
+
+  
+
+
 
    
     // Here add new pages component

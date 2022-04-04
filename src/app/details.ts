@@ -1,5 +1,5 @@
 export class Details {
-   
+   id!: any;
     cin!:any;
     date_de_naissance!:Date;
     nationalite!: string;

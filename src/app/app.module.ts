@@ -33,6 +33,18 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ProfileeComponent } from './Adhèrents/profilee/profilee.component';
+import { Gestionadherent1Component } from './dash/gestionadherent1/gestionadherent1.component';
+import { MapComponent } from './map/map.component';
+
+import { MarkerService } from './map/marker.service';
+
+import { PopupService } from './map/popup.service';
+
+
+
+
+
+
 
 
 
@@ -72,6 +84,10 @@ import { ProfileeComponent } from './Adhèrents/profilee/profilee.component';
     GestioneventComponent,
 
     ProfileeComponent,
+    Gestionadherent1Component,
+    MapComponent,
+
+   
    
 
   ],
@@ -82,12 +98,14 @@ import { ProfileeComponent } from './Adhèrents/profilee/profilee.component';
     
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
   
+       
 
   ],
   //providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },],
-  providers: [],
+  providers: [MarkerService,
+    PopupService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

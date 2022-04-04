@@ -18,5 +18,13 @@ import { CONFIG } from "src/environments/environment";
   
       }
 
+
+      deleteAdresse(id){
+        const  token = localStorage.getItem('token');
+        const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
+        return this.http.delete<Adress[]>(CONFIG.URL +'adress/GetAll/'+id,{ headers: headers });
+        
+      }
+
       
   }

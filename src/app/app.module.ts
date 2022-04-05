@@ -14,7 +14,6 @@ import { ServiceComponent } from './components/pages/service/service.component';
 import { ServiceTwoComponent } from './components/pages/service-two/service-two.component';
 import { ServiceThreeComponent } from './components/pages/service-three/service-three.component';
 import { ServiceDetailsComponent } from './components/pages/service-details/service-details.component';
-
 import { BlogRightSidebarComponent } from './components/pages/blog-right-sidebar/blog-right-sidebar.component';
 import { PricingComponent } from './components/pages/pricing/pricing.component';
 import { RecentProjectComponent } from './components/pages/recent-project/recent-project.component';
@@ -36,9 +35,10 @@ import { ProfileeComponent } from './Adhèrents/profilee/profilee.component';
 import { ToastrModule } from 'ngx-toastr';
 import { ForgotloginComponent } from './components/pages/forgotlogin/forgotlogin.component';
 import { ChangermdpComponent } from './components/pages/changermdp/changermdp.component';
+import { ChatComponent } from './components/pages/chat/chat.component';
 
 
-
+import { ValidercodeComponent } from './validercode/validercode.component';
 
 
 
@@ -57,7 +57,6 @@ import { ChangermdpComponent } from './components/pages/changermdp/changermdp.co
     ServiceTwoComponent,
     ServiceThreeComponent,
     ServiceDetailsComponent,
-  
     BlogRightSidebarComponent,
     PricingComponent,
     RecentProjectComponent,
@@ -68,7 +67,6 @@ import { ChangermdpComponent } from './components/pages/changermdp/changermdp.co
     RegisterComponent,
     DetailsComponent,
     AdresseComponent,
-   
     DashbordComponent,
     ProfileComponent,
     GestionadherentsComponent,
@@ -76,12 +74,9 @@ import { ChangermdpComponent } from './components/pages/changermdp/changermdp.co
     ProfileeComponent,
     ForgotloginComponent,
     ChangermdpComponent,
-    
-
-
     ProfileeComponent,
-   
-
+    ChatComponent,
+    ValidercodeComponent,
 
   ],
   imports: [

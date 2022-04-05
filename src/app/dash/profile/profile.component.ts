@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Adress } from 'src/app/adress';
@@ -97,9 +98,6 @@ getAdresseByIdUser(id) {
     
   })
 }
-
-
-
 
 
   }

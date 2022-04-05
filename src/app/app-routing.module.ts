@@ -1,6 +1,6 @@
 
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, CanActivate } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { HomeOneComponent } from './components/pages/home-one/home-one.component';
 import { HomeTwoComponent } from './components/pages/home-two/home-two.component';
 import { HomeThreeComponent } from './components/pages/home-three/home-three.component';
@@ -31,7 +31,8 @@ import { GestioneventComponent } from './dash/gestionevent/gestionevent.componen
 import { ProfileeComponent } from './Adhèrents/profilee/profilee.component';
 import { AuthGuard } from './auth.guard';
 import { ChangermdpComponent } from './components/pages/changermdp/changermdp.component';
-
+import { ChatComponent } from './components/pages/chat/chat.component';
+import { ValidercodeComponent } from './validercode/validercode.component';
 
 const routes: Routes = [
     {path: '', component: HomeOneComponent},
@@ -42,7 +43,6 @@ const routes: Routes = [
     {path: 'service-two', component: ServiceTwoComponent},
     {path: 'service-three', component: ServiceThreeComponent},
     {path: 'service-details', component: ServiceDetailsComponent},
-   
     {path: 'blog-right-sidebar', component: BlogRightSidebarComponent},
     {path: 'pricing', component: PricingComponent},
     {path: 'recent-project', component: RecentProjectComponent},
@@ -59,14 +59,14 @@ const routes: Routes = [
     {path: 'gestionadherents', component: GestionadherentsComponent},
     {path: 'gestionevent', component: GestioneventComponent },
     {path: 'profilee', component: ProfileeComponent },
-   {path:'authGuard',component: AuthGuard},
-   {path:'changemdp',component:ChangermdpComponent},
-   {
-    path: 'reset/finish',
-    component:ChangermdpComponent ,
-   },
- 
-   
+    {path:'authGuard',component: AuthGuard},
+    {path:'changemdp',component:ChangermdpComponent},
+    {path:'validercode',component:ValidercodeComponent},
+    {
+      path: 'reset/finish',
+      component:ChangermdpComponent ,
+    },
+    {path:'chat',component:ChatComponent},
     // Here add new pages component
 
     {path: '**', component: ErrorComponent}, // This line will remain down from the whole pages component list

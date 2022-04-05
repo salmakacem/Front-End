@@ -30,17 +30,12 @@ export class ForgotloginComponent implements OnInit {
     this.forgotloginService.Restlogin(email)
       .subscribe(
         (res) => {
-
           console.log(res);
-          this.router.navigateByUrl('/login')
-         
+          this.router.navigateByUrl('/login')     
         },
         error => {
-          console.log(error);
-          
+          console.log(error);     
         });
-
-
   }
 
 

@@ -44,23 +44,36 @@
                                     <input class="form-control form-control-user" type="password" formControlName="password" id="examplePasswordInput" [(ngModel)]="users.password" placeholder="Mot de passe" name="password">
                                     <small class="text-danger" *ngIf="submitted && registerForm.get('password').hasError('required')">password is required.</small>
 
-
-
                                 </div>
+                                <div class="widget-content-left">
+                                    <div class="btn-group">
+                                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
+                                            <img *ngIf="thumbnail !== ''" width="42" class="rounded-circle" [src]='thumbnail' alt="">
+                                            <img *ngIf="thumbnail == '' " width="42" class="rounded-circle" src="assets/img/avatars/avatar1.jpeg" alt="">
+                                        </a>
 
-                                <br>
-                                <button mat-raised-button type="submit" class="btn btn-primary btn-sm">  <span class="material-icons">
+                                    </div>
+                                </div>
+                                <div id="file-upload-form" class="uploader">
+                                    <!-- <i class="fa fa-download" aria-hidden="true"></i> -->
+                                    <input id="file-upload" type="file" name="fileUpload" accept="image/*" (change)="onFileChanged($event)" />
+                                    <label for="file-upload" id="file-drag">
+                                      <div id="start">
                                       
-
-                                        </span> Confirmer</button>
+                                    
+                                      </div>
+                                    </label>
+                                </div>
+                                <br>
+                                <button (click)="onUpload()" type="submit" class="btn btn-primary" data-dismiss="modal" (click)="Restlogin(registerForm.get('email').value)">
+                                    Enregistrer
+                                  </button>
 
                             </form>
 
-                            <div class="text-center"><a class="small" a routerLink="/motdepasse" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" style="color: brown;">Mot de passe oublié?</a></div>
                             <div class="text-center"><a class="small" a routerLink="/login" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" style="color: brown;">Avez-vous déjà un mot de passe? Authentifier!</a></div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

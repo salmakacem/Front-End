@@ -1,0 +1,28 @@
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form class="login100-form validate-form" [formGroup]="validercode">
+                <span class="login100-form-logo">
+            <img src="assets/img/logo.png" class="user-image2" alt="User Image" />
+          </span>
+                <span class="login100-form-title p-b-34 p-t-27">
+            Saisir votre code de vérification
+          </span>
+                <div class="wrap-input100 validate-nput">
+
+                    <input required #codeverification formControlName="codeverification" class="form-control input100" type="text" name="codeverification" placeholder="Votre code">
+                    <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                </div>
+                <div class="erreur-msg" *ngIf="validercode.get('codeverification').invalid && (validercode.get('codeverification').dirty || validercode.get('codeverification').touched)">
+                    <div *ngIf="validercode.get('codeverification').errors.required">Code est obligatoire.</div>
+                    <div *ngIf="validercode.hasError('codeverification', 'codeverification')">Code invalide</div>
+                </div>
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn" (click)="updatemp(codeverification.value)">
+                        Envoyer
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

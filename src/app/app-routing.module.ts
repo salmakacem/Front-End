@@ -34,6 +34,15 @@ import { ChangermdpComponent } from './components/pages/changermdp/changermdp.co
 import { ChatComponent } from './components/pages/chat/chat.component';
 import { ValidercodeComponent } from './validercode/validercode.component';
 
+import { Gestionadherent1Component } from './dash/gestionadherent1/gestionadherent1.component';
+
+import { MapComponent } from './map/map.component';
+
+
+
+
+
+
 const routes: Routes = [
     {path: '', component: HomeOneComponent},
     {path: 'home-two', component: HomeTwoComponent},
@@ -67,6 +76,28 @@ const routes: Routes = [
       component:ChangermdpComponent ,
     },
     {path:'chat',component:ChatComponent},
+
+    {path: 'gestionadherent1', component: Gestionadherent1Component },
+
+    {path: 'map', component: MapComponent },
+  
+
+
+
+  
+
+
+
+
+   {path:'authGuard',component: AuthGuard},
+   {path:'changemdp',component:ChangermdpComponent},
+   {
+    path: 'reset/finish',
+    component:ChangermdpComponent ,
+   },
+ 
+
+   
     // Here add new pages component
 
     {path: '**', component: ErrorComponent}, // This line will remain down from the whole pages component list

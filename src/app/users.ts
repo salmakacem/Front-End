@@ -4,5 +4,7 @@ export class Users {
     lastName!:string;
     email!:string;
     password!:string;
+    telephone!:string;
+    resetPasswordToken!:string;
     
 }

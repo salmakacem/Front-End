@@ -18,25 +18,30 @@ import { CONFIG } from 'src/environments/environment';
     constructor(private http:HttpClient){}
 
 
-    getAdresse() : Observable<Adress[]>{
-      const  token = localStorage.getItem('token');
-      const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
-      return this.http.get<Adress[]>(CONFIG.URL +'adress/GetAll/',{ headers: headers });
+   
 
-    }
-
-    getDetails() : Observable<Details[]> {
-      const  token = localStorage.getItem('token');
-      const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
-      return this.http.get<Details[]>(CONFIG.URL +'user-details/GetAll/',{ headers: headers });
-
-    }
+   
     getUser() : Observable<Users[]> {
       const  token = localStorage.getItem('token');
       const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
-      return this.http.get<Users[]>(CONFIG.URL +'users/GetAll/',{ headers: headers });
+      return this.http.get<Users[]>(CONFIG.URL +'users/GetAllU/',{ headers: headers });
 
     }
+
+    deleteUser(user:Users) : Observable<Users[]>{
+      const  token = localStorage.getItem('token');
+      const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
+      return this.http.delete<Users[]>(CONFIG.URL+'users/del/'+user.id,{ headers: headers });
+    }
+      
+
+      updateUser(users:Users) {
+        const  token = localStorage.getItem('token');
+        const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
+        return this.http.put(CONFIG.URL+'users/update/'+users.id,users,{ headers: headers });
+
+      }
+    
 
    
 

@@ -20,10 +20,12 @@ export class GestioneventComponent implements OnInit {
   ngOnInit(): void {
 
     this.formadresse =new FormGroup ({
+      id:new FormControl('',[Validators.required]),
       city_name:new FormControl ('',[Validators.required]),
       home_adress:new FormControl ('', [Validators.required]),
       work_adress : new FormControl ('',[Validators.required]),
       region :new FormControl ('',[Validators.required]),
+      etats : new FormControl('',[Validators.required]),
 
     });
     this.listadress;
@@ -38,6 +40,10 @@ export class GestioneventComponent implements OnInit {
     }
       );
       
+  }
+
+  deleteAdress(){
+    
   }
 
 }

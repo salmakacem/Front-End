@@ -16,37 +16,20 @@ import { GestionadherentsService } from './gestionadherents.service';
   styleUrls: ['./gestionadherents.component.scss']
 })
 export class GestionadherentsComponent implements OnInit {
-  formadresse: FormGroup;
-  
-  listadress : Adress[];
+ 
   
   listuser:Users[];
   formuser: FormGroup;
+  user
+  id
  
   
 
   constructor  ( private route:Router ,private gestionadherentsservice: GestionadherentsService ) { }
 
   ngOnInit(): void {
-    this.formadresse =new FormGroup ({
-      city_name:new FormControl ('',[Validators.required]),
-      home_adress:new FormControl ('', [Validators.required]),
-      work_adress : new FormControl ('',[Validators.required]),
-      region :new FormControl ('',[Validators.required]),
-
-    });
-
-    this.getall();
-    this.listadress;
-
-
     
-      
 
-
-
-  
-   
 
 
     this.formuser=new FormGroup({
@@ -56,6 +39,7 @@ export class GestionadherentsComponent implements OnInit {
       email : new FormControl('',[Validators.required]),
      
       telephone:new FormControl ('',[Validators.required]),
+      resetPasswordToken:new FormControl('',[Validators.required]),
      
       
    
@@ -68,15 +52,7 @@ export class GestionadherentsComponent implements OnInit {
   
   
 }
-getall(){
-  this.gestionadherentsservice.getAdresse().subscribe(
-    (response)=>{
-      this.listadress=response;
-    console.log("adress",this.listadress);
-  }
-    );
-    
-}
+
 
 
 getAllUser(){
@@ -87,6 +63,37 @@ getAllUser(){
     }
   );
 }
+deleteUserById(id){
+  this.gestionadherentsservice.deleteUser(id).subscribe(
+    (res =>{
+      alert("adhérent est supprimé");
+      this.getAllUser();
+    })
+  )
+}
+
+editUser(user){
+  console.log("tttt",user);
+  this.formuser.patchValue(user)
+  
+
+}
+
+updateUserr(){
+  console.log(this.formuser.value);
+  
+  this.gestionadherentsservice.updateUser(this.formuser.value).subscribe(
+    (res) =>{
+      
+      alert("user est modifié");
+      console.log("userr")
+      
+     
+    }
+   
+  )
+}
+
 
 
 

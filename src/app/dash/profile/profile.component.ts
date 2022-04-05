@@ -13,7 +13,7 @@ import { ProfileadmineService } from './profileadmin.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  adresse
+  adresses
   formadresse: FormGroup
   formdetail : FormGroup
   form : FormGroup
@@ -21,9 +21,16 @@ export class ProfileComponent implements OnInit {
   adress: Adress = new Adress();
   detail : Details = new Details();
   users: Users = new Users();
-  details
-  user
+  detais
+  userr
   email
+  
+
+  
+  edit: boolean = false;
+  submitted: boolean = false;
+  update
+  messageService: any;
   
  
  
@@ -38,19 +45,20 @@ export class ProfileComponent implements OnInit {
     
 
     this.form = new FormGroup({
+      id:new FormControl(''), 
       firstName:new FormControl('',[Validators.required]), 
       lastName:new FormControl('',[Validators.required]),
       email:new FormControl('',[Validators.required]),
       telephone: new FormControl ('', [Validators.required]),
 
 
-    })
+    });
     this.formdetail = new FormGroup ({
       date_de_naissance:new FormControl('', [Validators.required]),
       profession:new FormControl('', [Validators.required]),
       
       statut_social: new FormControl('', [Validators.required]),
-    })
+    });
     
 
     this.formadresse =new FormGroup ({
@@ -59,7 +67,8 @@ export class ProfileComponent implements OnInit {
       work_adress : new FormControl ('',[Validators.required]),
       region :new FormControl ('',[Validators.required]),
 
-    })
+    });
+    
   
     
     }
@@ -70,20 +79,20 @@ getUserByEmail(email){
   this.profileadminservice.getUserByEmail(email).subscribe(
     
     (response)=>{
-      this.user=response;
-    console.log("userrr",this.user);
+      this.userr=response;
+    console.log("userrr",this.userr);
   
-  this.getDetailsByIdUser( this.user.id);
+  this.getDetailByIdUser( this.userr.id);
     
   },error=>console.log(error));
 } 
 
 
-getDetailsByIdUser(id) {
-  this.profileadminservice.getDetailsByIdUser(id).subscribe((response: any) => {
-    this.details = response
-    console.log("detaaa",this.details);
-    this.getAdresseByIdUser( this.details.id);
+getDetailByIdUser(id) {
+  this.profileadminservice.getDetailByIdUser(id).subscribe((response: any) => {
+    this.detais = response
+    console.log("detaaa",this.detais);
+    this.getAdressByIdUser( this.detais.id);
     
   })
 }
@@ -91,13 +100,45 @@ getDetailsByIdUser(id) {
 
 
 
-getAdresseByIdUser(id) {
-  this.profileadminservice.getAdresseByIdUser(id).subscribe((response: any) => {
-    this.adresse = response
-    console.log("adreee",this.adresse);
+getAdressByIdUser(id) {
+  this.profileadminservice.getAdressByIdUser(id).subscribe((response: any) => {
+    this.adresses = response
+    console.log("adreee",this.adresses);
     
   })
 }
+
+updateUser() {
+  this.edit = true;
+  this.form.patchValue(this.userr)
+ 
+}
+
+AnnulerUpdateUser() {
+  this.edit = false;
+
+}
+saveUpdateUser() {
+console.log("ooooo",this.form.value);
+
+  this.profileadminservice.updateUser(this.form.value).subscribe(
+    (msg) => {
+      console.log(msg)
+    },
+    (error) => {
+      console.log(error)
+      this.messageService.add({ severity: 'error ', summary: 'Erreur', detail: 'Profile Non modifié', life: 3000 })
+    },
+    () => {
+      this.messageService.add({ severity: 'success', summary: 'Succès', detail: 'Profile Modifié', life: 3000 });
+      this.edit = false;
+      this.ngOnInit();
+    }
+  );
+
+ 
+}
+
 
 
   }

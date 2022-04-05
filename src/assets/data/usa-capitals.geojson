@@ -1,0 +1,44 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+
+            9.537499,
+            33.886917
+          ]
+        },
+        "properties": {
+          "state": "Tunisie",
+          "name": "Ariana",
+          "population": 199518
+        }
+      },
+     
+     
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            
+            10.715423,
+            36.455066
+          ]
+        },
+        "properties": {
+          "state": "Tunisie",
+          "name": "Nabeul",
+          "population": 191049
+        }
+      }
+      
+      
+     
+    
+      
+    ]
+  }

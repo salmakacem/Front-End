@@ -32,6 +32,16 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ProfileeComponent } from './Adhèrents/profilee/profilee.component';
+
+import { Gestionadherent1Component } from './dash/gestionadherent1/gestionadherent1.component';
+import { MapComponent } from './map/map.component';
+
+import { MarkerService } from './map/marker.service';
+
+import { PopupService } from './map/popup.service';
+
+
+
 import { ToastrModule } from 'ngx-toastr';
 import { ForgotloginComponent } from './components/pages/forgotlogin/forgotlogin.component';
 import { ChangermdpComponent } from './components/pages/changermdp/changermdp.component';
@@ -39,6 +49,7 @@ import { ChatComponent } from './components/pages/chat/chat.component';
 
 
 import { ValidercodeComponent } from './validercode/validercode.component';
+
 
 
 
@@ -77,24 +88,31 @@ import { ValidercodeComponent } from './validercode/validercode.component';
     ProfileeComponent,
     ChatComponent,
     ValidercodeComponent,
+    Gestionadherent1Component,
+    MapComponent,
+
+   
+   
+
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ToastrModule.forRoot(),
+   
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    
-    
-    
+    ToastrModule.forRoot(),
+
   
+       
 
   ],
   //providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },],
-  providers: [],
+  providers: [MarkerService,
+    PopupService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

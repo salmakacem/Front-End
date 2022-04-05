@@ -13,13 +13,13 @@
                             </div>
                             <form class="user" [formGroup]="DetailsForm" (ngSubmit)="saveD()">
                                 <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="profession" formControlName="profession" [(ngModel)]="details.profession" placeholder="Profession" name="profession"></div>
 
                                     <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="nationalite" formControlName="nationalite" placeholder="nationalité" [(ngModel)]="details.nationalite" name="nationalite"></div>
                                 </div>
                                 
 
                                 <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="profession" formControlName="profession" [(ngModel)]="details.profession" placeholder="Profession" name="profession"></div>
 
                                     <div>
                                         <div class="col-sm-6 mb-3 mb-sm-0">
@@ -59,6 +59,7 @@
                                             </div> -->
                                         </div>
                                     </fieldset>
+
                                 </div>
 
                                 <div align="center">

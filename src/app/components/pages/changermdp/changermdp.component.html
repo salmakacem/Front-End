@@ -1,0 +1,35 @@
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form class="login100-form validate-form" [formGroup]="changeForm">
+                <span class="login100-form-logo">
+            <img src="assets/img/logo.png" class="user-image2" alt="User Image" />
+          </span>
+                <span class="login100-form-title p-b-34 p-t-27">
+          </span>
+                <div class="wrap-input100 validate-nput">
+                    <input type="password" id="mdp" class="form-control input100" name="mdp" #password placeholder="Votre mot de passe" maxlength="20" required formControlName="password">
+                    <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                    <div class="msg-err" *ngIf="
+            changeForm.controls?.password.invalid &&
+          changeForm.controls?.password.touched">
+                        Le mot de passe est obligatoire
+                    </div>
+                </div>
+                <div class="wrap-input100 validate-input pass">
+                    <input type="password" id="mdp" class="form-control input100" name="mdp" #confirmpassword placeholder="Confirmer votre mot de passe" maxlength="20" required formControlName="confirmpassword">
+                    <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                    <div class="msg-err" *ngIf="
+            changeForm.controls?.confirmpassword.invalid &&
+            changeForm.controls?.confirmpassword.touched">
+                        Le mot de passe est obligatoire
+                    </div>
+                </div>
+                <div class="container-login100-form-btn">
+                    <button type="button" class="login100-form-btn" (click)="updatemp(password.value,confirmpassword.value)">Enregistrer</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

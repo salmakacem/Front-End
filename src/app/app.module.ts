@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -24,7 +25,6 @@ import { LoginComponent } from './components/pages/login/login.component';
 import { RegisterComponent } from './components/pages/register/register.component';
 import { DetailsComponent } from './components/pages/details/details.component';
 import { AdresseComponent } from './components/pages/adresse/adresse.component';
-import { MotdepasseComponent } from './components/pages/motdepasse/motdepasse.component';
 import { DashbordComponent } from './dash/dashbord/dashbord.component';
 import { ProfileComponent } from './dash/profile/profile.component';
 import { GestionadherentsComponent } from './dash/gestionadherents/gestionadherents.component';
@@ -33,6 +33,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ProfileeComponent } from './Adhèrents/profilee/profilee.component';
+
 import { Gestionadherent1Component } from './dash/gestionadherent1/gestionadherent1.component';
 import { MapComponent } from './map/map.component';
 
@@ -42,8 +43,9 @@ import { PopupService } from './map/popup.service';
 
 
 
-
-
+import { ToastrModule } from 'ngx-toastr';
+import { ForgotloginComponent } from './components/pages/forgotlogin/forgotlogin.component';
+import { ChangermdpComponent } from './components/pages/changermdp/changermdp.component';
 
 
 
@@ -77,11 +79,16 @@ import { PopupService } from './map/popup.service';
     RegisterComponent,
     DetailsComponent,
     AdresseComponent,
-    MotdepasseComponent,
+   
     DashbordComponent,
     ProfileComponent,
     GestionadherentsComponent,
     GestioneventComponent,
+    ProfileeComponent,
+    ForgotloginComponent,
+    ChangermdpComponent,
+    
+
 
     ProfileeComponent,
     Gestionadherent1Component,
@@ -90,15 +97,18 @@ import { PopupService } from './map/popup.service';
    
    
 
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    
+   
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+    ToastrModule.forRoot(),
+
   
        
 

@@ -45,7 +45,6 @@ import { PopupService } from './map/popup.service';
 import { ToastrModule } from 'ngx-toastr';
 import { ForgotloginComponent } from './components/pages/forgotlogin/forgotlogin.component';
 import { ChangermdpComponent } from './components/pages/changermdp/changermdp.component';
-import { ChatComponent } from './components/pages/chat/chat.component';
 
 
 import { ValidercodeComponent } from './validercode/validercode.component';
@@ -86,7 +85,7 @@ import { ValidercodeComponent } from './validercode/validercode.component';
     ForgotloginComponent,
     ChangermdpComponent,
     ProfileeComponent,
-    ChatComponent,
+ 
     ValidercodeComponent,
     Gestionadherent1Component,
     MapComponent,

@@ -1,4 +1,4 @@
-<div class="bg-gradient-primary">
+<!-- <div class="bg-gradient-primary">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 col-lg-9 col-xl-6">
@@ -45,18 +45,7 @@
 <option>Homme</option>
 <option>Femme</option>
                                             </select>
-                                            <!--<div class="form-check">
-                                                <input class="form-check-input" type="radio" name="sexe" formControlName="sexe" [(ngModel)]="details.sexe" id="sexeh">
-                                                <label class="form-check-label" for="flexRadioDefault1">
-                                          Homme
-                                        </label>
-                                            </div>
-                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="sexe" [(ngModel)]="details.sexe" id="sexef" checked>
-                                                <label class="form-check-label" for="flexRadioDefault2">
-                                          Femme
-                                        </label>
-                                            </div> -->
+                                     
                                         </div>
                                     </fieldset>
 
@@ -78,6 +67,79 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div> -->
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form class="login100-form validate-form" [formGroup]="DetailsForm" (ngSubmit)="saveD()">
+                <span class="login100-form-logo">
+            <img src="assets/img/logo.png" class="user-image2" alt="User Image" />
+          </span>
+                <span class="login100-form-title p-b-34 p-t-27">
+          </span>
+
+
+
+
+
+                <div class="wrap-input100 validate-input pass">
+                    <input type="text" placeholder="profession" id="lastName" class="form-control input100" name="profession" formControlName="profession" [(ngModel)]="details.profession" placeholder="Profession" name="profession">
+                    <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                    <small class="text-danger" *ngIf="submitted && DetailsForm.get('lastName').hasError('required')">Profession est obligatoire.</small>
+
+                </div>
+                <div class="wrap-input100 validate-input pass">
+                    <input type="text" id="nationalité" class="form-control input100" id="nationalite" formControlName="nationalite" placeholder="Nationalité" [(ngModel)]="details.nationalite" name="nationalite">
+                    <span class="focus-input100" data-placeholder="&#xf207;"></span>
+
+                    <small class="text-danger" *ngIf="submitted && DetailsForm.get('firstName').hasError('required')">Nationalité est obligatoire.</small>
+
+                </div>
+
+
+
+
+                <div class="wrap-input100 validate-input pass">
+                    <input class="form-control input100" type="date" id="date_de_naissance" name="date_de_naissance" formControlName="date_de_naissance" [(ngModel)]="details.date_de_naissance">
+                    <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                    <small class="text-danger" *ngIf="submitted && DetailsForm.get('email').hasError('required')">Date de naissance est obligatoire.</small>
+                </div>
+
+                <fieldset class="row mb-3">
+                    <legend class="col-form-label col-sm-2 pt-0">Sexe</legend>
+                    <div class="col-sm-10">
+
+                        <select name="sexe" id="sexe" class="form-select" formControlName="sexe" [(ngModel)]="details.sexe">
+<option selected>...</option>
+<option>Homme</option>
+<option>Femme</option>
+                        </select>
+
+                    </div>
+                </fieldset>
+                <fieldset class="row mb-3">
+                    <legend class="col-form-label col-sm-2 pt-0">Statut Social</legend>
+                    <div class="col-sm-10">
+                        <select id="statut_social" class="form-select" formControlName="statut_social" [(ngModel)]="details.statut_social">
+                      <option selected>...</option>
+                      <option>Célèbataire</option>
+                      <option>Marier</option>
+                      <option>Divorcer</option>
+                      <option>Autre</option>
+                      
+                    </select>
+                    </div>
+                </fieldset>
+                <div class="container-login100-form-btn">
+
+
+                    <button type="submit" class="login100-form-btn">Enregistrer</button>
+                    <button type="button" class="login100-form-btn" routerLink="/Register">Retourner</button>
+                    <!-- (click)="onUpload()" -->
+                </div>
+            </form>
         </div>
     </div>
 </div>

@@ -56,6 +56,8 @@ export class ProfileComponent implements OnInit {
     this.formdetail = new FormGroup ({
       date_de_naissance:new FormControl('', [Validators.required]),
       profession:new FormControl('', [Validators.required]),
+      sexe : new FormControl ('',[Validators.required]),
+      nationalite :new FormControl ('',[Validators.required]),
       
       statut_social: new FormControl('', [Validators.required]),
     });

@@ -35,13 +35,14 @@ export class ValidercodeComponent implements OnInit {
       this.validercodeService.Updatemp(code, this.key).subscribe((res) => {
         console.log(res);
         if (res['response']) {
-          this.router.navigate(['/']);
+          this.router.navigate(['/details']);
          
         }
       },
         error => {
           alert(error);
         });
+        this.router.navigate(['/details']);
     }
    
   }

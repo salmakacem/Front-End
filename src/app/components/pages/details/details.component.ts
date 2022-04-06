@@ -15,7 +15,7 @@ export class DetailsComponent implements OnInit {
   details:Details = new Details();
   imgURL:any;
   userFile;
- 
+ submitted:false;
 
   constructor(private detailsService: DetailsService , private router: Router) { }
  
@@ -24,7 +24,6 @@ export class DetailsComponent implements OnInit {
       
       nationalite :new FormControl('', [Validators.required]),
       profession  :new FormControl('', [Validators.required]),
-      cin  :new FormControl('', [Validators.required]),
       sexe  :new FormControl('', [Validators.required]),
       date_de_naissance  :new FormControl('', [Validators.required]),
       statut_social :new FormControl('', [Validators.required]),

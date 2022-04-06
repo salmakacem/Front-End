@@ -11,22 +11,17 @@
 
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link active" a routerLink="/dashbord" routerLinkActive="active"
-                            [routerLinkActiveOptions]="{exact: true}"><i
+                    <li class="nav-item"><a class="nav-link active" a routerLink="/dashbord" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i
                                 class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-                    <li class="nav-item"><a class="nav-link active" a routerLink="/profile" routerLinkActive="active"
-                            [routerLinkActiveOptions]="{exact: true}"><i
+                    <li class="nav-item"><a class="nav-link active" a routerLink="/profile" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i
                                 class="fas fa-user"></i><span>Profile</span></a></li>
-                    <li class="nav-item"><a class="nav-link active" a routerLink="/gestionadherents"
-                            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i
+                    <li class="nav-item"><a class="nav-link active" a routerLink="/gestionadherents" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i
                                 class="fas fa-table"></i><span>Géstion des adhérents</span></a></li>
-                    <li class="nav-item"><a class="nav-link active" a routerLink="/gestionevent"
-                            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i
+                    <li class="nav-item"><a class="nav-link active" a routerLink="/gestionevent" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i
                                 class="fas fa-table"></i><span>Géstion des Evénements</span></a></li>
 
                 </ul>
-                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0"
-                        id="sidebarToggle" type="button"></button></div>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
             </div>
         </nav>
 
@@ -58,8 +53,7 @@
                                                 aria-controls="dataTable" placeholder="Search"></label></div>
                                 </div>
                             </div>
-                            <div class="table-responsive table mt-2" style="display: inline;" id="dataTable" role="grid"
-                                aria-describedby="dataTable_info">
+                            <div class="table-responsive table mt-2" style="display: inline;" id="dataTable" role="grid" aria-describedby="dataTable_info">
                                 <table class="table" id="dataTable">
                                     <thead>
                                         <tr>
@@ -88,81 +82,45 @@
 
                                             <td>
                                                 <div class="btn-group">
-                                                    <div class="container-fluid"><button
-                                                            (click)="deleteAdressById(adres)" type="button"
-                                                            class="btn btn-primary"><i class="fa fa-trash"
+                                                    <div class="container-fluid"><button (click)="deleteAdressById(adres)" type="button" class="btn btn-primary"><i class="fa fa-trash"
                                                                 aria-hidden="true"></i></button></div>
-                                                    <div class="container-fluid"><button (click)="editAdresse(adres)"
-                                                            type="button" class="btn btn-primary" id="b1"
-                                                            data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    <div class="container-fluid"><button (click)="editAdresse(adres)" type="button" class="btn btn-primary" id="b1" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                             <i class="fa fa-wrench" aria-hidden="true"></i>
                                                         </button></div>
 
 
                                                 </div>
-                                                <div class="modal fade" id="exampleModal" tabindex="-1"
-                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Modifier
-                                                                    Adresse</h5>
-                                                                <button type="button" class="btn-close"
-                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                <h5 class="modal-title" id="exampleModalLabel">Modifier Adresse
+                                                                </h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body">
 
-                                                                <form class="user" [formGroup]="formadresse" >
+                                                                <form class="user" [formGroup]="formadresse">
                                                                     <div class="form-group row">
 
-                                                                        <div class="col-sm-6"><input
-                                                                                class="form-control form-control-user"
-                                                                                type="text" id="exampleFirstName"
-                                                                                placeholder="Région" name="region"
-                                                                                formControlName="region"></div>
-                                                                                <div class="col-sm-6"><input
-                                                                                    class="form-control form-control-user"
-                                                                                    type="text" id="exampleFirstName"
-                                                                                    placeholder="Etats" name="etats"
-                                                                                    formControlName="etats"></div>
+                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Région" name="region" formControlName="region"></div>
+                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Etats" name="etats" formControlName="etats"></div>
                                                                     </div>
                                                                     <div class="form-group row">
-                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input
-                                                                                class="form-control form-control-user"
-                                                                                type="text" id="exampleFirstName"
-                                                                                placeholder="Nom_de_ville"
-                                                                                name="city_name"
-                                                                                formControlName="city_name"></div>
-                                                                        <div class="col-sm-6"><input
-                                                                                class="form-control form-control-user"
-                                                                                type="text" id="exampleFirstName"
-                                                                                placeholder="Adresse_de_maison"
-                                                                                name="home_adress"
-                                                                                formControlName="home_adress"></div>
+                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Nom_de_ville" name="city_name" formControlName="city_name"></div>
+                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Adresse_de_maison" name="home_adress" formControlName="home_adress"></div>
                                                                     </div>
 
                                                                     <div class="form-group row">
-                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input
-                                                                                class="form-control form-control-user"
-                                                                                type="text" id="examplePasswordInput"
-                                                                                placeholder="Adresse_de_travail"
-                                                                                name="work_adress"
-                                                                                formControlName="work_adress"></div>
-                                                                        <div class="col-sm-6"><input
-                                                                                class="form-control form-control-user"
-                                                                                type="text"
-                                                                                id="exampleRepeatPasswordInput"
-                                                                                placeholder="ZIP" name="zip"
-                                                                                formControlName="zip"></div>
+                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="examplePasswordInput" placeholder="Adresse_de_travail" name="work_adress" formControlName="work_adress"></div>
+                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleRepeatPasswordInput" placeholder="ZIP" name="zip" formControlName="zip"></div>
                                                                     </div>
                                                                 </form>
 
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">Fermer</button>
-                                                                <button type="button" class="btn btn-primary" (click)=" updateAdress()"
-                                                                    >Enregistrer</button>
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                                                <button type="button" class="btn btn-primary" (click)=" updateAdress()">Enregistrer</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -222,13 +180,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="table-responsive table mt-2" style="display: inline;" id="dataTable" role="grid"
-                                aria-describedby="dataTable_info">
+                            <div class="table-responsive table mt-2" style="display: inline;" id="dataTable" role="grid" aria-describedby="dataTable_info">
                                 <table class="table my-0" id="dataTable">
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>cin</th>
+
                                             <th>Date_de_naissance</th>
                                             <th>Profession</th>
                                             <th>Statut_social</th>
@@ -243,7 +200,7 @@
                                         <tr *ngFor=" let det of listdetail ">
 
                                             <td>{{det.id}}</td>
-                                            <td>{{det.cin}}</td>
+
                                             <td>{{det.date_de_naissance}}</td>
                                             <td>{{det.profession}}</td>
 
@@ -262,73 +219,44 @@
 
                                                         <!-- Button trigger modal -->
                                                         <div class="container-fluid">
-                                                            <button type="button" (click)="editDetail(det)"
-                                                                class="btn btn-primary" id="b2" data-bs-toggle="modal"
-                                                                data-bs-target="#exampleModal1">
+                                                            <button type="button" (click)="editDetail(det)" class="btn btn-primary" id="b2" data-bs-toggle="modal" data-bs-target="#exampleModal1">
                                                                 <i class="fa fa-wrench" aria-hidden="true"></i>
                                                             </button></div>
                                                     </div>
                                                 </div>
 
                                                 <!-- Modal -->
-                                                <div class="modal fade" id="exampleModal1" tabindex="-1"
-                                                    aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                                                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel1">Modifier
-                                                                    Détail</h5>
+                                                                <h5 class="modal-title" id="exampleModalLabel1">Modifier Détail
+                                                                </h5>
 
                                                             </div>
                                                             <div class="modal-body">
 
                                                                 <form class="user" [formGroup]="formdetail">
-                                                                    
+
                                                                     <div class="form-group row">
-                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input
-                                                                                class="form-control form-control-user"
-                                                                                type="text" id="exampleFirstName"
-                                                                                placeholder="Date_de_naissance"
-                                                                                name="date_de_naissance" formControlName="date_de_naissance"></div>
-                                                                        <div class="col-sm-6"><input
-                                                                                class="form-control form-control-user"
-                                                                                type="text" id="exampleFirstName"
-                                                                                placeholder="Profession"
-                                                                                name="profession" formControlName="profession"></div>
+                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Date_de_naissance" name="date_de_naissance" formControlName="date_de_naissance"></div>
+                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Profession" name="profession" formControlName="profession"></div>
                                                                     </div>
 
                                                                     <div class="form-group row">
-                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input
-                                                                                class="form-control form-control-user"
-                                                                                type="text"
-                                                                                id="examplePasswordInput"
-                                                                                placeholder="Sexe" name="sexe" formControlName="sexe"></div>
-                                                                        <div class="col-sm-6"><input
-                                                                                class="form-control form-control-user"
-                                                                                type="text"
-                                                                                id="exampleRepeatPasswordInput"
-                                                                                placeholder="Nationalité"
-                                                                                name="nationalite" formControlName="nationalite"></div>
+                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="examplePasswordInput" placeholder="Sexe" name="sexe" formControlName="sexe"></div>
+                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleRepeatPasswordInput" placeholder="Nationalité" name="nationalite" formControlName="nationalite"></div>
                                                                     </div>
 
                                                                     <div class="form-group row">
-                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input
-                                                                                class="form-control form-control-user"
-                                                                                type="text" id="exampleFirstName"
-                                                                                placeholder="CIN" name="cin" formControlName="cin"></div>
-                                                                        <div class="col-sm-6"><input
-                                                                                class="form-control form-control-user"
-                                                                                type="text" id="exampleFirstName"
-                                                                                placeholder="Statut_social"
-                                                                                name="statut_social" formControlName="statut_social"></div>
+
+                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Statut_social" name="statut_social" formControlName="statut_social"></div>
                                                                     </div>
                                                                 </form>
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">Fermer</button>
-                                                                <button type="button" (click)=" updateDetails()"
-                                                                    class="btn btn-primary">Enregistrer</button>
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                                                <button type="button" (click)=" updateDetails()" class="btn btn-primary">Enregistrer</button>
                                                             </div>
                                                         </div>
                                                     </div>

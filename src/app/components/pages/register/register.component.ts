@@ -40,6 +40,7 @@ export class RegisterComponent implements OnInit {
       lastName :new FormControl('', [Validators.required]),
       email  :new FormControl('', [Validators.required,Validators.email]),
       password  :new FormControl('', [Validators.required]),
+      telephone:new FormControl('', [Validators.required]),
       
     });
     
@@ -55,7 +56,7 @@ export class RegisterComponent implements OnInit {
     }
    
     console.log(this.users);
-    this.router.navigateByUrl('/details')
+    //this.router.navigateByUrl('/details')
     this.registerService.Save(this.users).subscribe(
       
       data=>{

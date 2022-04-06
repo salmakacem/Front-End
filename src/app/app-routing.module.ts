@@ -31,7 +31,7 @@ import { GestioneventComponent } from './dash/gestionevent/gestionevent.componen
 import { ProfileeComponent } from './Adhèrents/profilee/profilee.component';
 import { AuthGuard } from './auth.guard';
 import { ChangermdpComponent } from './components/pages/changermdp/changermdp.component';
-import { ChatComponent } from './components/pages/chat/chat.component';
+
 import { ValidercodeComponent } from './validercode/validercode.component';
 
 import { Gestionadherent1Component } from './dash/gestionadherent1/gestionadherent1.component';
@@ -75,7 +75,7 @@ const routes: Routes = [
       path: 'reset/finish',
       component:ChangermdpComponent ,
     },
-    {path:'chat',component:ChatComponent},
+   
 
     {path: 'gestionadherent1', component: Gestionadherent1Component },
 

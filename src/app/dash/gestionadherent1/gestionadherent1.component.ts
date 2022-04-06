@@ -48,7 +48,7 @@ export class Gestionadherent1Component implements OnInit {
       profession:new FormControl ('', [Validators.required]),
       sexe : new FormControl ('',[Validators.required]),
       statut_social :new FormControl ('',[Validators.required]),
-      cin :new FormControl ('',[Validators.required]),
+    
       nationalite :new FormControl ('',[Validators.required]),
 
     });

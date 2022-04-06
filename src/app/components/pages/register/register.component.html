@@ -1,81 +1,148 @@
-<div class="bg-gradient-primary">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6 col-lg-4 col-xl-6">
-                <div class="card shadow-lg o-hidden border-2 my-5">
-                    <div class="card-body py-2">
+<!-- <div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <h4 class="text-dark mb-4">Créer un compte</h4>
+        </div>
+        <form class="login100-form validate-form" [formGroup]="registerForm" (ngSubmit)="save()">
+            <span class="login100-form-logo">
+                                    <img src="assets/img/logo.png" class="user-image2" alt="User Image" />
+                                  </span>
+            <span class="login100-form-title p-b-34 p-t-27">
+                                  </span>
+            <div class="wrap-input100 validate-nput">
+                <input type="test" id="Nom" class="form-control input100" name="Nom" formControlName="lastName" [(ngModel)]="users.lastName" required>
+                <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                <small class="text-danger" *ngIf="submitted && registerForm.get('lastName').hasError('required')">lastName is required.</small>
+                <div class="form-group row">
+                    <span class="login100-form-title p-b-34 p-t-27">
+                                    </span>
+                    <div class="wrap-input100 validate-nput">
+                        <input type="test" id="firstname" class="form-control input100" name="firstname" formControlName="firstName" [(ngModel)]="users.firstName" [(ngModel)]="users.firstName" required>
+                        <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                        <small class="text-danger" *ngIf="submitted && registerForm.get('firstName').hasError('required')">firstName is required.</small>
+
+
+                    </div>
+                    <div class="wrap-input100 validate-input pass">
+                        <input type="email" id="email" class="form-control input100" name="mdp" formControlName="email" aria-describedby="emailHelp" [(ngModel)]="users.email" placeholder="Email " name="email">
+                        <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                        <small class="text-danger" *ngIf="submitted && registerForm.get('email').hasError('required')">email is required.</small>
+                        <small class="text-danger" *ngIf="submitted && registerForm.get('email').hasError('email')">email is invalid.</small>
 
 
 
-                        <div class="p-5">
-                            <div class="text-center">
-                                <h4 class="text-dark mb-4">Créer un compte</h4>
+                    </div>
+
+                    <span class="login100-form-title p-b-34 p-t-27">
+                                </span>
+                    <div class="wrap-input100 validate-nput">
+                        <input type="password" id="mdp" class="form-control input100" name="mdp" formControlName="password" id="examplePasswordInput" [(ngModel)]="users.password" placeholder="Mot de passe" name="password">
+                        <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                        <small class="text-danger" *ngIf="submitted && registerForm.get('password').hasError('required')">password is required.</small>
+
+
+                        <div class="widget-content-left">
+                            <div class="btn-group">
+                                <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
+                                    <img *ngIf="thumbnail !== ''" width="42" class="rounded-circle" [src]='thumbnail' alt="">
+                                    <img *ngIf="thumbnail == '' " width="42" class="rounded-circle" src="assets/img/avatars/avatar1.jpeg" alt="">
+                                </a>
+
                             </div>
-                            <form class="user" [formGroup]="registerForm" (ngSubmit)="save()">
-                                <div class="form-group row">
-
-                                    <div class="col-sm-6 mb-3 mb-sm-0 ">
-
-                                        <input class="form-control form-control-user" type="text" id="lastname" formControlName="lastName" [(ngModel)]="users.lastName" placeholder="Nom" name="lastame">
-                                        <small class="text-danger" *ngIf="submitted && registerForm.get('lastName').hasError('required')">lastName is required.</small>
-
-                                    </div>
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input class="form-control form-control-user" type="text" id="firstname" name="firstname" formControlName="firstName" placeholder="Prénom" [(ngModel)]="users.firstName">
-                                        <small class="text-danger" *ngIf="submitted && registerForm.get('firstName').hasError('required')">firstName is required.</small>
-
-                                    </div>
-
-
-
-
-
-
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control form-control-user" type="email" id="email" formControlName="email" aria-describedby="emailHelp" [(ngModel)]="users.email" placeholder="Email Address" name="email"></div>
-                                <small class="text-danger" *ngIf="submitted && registerForm.get('email').hasError('required')">email is required.</small>
-                                <small class="text-danger" *ngIf="submitted && registerForm.get('email').hasError('email')">email is invalid.</small>
-
-
-
-                                <div class="form-group row">
-
-                                    <input class="form-control form-control-user" type="password" formControlName="password" id="examplePasswordInput" [(ngModel)]="users.password" placeholder="Mot de passe" name="password">
-                                    <small class="text-danger" *ngIf="submitted && registerForm.get('password').hasError('required')">password is required.</small>
-
-                                </div>
-                                <div class="widget-content-left">
-                                    <div class="btn-group">
-                                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                            <img *ngIf="thumbnail !== ''" width="42" class="rounded-circle" [src]='thumbnail' alt="">
-                                            <img *ngIf="thumbnail == '' " width="42" class="rounded-circle" src="assets/img/avatars/avatar1.jpeg" alt="">
-                                        </a>
-
-                                    </div>
-                                </div>
-                                <div id="file-upload-form" class="uploader">
-                                    <!-- <i class="fa fa-download" aria-hidden="true"></i> -->
-                                    <input id="file-upload" type="file" name="fileUpload" accept="image/*" (change)="onFileChanged($event)" />
-                                    <label for="file-upload" id="file-drag">
+                        </div>
+                        <div id="file-upload-form" class="uploader">
+                          
+                            <input id="file-upload" type="file" name="fileUpload" accept="image/*" (change)="onFileChanged($event)" />
+                            <label for="file-upload" id="file-drag">
                                       <div id="start">
                                       
                                     
                                       </div>
                                     </label>
-                                </div>
-                                <br>
-                                <button (click)="onUpload()" type="submit" class="btn btn-primary" data-dismiss="modal" (click)="Restlogin(registerForm.get('email').value)">
+                        </div>
+                        <br>
+                        <button (click)="onUpload()" type="submit" class="btn btn-primary" data-dismiss="modal" (click)="Restlogin(registerForm.get('email').value)">
                                     Enregistrer
                                   </button>
-
-                            </form>
-
-                            <div class="text-center"><a class="small" a routerLink="/login" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" style="color: brown;">Avez-vous déjà un mot de passe? Authentifier!</a></div>
-                        </div>
                     </div>
                 </div>
             </div>
+        </form>
+
+        <div class="text-center"><a class="small" a routerLink="/login" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" style="color: brown;">Avez-vous déjà un mot de passe? Authentifier!</a></div>
+    </div>
+</div> -->
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form class="login100-form validate-form" [formGroup]="registerForm" (ngSubmit)="save()">
+                <span class="login100-form-logo">
+            <img src="assets/img/logo.png" class="user-image2" alt="User Image" />
+          </span>
+                <span class="login100-form-title p-b-34 p-t-27">
+          </span>
+
+
+
+
+                <div class="wrap-input100 validate-input pass">
+                    <input type="text" placeholder="Nom d'utilisateur" id="lastName" class="form-control input100" name="lastName" formControlName="lastName" [(ngModel)]="users.lastName" required>
+                    <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                    <small class="text-danger" *ngIf="submitted && registerForm.get('lastName').hasError('required')">Nom est obligatoire.</small>
+
+
+
+
+                </div>
+                <div class="wrap-input100 validate-input pass">
+                    <input type="text" id="firstName" class="form-control input100" name="firstName" placeholder="Prénom" formControlName="firstName" [(ngModel)]="users.firstName" [(ngModel)]="users.firstName" required>
+                    <span class="focus-input100" data-placeholder="&#xf207;"></span>
+
+                    <small class="text-danger" *ngIf="submitted && registerForm.get('firstName').hasError('required')">Prénom est obligatoire.</small>
+
+                </div>
+
+
+
+
+                <div class="wrap-input100 validate-input pass">
+                    <input type="email" id="mdp" class="form-control input100" name="email" formControlName="email" aria-describedby="emailHelp" [(ngModel)]="users.email" placeholder="Email " name="email">
+                    <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                    <small class="text-danger" *ngIf="submitted && registerForm.get('email').hasError('required')">email est obligatoire.</small>
+                    <small class="text-danger" *ngIf="submitted && registerForm.get('email').hasError('email')">email est invalid.</small>
+
+                </div>
+
+                <div class="wrap-input100 validate-input pass">
+                    <input type="text" id="password" class="form-control input100" name="mdp" formControlName="password" id="examplePasswordInput" [(ngModel)]="users.password" placeholder="Mot de passe" name="password">
+                    <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                    <small class="text-danger" *ngIf="submitted && registerForm.get('password').hasError('required')">Mot de passe est obligatoire.</small>
+
+                </div>
+
+                <div class="wrap-input100 validate-input pass">
+                    <input type="text" id="telephone" class="form-control input100" name="telephone" formControlName="telephone" id="telephone" [(ngModel)]="users.telephone" placeholder="telephone" name="telephone">
+                    <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                    <small class="text-danger" *ngIf="submitted && registerForm.get('telephone').hasError('required')">telephone est obligatoire.</small>
+
+                </div>
+
+                <div class="widget-content-left">
+                    <div class="btn-group">
+                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
+                            <img *ngIf="thumbnail !== ''" width="42" class="rounded-circle" [src]='thumbnail' alt="">
+                            <img *ngIf="thumbnail == '' " width="42" class="rounded-circle" src="assets/img/avatars/avatar1.jpeg" alt="">
+                        </a>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+
+
+                        <button type="submit" class="login100-form-btn" (click)="Restlogin(registerForm.get('email').value)">Enregistrer</button>
+                        <!-- (click)="onUpload()" -->
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>

@@ -70,7 +70,7 @@
                                     <div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in">
                                         <h6 class="dropdown-header">alerts center</h6>
                                         <a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="assets/img/avatars/avatar4.jpeg">
+                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="">
                                                 <div class="bg-success status-indicator"></div>
                                             </div>
                                             <div class="font-weight-bold">
@@ -79,7 +79,7 @@
                                             </div>
                                         </a>
                                         <a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="assets/img/avatars/avatar2.jpeg">
+                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="">
                                                 <div class="status-indicator"></div>
                                             </div>
                                             <div class="font-weight-bold">
@@ -88,7 +88,7 @@
                                             </div>
                                         </a>
                                         <a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="assets/img/avatars/avatar3.jpeg">
+                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="">
                                                 <div class="bg-warning status-indicator"></div>
                                             </div>
                                             <div class="font-weight-bold">
@@ -97,7 +97,7 @@
                                             </div>
                                         </a>
                                         <a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="assets/img/avatars/avatar5.jpeg">
+                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="">
                                                 <div class="bg-success status-indicator"></div>
                                             </div>
                                             <div class="font-weight-bold">
@@ -110,9 +110,9 @@
                             </li>
                             <div class="d-none d-sm-block topbar-divider"></div>
                             <li class="nav-item dropdown no-arrow">
-                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small">Valerie Luna</span><img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg"></a>
-                                    <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
-                                        <a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a>
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small">Administrateur</span><img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg"></a>
+                                    <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in">
+
                                         <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a></div>
                                 </div>
                             </li>
@@ -124,11 +124,155 @@
                     <div class="row mb-3">
                         <div class="col-lg-4">
                             <div class="card mb-3">
-                                <div class="card-body text-center shadow"><img class="rounded-circle mb-3 mt-4" src="assets/img/dogs/image2.jpeg" width="160" height="160">
-                                    <div class="mb-3"><button class="btn btn-primary btn-sm" type="button">Change Photo</button></div>
+                                <div class="card-body text-center shadow">
+                                    <div class="mb-3">
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-3 order-lg-2">
+                                                <div class="card-profile-image">
+                                                    <a href="javascript:void(0)">
+                                                        <img [src]="thumbnail" class="rounded-circle" style="width: 100px;height: 100px;">
+
+
+
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1">Modifier la photo de Photo</button>
+
+
+
+                                        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-body p-0">
+                                                        <div class="card bg-secondary shadow border-0">
+                                                            <div class="card-header bg-white">
+                                                                <div class="text-muted text-center">
+                                                                    <h3>Changer la photo du profil</h3>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-body px-lg-5 py-lg-5">
+
+                                                                <form role="form" [formGroup]="">
+                                                                    <div class="custom-file hedha">
+                                                                        <input type="file" class="custom-file-input" accept="image/*" (change)="onSelectFile($event)" id="customFileLang" lang="en">
+                                                                        <label class="custom-file-label" for="customFileLang">image selectionée</label>
+                                                                    </div>
+                                                                    <div class="text-center">
+                                                                        <span class=" rounded-circle">
+                                                              <img class=" rounded-circle"  style="width: 100px;" [src]="imageSrc">
+                                                            </span> </div>
+
+                                                                    <div class="text-center" *ngIf="selected">
+                                                                        <button type="submit" (click)="onUploadc()" (click)="getProfileImg" (click)="successSwal()" class="btn btn-sm btn-primary mt-4">Changer la photo du profil</button>
+                                                                    </div>
+
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="modal-footer">
+
+                                                        <button id="closeModalButton" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
                             </div>
 
+
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-body p-0">
+                                        <div class="card bg-secondary shadow border-0">
+                                            <div class="card-header bg-white">
+                                                <div class="text-muted text-center">
+                                                    <h3>Changer mot de passe</h3>
+                                                </div>
+                                            </div>
+                                            <div class="card-body px-lg-5 py-lg-5">
+                                                <form role="form" [formGroup]="resetPasswordForm" (ngSubmit)="passwordReset()">
+                                                    <div class="form-group">
+                                                        <div class="input-group input-group-alternative mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">
+                                          <i class="ni ni-lock-circle-open"></i></span>
+                                                            </div>
+                                                            <input class="form-control text-dark" placeholder="Votre mot de passe actuel" formControlName="passwordAct" [type]="type_input ? 'text' : 'password'">
+                                                            <div class="input-group-append ">
+                                                                <span class="input-group-text">
+                                          <i [ngClass]="{
+                                            'fa-eye-slash': !type_input,
+                                            'fa-eye': type_input
+                                          }" (click)="changeInput1()" class="fa fa-eye-slash icon-pass "></i>
+                                        </span>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="input-group input-group-alternative mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">
+                                          <i class="ni ni-lock-circle-open"></i></span>
+                                                            </div>
+                                                            <input class="form-control text-dark" placeholder="Votre nouveau mot de passe" formControlName="passwordNew" [type]="type_input2 ? 'text' : 'password'">
+                                                            <div class="input-group-append ">
+                                                                <span class="input-group-text">
+                                          <i [ngClass]="{
+                                            'fa-eye-slash': !type_input2,
+                                            'fa-eye': type_input2
+                                          }" (click)="changeInput2()" class="fa fa-eye-slash icon-pass "></i>
+                                        </span>
+                                                            </div>
+
+
+                                                        </div>
+
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="input-group input-group-alternative mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">
+                                          <i class="ni ni-lock-circle-open"></i></span>
+                                                            </div>
+                                                            <input class="form-control text-dark" placeholder="Confirmez mot de passe" formControlName="passwordConf" [type]="type_input3 ? 'text' : 'password'">
+                                                            <div class="input-group-append ">
+                                                                <span class="input-group-text">
+                                          <i [ngClass]="{
+                                            'fa-eye-slash': !type_input3,
+                                            'fa-eye': type_input3
+                                          }" (click)="changeInput3()" class="fa fa-eye-slash icon-pass "></i>
+                                        </span>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <button type="submit" [disabled]="resetPasswordForm.invalid" class="btn btn-primary mt-4">Changer mot de
+                                      passe</button>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                         <div class="col-lg-8">
                             <div class="row mb-3 d-none">
@@ -207,7 +351,6 @@
                                                 </div>
 
 
-
                                             </form>
                                             <div class="col-md-2">
                                                 <div *ngIf="!edit">
@@ -236,19 +379,14 @@
                                                 <div class="form-row">
 
                                                     <div class="col">
-                                                        <p class="proile-rating">Profession : <span style="color: black;">{{details.profession}}</span></p>
+                                                        <p class="proile-rating">Profession : <span style="color: black;">{{details?.profession}}</span></p>
 
-                                                        <p class="proile-rating">Date de naissance : <span style="color: black;">{{details.date_de_naissance}}</span></p>
-                                                        <p class="proile-rating">Statut social: <span style="color: black;">{{details.statut_social}}</span></p>
-                                                        <p class="proile-rating">Sexe: <span style="color: black;">{{details.sexe}}</span></p>
-                                                        <p class="proile-rating">Nationalité: <span style="color: black;">{{details.nationalite}}</span></p>
+                                                        <p class="proile-rating">Date de naissance : <span style="color: black;">{{details?.date_de_naissance}}</span></p>
+                                                        <p class="proile-rating">Statut social: <span style="color: black;">{{details?.statut_social}}</span></p>
+                                                        <p class="proile-rating">Sexe: <span style="color: black;">{{details?.sexe}}</span></p>
+                                                        <p class="proile-rating">Nationalité: <span style="color: black;">{{details?.nationalite}}</span></p>
                                                     </div>
                                                 </div>
-
-
-
-
-
 
                                             </form>
 
@@ -259,11 +397,11 @@
                                             <form [formGroup]="formadresse">
                                                 <div class="form-row">
                                                     <div class="col">
-                                                        <p class="proile-rating">Nom de ville: <span style="color: black;">{{adresse.city_name}}</span></p>
+                                                        <p class="proile-rating">Nom de ville: <span style="color: black;">{{adresse?.city_name}}</span></p>
 
-                                                        <p class="proile-rating">Adresse de maison : <span style="color: black;">{{adresse.home_adress}}</span></p>
-                                                        <p class="proile-rating">Adresse de travail: <span style="color: black;">{{adresse.work_adress}}</span></p>
-                                                        <p class="proile-rating">Région: <span style="color: black;">{{adresse.region}}</span></p>
+                                                        <p class="proile-rating">Adresse de maison : <span style="color: black;">{{adresse?.home_adress}}</span></p>
+                                                        <p class="proile-rating">Adresse de travail: <span style="color: black;">{{adresse?.work_adress}}</span></p>
+                                                        <p class="proile-rating">Région: <span style="color: black;">{{adresse?.region}}</span></p>
                                                     </div>
                                                 </div>
                                             </form>
@@ -276,11 +414,4 @@
                     </div>
 
                 </div>
-            </div>
-
-
-        </div>
-
-
-    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
-</div>
+                <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>

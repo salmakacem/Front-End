@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CONFIG } from 'src/environments/environment';
 
@@ -9,6 +9,7 @@ import { CONFIG } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ProfileadmineService {
+  urlImg: string;
   
   constructor(private http: HttpClient) { }
 
@@ -47,9 +48,22 @@ export class ProfileadmineService {
     }
 
 
-
-  
-  
+     upload_photo(data,id){
+      const  token = localStorage.getItem('token');
+      const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
+      let params = new HttpParams();
+      params = params.set('id', id);
+       return this.http.post(CONFIG.URL+"users/upload_photo_c",data,{ headers: headers,params:params, responseType: 'text' });
+    }
+ 
+    getphoto(id){
+      const  token = localStorage.getItem('token');
+      const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
+      
+      // let params = new HttpParams();
+      // params = params.set('id', id);
+       return this.http.get(CONFIG.URL+"users/get_photo_c/"+id,{ headers: headers, responseType: 'json' });
+    }
 
   
 }

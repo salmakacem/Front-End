@@ -81,15 +81,12 @@ import { ValidercodeComponent } from './validercode/validercode.component';
     ProfileComponent,
     GestionadherentsComponent,
     GestioneventComponent,
-    ProfileeComponent,
     ForgotloginComponent,
     ChangermdpComponent,
-    ProfileeComponent,
- 
     ValidercodeComponent,
     Gestionadherent1Component,
     MapComponent,
-
+    ProfileeComponent,
    
    
 
@@ -99,7 +96,6 @@ import { ValidercodeComponent } from './validercode/validercode.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-   
     FormsModule,
     ReactiveFormsModule,
     RouterModule,

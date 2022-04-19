@@ -132,12 +132,46 @@
                     </select>
                     </div>
                 </fieldset>
+
+                <div class="container row">
+                    <div class="col-md-12">
+                        <h3>Insérer votre carte d'identité</h3>
+                    </div>
+                </div>
+                <div class="container row">
+                    <div class="col-md-9">
+                        <input type="file" (change)="onFileChanged($event)">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="button" (click)="onUpload()" value="upload">
+                    </div>
+                </div>
+                <hr />
+                <div class="container row">
+                    <div class="col-md-12">
+                        <div *ngIf=message>{{message}}</div>
+                    </div>
+                </div>
+                <!-- <div class="container row">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="name" placeholder="image name" [(ngModel)]="imageName" name="name" />
+                    </div>
+                    <div class="col-md-6">
+                        <input type="button" (click)="getImage()" value="Get Image">
+                    </div>
+                </div> -->
+                <div class="container row">
+                    <div class="col-md-12">
+                        <div *ngIf=thumbnail>
+                            <img [src]="thumbnail">
+                        </div>
+                    </div>
+                </div>
                 <div class="container-login100-form-btn">
-
-
                     <button type="submit" class="login100-form-btn">Enregistrer</button>
                     <button type="button" class="login100-form-btn" routerLink="/Register">Retourner</button>
                     <!-- (click)="onUpload()" -->
+
                 </div>
             </form>
         </div>

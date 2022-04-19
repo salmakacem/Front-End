@@ -128,18 +128,12 @@
                 </div>
 
                 <div class="widget-content-left">
-                    <div class="btn-group">
-                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                            <img *ngIf="thumbnail !== ''" width="42" class="rounded-circle" [src]='thumbnail' alt="">
-                            <img *ngIf="thumbnail == '' " width="42" class="rounded-circle" src="assets/img/avatars/avatar1.jpeg" alt="">
-                        </a>
-                    </div>
+
 
                     <div class="container-login100-form-btn">
 
 
                         <button type="submit" class="login100-form-btn" (click)="Restlogin(registerForm.get('email').value)">Enregistrer</button>
-                        <!-- (click)="onUpload()" -->
                     </div>
                 </div>
             </form>

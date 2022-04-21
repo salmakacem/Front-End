@@ -1,3 +1,4 @@
+import { AuthServiceService } from './../../services/auth-service.service';
 import { CONFIG } from './../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, Inject, OnInit, NgModule } from '@angular/core';
@@ -65,7 +66,7 @@ export class ProfileeComponent implements OnInit {
   type_input3: boolean;
   type_input2: any;
   
-  constructor(private route:Router, private profileservice: ProfileService, private adressservice: AdressService,
+  constructor(private route:Router, private profileservice: ProfileService, private adressservice: AdressService,private authService:AuthServiceService,
     private detailsservice: DetailsService,private httpClient:HttpClient,private sanitizer:DomSanitizer,private formBuilder:FormBuilder
     ) { }
     
@@ -107,7 +108,7 @@ export class ProfileeComponent implements OnInit {
 
     });
     this.resetPasswordForm = this.formBuilder.group({
-
+     
       passwordAct: ['', Validators.required],
       passwordNew: ['', Validators.required],
       passwordConf: ['', Validators.required]
@@ -116,58 +117,29 @@ export class ProfileeComponent implements OnInit {
       validator: MustMatch('passwordNew', 'passwordConf')
     });
   }
-  get f() { return this.resetPasswordForm.controls; }
-  passwordReset() {
-    
-{
-      let resp = this.profileservice.resetPassword( Token,this.user.id, this.resetPasswordForm.get('passwordAct').value, this.resetPasswordForm.get('passwordNew').value);
-      resp.subscribe(data => {
-        if (data == true) {
-          Swal.fire({
-            icon: 'success',
-            title: 'Votre mot de passe est modifié avec succés',
-            text: ''
-          })
-        } else {
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Votre mot de passe actuel est incorrecte',
-
-          })
-
-        }
-      }
-
-      );
+  submitForm() {
+    this.submitted=true;
+    if (this.resetPasswordForm.invalid) {
+      return;
     }
-{
-      let resp = this.profileservice.resetPassword(Token, this.user.id, this.resetPasswordForm.get('passwordAct').value, this.resetPasswordForm.get('passwordNew').value);
-      resp.subscribe(data => {
-        if (data == true) {
-         
-          Swal.fire({
-            icon: 'success',
-            title: '',
-            text: 'Votre mot de passe est modifié avec succés'
-          }).then((result)=>{
-            window.location.reload();
-          })
-        } else {
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Votre mot de passe actuel est incorrecte',
-
-          })
-
-        }
-      }
-
-      );
+  this.profileservice.change_password(this.resetPasswordForm.value).subscribe(
+    (msg) => {
+      console.log(msg)
+    },
+    (error) => {
+      console.log(error)
+    },
+    () => { 
+     this.authService. logout();
+    })  
     }
+    successSwal1(){
+      Swal.fire({
+        icon: 'success',
+        title: 'Votre mot de passeS est modifié avec succés',
+        text: ''
+      })
     }
- 
      successSwal(){
        Swal.fire({
          icon: 'success',

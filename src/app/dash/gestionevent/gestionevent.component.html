@@ -12,22 +12,17 @@
 
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link active" a routerLink="/dashbord" routerLinkActive="active"
-                            [routerLinkActiveOptions]="{exact: true}"><i
+                    <li class="nav-item"><a class="nav-link active" a routerLink="/dashbord" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i
                                 class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-                    <li class="nav-item"><a class="nav-link active" a routerLink="/profile" routerLinkActive="active"
-                            [routerLinkActiveOptions]="{exact: true}"><i
+                    <li class="nav-item"><a class="nav-link active" a routerLink="/profile" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i
                                 class="fas fa-user"></i><span>Profile</span></a></li>
-                    <li class="nav-item"><a class="nav-link active" a routerLink="/gestionevent"
-                            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i
+                    <li class="nav-item"><a class="nav-link active" a routerLink="/gestionevent" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i
                                 class="fas fa-table"></i><span>Géstion des Evénements</span></a></li>
-                    <li class="nav-item"><a class="nav-link active" a routerLink="/gestionadherents"
-                            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i
+                    <li class="nav-item"><a class="nav-link active" a routerLink="/gestionadherents" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i
                                 class="fas fa-table"></i><span>Géstion des adhérents</span></a></li>
 
                 </ul>
-                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0"
-                        id="sidebarToggle" type="button"></button></div>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
             </div>
         </nav>
 
@@ -60,8 +55,7 @@
                                                 aria-controls="dataTable" placeholder="Search"></label></div>
                                 </div>
                             </div>
-                            <div class="table-responsive table mt-2" style="display: inline;" id="dataTable" role="grid"
-                                aria-describedby="dataTable_info">
+                            <div class="table-responsive table mt-2" style="display: inline;" id="dataTable" role="grid" aria-describedby="dataTable_info">
                                 <table class="table my-0" id="dataTable">
                                     <thead>
                                         <tr>
@@ -84,48 +78,48 @@
                                     <tbody>
                                         <tr>
 
-                                            <td></td>
-                                            <td></td>
+                                            <td>
+
+                                            </td>
+                                            <td>
+                                                <a href="javascript:void(0)">
+                                                    <img [src]="thumbnail" class="rounded-circle" style="width: 100px;height: 100px;">
+
+
+
+                                                </a>
+                                            </td>
                                             <td></td>
 
                                             <td></td>
 
                                             <td>
                                                 <div class="btn-group">
-                                                    <div class="container-fluid"><button class="btn btn-primary"
-                                                            type="button"><i class="fa fa-trash"
+                                                    <div class="container-fluid"><button class="btn btn-primary" type="button"><i class="fa fa-trash"
                                                                 aria-hidden="true"></i></button></div>
-                                                    <div class="container-fluid"><button type="button"
-                                                            class="btn btn-primary" id="b1" data-bs-toggle="modal"
-                                                            data-bs-target="#exampleModal">
+                                                    <div class="container-fluid"><button type="button" class="btn btn-primary" id="b1" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                             <i class="fa fa-wrench" aria-hidden="true"></i>
+                                                        </button></div>
+                                                    <div class="container-fluid"><button type="button" class="btn btn-primary" id="b2" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                                        <i class="fa fa-plus" aria-hidden="true"></i>
                                                         </button></div>
                                                 </div>
 
                                                 <!-- Modal -->
-                                                <div class="modal fade" id="exampleModal" tabindex="-1"
-                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Modifier
-                                                                    Evénements</h5>
-                                                                <button type="button" class="btn-close"
-                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                <h5 class="modal-title" id="exampleModalLabel">Modifier Evénements
+                                                                </h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body">
 
                                                                 <form class="user">
                                                                     <div class="form-group row">
-                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input
-                                                                                class="form-control form-control-user"
-                                                                                type="text" id="exampleFirstName"
-                                                                                placeholder="nom_de_event"
-                                                                                name="nom_event"></div>
-                                                                        <div class="col-sm-6"><input
-                                                                                class="form-control form-control-user"
-                                                                                type="text" id="exampleFirstName"
-                                                                                placeholder="Date" name="date"></div>
+                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="nom_de_event" name="nom_event"></div>
+                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Date" name="date"></div>
                                                                     </div>
 
 
@@ -133,13 +127,55 @@
                                                                 </form>
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">Fermer</button>
-                                                                <button type="button"
-                                                                    class="btn btn-primary">Enregistrer</button>
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                                                <button type="button" class="btn btn-primary">Enregistrer</button>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                </div>
+                                                <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel1">Modifier Evénements
+                                                                </h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+
+                                                                <form class="user">
+                                                                    <div class="form-group row">
+                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="exampleFirstName1" placeholder="nom_de_event" name="nom_event"></div>
+                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName1" placeholder="Date" name="date"></div>
+                                                                        <div class="card-body px-lg-5 py-lg-5">
+
+                                                                            <form role="form" [formGroup]="">
+                                                                                <div class="custom-file hedha">
+                                                                                    <input type="file" class="custom-file-input" accept="image/*" (change)="onSelectFile($event)" id="customFileLang" lang="en">
+                                                                                    <label class="custom-file-label" for="customFileLang">image selectionée</label>
+                                                                                </div>
+                                                                                <div class="text-center">
+                                                                                    <span class=" rounded-circle">
+                                                                          <img class=" rounded-circle"  style="width: 100px;" [src]="imageSrc">
+                                                                        </span> </div>
+
+                                                                                <div class="text-center" *ngIf="selected">
+                                                                                    <button type="submit" (click)="onUploadc()" (click)="getProfileImg" class="btn btn-sm btn-primary mt-4">Changer la photo du profil</button>
+                                                                                </div>
+
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                                                <button type="button" class="btn btn-primary" (click)="successSwal()">Enregistrer</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </div>
                                             </td>
 
@@ -170,129 +206,99 @@
                                             </select>&nbsp;</label></div>
                                 </div>
 
-                            <div class="col-md-6">
-                                <div class="text-md-right dataTables_filter" id="dataTable_filter"><label><input
+                                <div class="col-md-6">
+                                    <div class="text-md-right dataTables_filter" id="dataTable_filter"><label><input
                                             type="search" class="form-control form-control-sm"
                                             aria-controls="dataTable" placeholder="Search"></label></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="table-responsive table mt-2" style="display: inline;" id="dataTable" role="grid"
-                            aria-describedby="dataTable_info">
-                            <table class="table my-0" id="dataTable">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
+                            <div class="table-responsive table mt-2" style="display: inline;" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                                <table class="table my-0" id="dataTable">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
 
-                                        <th>Région</th>
-                                        <th>Nom_de_ville</th>
-                                        <th>Adresse_de_maison</th>
-                                        <th>Adresse_de_travail</th>
+                                            <th>Région</th>
+                                            <th>Nom_de_ville</th>
+                                            <th>Adresse_de_maison</th>
+                                            <th>Adresse_de_travail</th>
 
-                                        <th>ZIP</th>
-                                        <th>Etats</th>
+                                            <th>ZIP</th>
+                                            <th>Etats</th>
 
-                                        <th>Actions</th>
+                                            <th>Actions</th>
 
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor=" let adres of listadress ">
-                                        <td>{{adres.id}}</td>
-                                        <td>{{adres.region}}</td>
-                                        <td>{{adres.city_name}}</td>
-                                        <td>{{adres.home_adress}}</td>
-                                        <td>{{adres.work_adress}}</td>
-                                        <td>{{adres.zip}}</td>
-                                        <td>{{adres.etats}}</td>
-                                        <td>
-                                            <div>
-                                                <div class="btn-group">
-                                                    <div class="container-fluid"><button class="btn btn-primary"
-                                                            type="button"><i class="fa fa-trash"></i></button></div>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor=" let adres of listadress ">
+                                            <td>{{adres.id}}</td>
+                                            <td>{{adres.region}}</td>
+                                            <td>{{adres.city_name}}</td>
+                                            <td>{{adres.home_adress}}</td>
+                                            <td>{{adres.work_adress}}</td>
+                                            <td>{{adres.zip}}</td>
+                                            <td>{{adres.etats}}</td>
+                                            <td>
+                                                <div>
+                                                    <div class="btn-group">
+                                                        <div class="container-fluid"><button class="btn btn-primary" type="button"><i class="fa fa-trash"></i></button></div>
 
-                                                    <!-- Button trigger modal -->
-                                                    <div class="container-fluid"><button type="button"
-                                                            class="btn btn-primary" id="b1" data-bs-toggle="modal"
-                                                            data-bs-target="#exampleModal1">
+                                                        <!-- Button trigger modal -->
+                                                        <div class="container-fluid"><button type="button" class="btn btn-primary" id="b1" data-bs-toggle="modal" data-bs-target="#exampleModal1">
                                                             <i class="fa fa-wrench" id="1" aria-hidden="true"></i>
                                                         </button></div>
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="exampleModal1" tabindex="-1"
-                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel1">Modifier
-                                                                Adresse</h5>
-                                                            <button type="button" class="btn-close"
-                                                                data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel1">Modifier Adresse
+                                                                </h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
 
-                                                            <form class="user">
-                                                                <div class="form-group row">
-                                                                    <div class="col-sm-6 mb-3 mb-sm-0"><input
-                                                                            class="form-control form-control-user"
-                                                                            type="text" id="exampleFirstName"
-                                                                            placeholder="Pays" name="pays"></div>
-                                                                    <div class="col-sm-6"><input
-                                                                            class="form-control form-control-user"
-                                                                            type="text" id="exampleFirstName"
-                                                                            placeholder="Région" name="région"></div>
-                                                                </div>
-                                                                <div class="form-group row">
-                                                                    <div class="col-sm-6 mb-3 mb-sm-0"><input
-                                                                            class="form-control form-control-user"
-                                                                            type="text" id="exampleFirstName"
-                                                                            placeholder="Nom_de_ville"
-                                                                            name="nom_de_ville"></div>
-                                                                    <div class="col-sm-6"><input
-                                                                            class="form-control form-control-user"
-                                                                            type="text" id="exampleFirstName"
-                                                                            placeholder="Adresse_de_maison"
-                                                                            name="adresse_de_maison"></div>
-                                                                </div>
+                                                                <form class="user">
+                                                                    <div class="form-group row">
+                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Pays" name="pays"></div>
+                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Région" name="région"></div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Nom_de_ville" name="nom_de_ville"></div>
+                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Adresse_de_maison" name="adresse_de_maison"></div>
+                                                                    </div>
 
-                                                                <div class="form-group row">
-                                                                    <div class="col-sm-6 mb-3 mb-sm-0"><input
-                                                                            class="form-control form-control-user"
-                                                                            type="password" id="examplePasswordInput"
-                                                                            placeholder="Adresse_de_travail"
-                                                                            name="adresse_de_travail"></div>
-                                                                    <div class="col-sm-6"><input
-                                                                            class="form-control form-control-user"
-                                                                            type="password"
-                                                                            id="exampleRepeatPasswordInput"
-                                                                            placeholder="ZIP" name="zip"></div>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-bs-dismiss="modal">Fermer</button>
-                                                            <button type="button"
-                                                                class="btn btn-primary">Enregistrer</button>
+                                                                    <div class="form-group row">
+                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="password" id="examplePasswordInput" placeholder="Adresse_de_travail" name="adresse_de_travail"></div>
+                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="password" id="exampleRepeatPasswordInput" placeholder="ZIP" name="zip"></div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                                                <button type="button" class="btn btn-primary">Enregistrer</button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
 
-                                        </td>
-
-
-                                    </tr>
+                                            </td>
 
 
+                                        </tr>
 
-                                </tbody>
-                            </table>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
 
-                </div>
+                    </div>
                     <br>
 
                     <div class="row">
@@ -302,8 +308,7 @@
                         <div class="col-md-6">
                             <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
                                 <ul class="pagination">
-                                    <li class="page-item disabled"><a class="page-link" href="#"
-                                            aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                                    <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
                                     <li class="page-item active"><a class="page-link" href="#">1</a></li>
                                     <li class="page-item"><a class="page-link" href="#">2</a></li>
                                     <li class="page-item"><a class="page-link" href="#">3</a></li>
@@ -313,10 +318,10 @@
                             </nav>
                         </div>
                     </div>
-                
 
 
 
-            </div>
-        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
-    </div>
+
+                </div>
+            </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+        </div>

@@ -21,21 +21,23 @@ export class ProfileService {
     var token = localStorage.getItem("token");
     headers.append("Authorization", "Bearer " + token);
   }
-  public resetPassword( token,id, passwordAct, newPassword) {
+  change_password(log) {
+    console.log(log);
     
-    
-    const  T = localStorage.getItem('token');
-    const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
+    const token = localStorage.getItem('token');
+    let email = localStorage.getItem('email');
+    const headers = new HttpHeaders().set("Authorization", 'Bearer ' + token);
     let params = new HttpParams();
-    params = params.set('id', id);
-    var passwordReset = {
-      'id': id,
-      'passwordA': passwordAct,
-      'passwordN': newPassword
-    }
-
-    return this.http.post(CONFIG.URL+"users/clients/resetPassword", passwordReset, { headers: headers,params:params});
+       params = params.append('email',email);
+    params = params.append('currentPassword', log.passwordAct);
+    params = params.append('newPassword', log.passwordNew);
+   
+   console.log(email,log);
+   
+   return this.http.post(CONFIG.URL+"users/clients/resetPassword",log, { headers: headers,params:params, responseType: 'text' });
   }
+    
+
 
   getUserByEmail(email){
     const  token = localStorage.getItem('token');

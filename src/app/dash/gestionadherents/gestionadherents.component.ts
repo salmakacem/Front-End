@@ -6,6 +6,7 @@ import { ActivatedRoute, Router,  } from '@angular/router';
 import { Adress } from 'src/app/adress';
 import { Details } from 'src/app/details';
 import { Users } from 'src/app/users';
+import Swal from 'sweetalert2';
 
 
 import { GestionadherentsService } from './gestionadherents.service';
@@ -16,13 +17,21 @@ import { GestionadherentsService } from './gestionadherents.service';
   styleUrls: ['./gestionadherents.component.scss']
 })
 export class GestionadherentsComponent implements OnInit {
- 
+  title = 'Angular Search Using ng2-search-filter';
+  searchText;
+  heroes = [
+    { id: 4, firstName: 'marwen', lastName: 'sghaier',email:'marwen@dipower.fr',telephone:'234444' },
+    { id: 3, firstName: 'SELMA', lastName: 'aaa',email:'aaaa',telephone:'aaaa' },
+    { id: 44, firstName: 'RRRRR', lastName: 'RRRRRRRR',email:'RRRRRRRR',telephone:'RRRRRRR' },
+   
+
+  ];
   
   listuser:Users[];
   formuser: FormGroup;
   user
   id
- 
+  edit: boolean = false;
   
 
   constructor  ( private route:Router ,private gestionadherentsservice: GestionadherentsService ) { }
@@ -64,12 +73,10 @@ getAllUser(){
   );
 }
 deleteUserById(id){
-  this.gestionadherentsservice.deleteUser(id).subscribe(
-    (res =>{
-      alert("adhérent est supprimé");
+  let resp = this.gestionadherentsservice.deleteUser(id);
+    
+     // alert("adhérent est supprimé");
       this.getAllUser();
-    })
-  )
 }
 
 editUser(user){
@@ -83,22 +90,72 @@ updateUserr(){
   console.log(this.formuser.value);
   
   this.gestionadherentsservice.updateUser(this.formuser.value).subscribe(
-    (res) =>{
-      
-      alert("user est modifié");
-      console.log("userr")
-      
+    (msg) => {
+      console.log(msg)
+    },
+    (error) => {
+      console.log(error)
+    
+    },
+    () => {
      
+      this.edit = false;
+      this.ngOnInit();
     }
-   
-  )
+  );
 }
 
 
 
+successSwal(){
+  Swal.fire({
+    icon: 'success',
+    title: 'Votre profile est modifié avec succés',
+    text: ''
+  }).then(function () {
+    window.location.reload();
+  })
+} 
 
-  
+confirmSwal(id) {
 
+  const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: 'btn btn-success',
+      cancelButton: 'btn btn-danger'
+    },
+    buttonsStyling: false
+  })
+
+  swalWithBootstrapButtons.fire({
+    title: 'Vous êtes sûre ?',
+    text: "",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Oui, supprimer',
+    cancelButtonText: 'Non, annulée',
+    reverseButtons: true
+  }).then((result) => {
+    if (result.isConfirmed) {
+      this.deleteUserById(id);
+      swalWithBootstrapButtons.fire(
+        'Fiche supprimée!',
+        '',
+        'success'
+      )
+
+    } else if (
+      /* Read more about handling dismissals below */
+      result.dismiss === Swal.DismissReason.cancel
+    ) {
+      swalWithBootstrapButtons.fire(
+        'Action annulée',
+        '',
+        'error'
+      )
+    }
+  })
+}
 
 }
 

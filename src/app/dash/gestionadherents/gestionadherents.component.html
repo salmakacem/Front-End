@@ -11,22 +11,17 @@
 
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link active" a routerLink="/dashbord" routerLinkActive="active"
-                            [routerLinkActiveOptions]="{exact: true}"><i
+                    <li class="nav-item"><a class="nav-link active" a routerLink="/dashbord" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i
                                 class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-                    <li class="nav-item"><a class="nav-link active" a routerLink="/profile" routerLinkActive="active"
-                            [routerLinkActiveOptions]="{exact: true}"><i
+                    <li class="nav-item"><a class="nav-link active" a routerLink="/profile" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i
                                 class="fas fa-user"></i><span>Profile</span></a></li>
-                    <li class="nav-item"><a class="nav-link active" a routerLink="/gestionadherents"
-                            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i
+                    <li class="nav-item"><a class="nav-link active" a routerLink="/gestionadherents" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i
                                 class="fas fa-table"></i><span>Géstion des adhérents</span></a></li>
-                    <li class="nav-item"><a class="nav-link active" a routerLink="/gestionevent"
-                            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i
+                    <li class="nav-item"><a class="nav-link active" a routerLink="/gestionevent" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i
                                 class="fas fa-table"></i><span>Géstion des Evénements</span></a></li>
 
                 </ul>
-                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0"
-                        id="sidebarToggle" type="button"></button></div>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
             </div>
         </nav>
 
@@ -45,28 +40,16 @@
 
 
                             <div class="row">
-                                <div class="col-md-6 text-nowrap">
-                                    <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
-                                        <label>Show&nbsp;<select
-                                                class="form-control form-control-sm custom-select custom-select-sm">
-                                                <option value="10" selected="">10</option>
-                                                <option value="25">25</option>
-                                                <option value="50">50</option>
-                                                <option value="100">100</option>
-                                            </select>&nbsp;</label></div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="text-md-right dataTables_filter" id="dataTable_filter"><label><input
-                                                type="search" class="form-control form-control-sm"
-                                                aria-controls="dataTable" placeholder="Search"></label></div>
+
+                                <div class="mainLoginInput">
+                                    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Recherche adhérent">
                                 </div>
                                 <div class="col--12">
                                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
                                     </div>
                                 </div>
                             </div>
-                            <div class="table-responsive table mt-2" style="display: inline;" id="dataTable" role="grid"
-                                aria-describedby="dataTable_info">
+                            <div class="table-responsive table mt-2" style="display: inline;" id="dataTable" role="grid" aria-describedby="dataTable_info">
                                 <table class="table my-0" id="dataTable">
                                     <thead>
                                         <tr>
@@ -81,7 +64,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor=" let use of listuser ">
+                                        <tr *ngFor=" let use of listuser ; let hero of heroes | filter:searchText">
 
                                             <td>{{use.id}}</td>
                                             <td>{{use.firstName}}</td>
@@ -95,65 +78,40 @@
                                                 <div>
                                                     <div class="btn-group">
                                                         <div class="container-fluid">
-                                                            <button (click)="deleteUserById(use)" type="button"
-                                                                class="btn btn-primary"><i
+                                                            <button (click)="deleteUserById(use)" (click)="confirmSwal(use.id)" type="button" class="btn btn-primary"><i
                                                                     class="fa fa-trash"></i></button>
                                                         </div>
 
                                                         <!-- Button trigger modal -->
-                                                        <div class="container-fluid"><button type="button" (click)="editUser(use)"
-                                                                class="btn btn-primary" id="b2" data-bs-toggle="modal"
-                                                                data-bs-target="#exampleModal1">
+                                                        <div class="container-fluid"><button type="button" (click)="editUser(use)" class="btn btn-primary" id="b2" data-bs-toggle="modal" data-bs-target="#exampleModal1">
                                                                 <i class="fa fa-wrench" aria-hidden="true"></i>
                                                             </button></div>
                                                         <div class="container-fluid">
-                                                            <button type="button" class="btn btn-primary" a
-                                                                routerLink="/gestionadherent1" routerLinkActive="active"
-                                                                [routerLinkActiveOptions]="{exact: true}">Details</button>
+                                                            <button type="button" class="btn btn-primary" a routerLink="/gestionadherent1" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Details</button>
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 <!-- Modal -->
-                                                <div class="modal fade" id="exampleModal1" tabindex="-1"
-                                                    aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                                                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel1">Modifier
-                                                                    Adhèrent</h5>
+                                                                <h5 class="modal-title" id="exampleModalLabel1">Modifier Adhèrent
+                                                                </h5>
 
                                                             </div>
                                                             <div class="modal-body">
 
                                                                 <form class="user" [formGroup]="formuser">
                                                                     <div class="form-group row">
-                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input
-                                                                                class="form-control form-control-user"
-                                                                                type="text" id="exampleFirstName"
-                                                                                placeholder="Nom"
-                                                                                formControlName="firstName"
-                                                                                name="firstName"></div>
-                                                                        <div class="col-sm-6"><input
-                                                                                class="form-control form-control-user"
-                                                                                type="text" id="exampleFirstName"
-                                                                                placeholder="Prénom"
-                                                                                formControlName="lastName"
-                                                                                name="lastName"></div>
+                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Nom" formControlName="firstName" name="firstName"></div>
+                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Prénom" formControlName="lastName" name="lastName"></div>
                                                                     </div>
                                                                     <div class="form-group row">
-                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input
-                                                                                class="form-control form-control-user"
-                                                                                type="email" id="exampleFirstName"
-                                                                                placeholder="email"
-                                                                                formControlName="email" name="email">
+                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="email" id="exampleFirstName" placeholder="email" formControlName="email" name="email">
                                                                         </div>
-                                                                        <div class="col-sm-6"><input
-                                                                                class="form-control form-control-user"
-                                                                                type="tel" id="exampleFirstName"
-                                                                                placeholder="telephone"
-                                                                                formControlName="telephone"
-                                                                                name="telephone"></div>
+                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="tel" id="exampleFirstName" placeholder="telephone" formControlName="telephone" name="telephone"></div>
                                                                     </div>
 
 
@@ -161,10 +119,8 @@
                                                                 </form>
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">Fermer</button>
-                                                                <button type="button" (click)="updateUserr()"
-                                                                    class="btn btn-primary">Enregistrer</button>
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                                                <button type="button" (click)="updateUserr()" class="btn btn-primary" (click)="successSwal()">Enregistrer</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -196,8 +152,7 @@
                         <div class="col-md-6">
                             <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
                                 <ul class="pagination">
-                                    <li class="page-item disabled"><a class="page-link" href="#"
-                                            aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                                    <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
                                     <li class="page-item active"><a class="page-link" href="#">1</a></li>
                                     <li class="page-item"><a class="page-link" href="#">2</a></li>
                                     <li class="page-item"><a class="page-link" href="#">3</a></li>
@@ -217,4 +172,3 @@
     </div>
 
 </div>
-        

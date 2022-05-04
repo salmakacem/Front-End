@@ -48,8 +48,9 @@ import { ChangermdpComponent } from './components/pages/changermdp/changermdp.co
 
 
 import { ValidercodeComponent } from './validercode/validercode.component';
+import { SearchFilterPipe } from './search-filter.pipe';
 
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -87,7 +88,8 @@ import { ValidercodeComponent } from './validercode/validercode.component';
     Gestionadherent1Component,
     MapComponent,
     ProfileeComponent,
-   
+    SearchFilterPipe,
+  
    
 
 
@@ -100,8 +102,8 @@ import { ValidercodeComponent } from './validercode/validercode.component';
     ReactiveFormsModule,
     RouterModule,
     ToastrModule.forRoot(),
-
-  
+    Ng2SearchPipeModule,
+ 
        
 
   ],

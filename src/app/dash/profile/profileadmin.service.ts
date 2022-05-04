@@ -64,6 +64,20 @@ export class ProfileadmineService {
       // params = params.set('id', id);
        return this.http.get(CONFIG.URL+"users/get_photo_c/"+id,{ headers: headers, responseType: 'json' });
     }
-
+    change_password(log) {
+      console.log(log);
+      
+      const token = localStorage.getItem('token');
+      let email = localStorage.getItem('email');
+      const headers = new HttpHeaders().set("Authorization", 'Bearer ' + token);
+      let params = new HttpParams();
+         params = params.append('email',email);
+      params = params.append('currentPassword', log.passwordAct);
+      params = params.append('newPassword', log.passwordNew);
+     
+     console.log(email,log);
+     
+     return this.http.post(CONFIG.URL+"users/clients/resetPassword",log, { headers: headers,params:params, responseType: 'text' });
+    }
   
 }

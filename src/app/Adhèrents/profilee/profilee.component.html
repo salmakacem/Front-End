@@ -125,7 +125,8 @@
                                         <img class="" [src]="imageSrc"></a>
                                     <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in">
 
-                                        <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a></div>
+                                        <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
@@ -221,16 +222,16 @@
                                                             <div class="input-group input-group-alternative mb-3">
                                                                 <div class="input-group-prepend">
                                                                     <span class="input-group-text">
-                                          <i class="ni ni-lock-circle-open"></i></span>
+                                                                             <i class="ni ni-lock-circle-open"></i></span>
                                                                 </div>
                                                                 <input class="form-control text-dark" placeholder="Votre mot de passe actuel" formControlName="passwordAct" [type]="type_input ? 'text' : 'password'">
                                                                 <div class="input-group-append ">
                                                                     <span class="input-group-text">
-                                          <i [ngClass]="{
-                                            'fa-eye-slash': !type_input,
-                                            'fa-eye': type_input
-                                          }" (click)="changeInput1()" class="fa fa-eye-slash icon-pass "></i>
-                                        </span>
+                                                                        <i [ngClass]="{
+                                                                            'fa-eye-slash': !type_input,
+                                                                            'fa-eye': type_input
+                                                                        }" (click)="changeInput1()" class="fa fa-eye-slash icon-pass "></i>
+                                                                    </span>
                                                                 </div>
 
                                                             </div>
@@ -240,16 +241,17 @@
                                                             <div class="input-group input-group-alternative mb-3">
                                                                 <div class="input-group-prepend">
                                                                     <span class="input-group-text">
-                                          <i class="ni ni-lock-circle-open"></i></span>
+                                                                         <i class="ni ni-lock-circle-open"></i>
+                                                                    </span>
                                                                 </div>
                                                                 <input class="form-control text-dark" placeholder="Votre nouveau mot de passe" formControlName="passwordNew" [type]="type_input2 ? 'text' : 'password'">
                                                                 <div class="input-group-append ">
                                                                     <span class="input-group-text">
-                                          <i [ngClass]="{
-                                            'fa-eye-slash': !type_input2,
-                                            'fa-eye': type_input2
-                                          }" (click)="changeInput2()" class="fa fa-eye-slash icon-pass "></i>
-                                        </span>
+                                                                        <i [ngClass]="{
+                                                                            'fa-eye-slash': !type_input2,
+                                                                            'fa-eye': type_input2
+                                                                        }" (click)="changeInput2()" class="fa fa-eye-slash icon-pass "></i>
+                                                                    </span>
                                                                 </div>
 
 
@@ -261,24 +263,23 @@
                                                             <div class="input-group input-group-alternative mb-3">
                                                                 <div class="input-group-prepend">
                                                                     <span class="input-group-text">
-                                          <i class="ni ni-lock-circle-open"></i></span>
+                                                                        <i class="ni ni-lock-circle-open"></i></span>
                                                                 </div>
                                                                 <input class="form-control text-dark" placeholder="Confirmez mot de passe" formControlName="passwordConf" [type]="type_input3 ? 'text' : 'password'">
                                                                 <div class="input-group-append ">
                                                                     <span class="input-group-text">
-                                          <i [ngClass]="{
-                                            'fa-eye-slash': !type_input3,
-                                            'fa-eye': type_input3
-                                          }" (click)="changeInput3()" class="fa fa-eye-slash icon-pass "></i>
-                                        </span>
+                                                                        <i [ngClass]="{
+                                                                            'fa-eye-slash': !type_input3,
+                                                                            'fa-eye': type_input3
+                                                                        }" (click)="changeInput3()" class="fa fa-eye-slash icon-pass "></i>
+                                                                    </span>
                                                                 </div>
                                                             </div>
 
 
                                                         </div>
                                                         <div class="text-center">
-                                                            <button type="submit" [disabled]="resetPasswordForm.invalid" class="btn btn-primary mt-4" (click)="successSwal1()">Changer mot de
-                                      passe</button>
+                                                            <button type="submit" [disabled]="resetPasswordForm.invalid" class="btn btn-primary mt-4" (click)="successSwal1()">Changer mot de passe</button>
                                                         </div>
 
                                                     </form>

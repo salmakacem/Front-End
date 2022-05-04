@@ -1,15 +1,18 @@
+import { AuthServiceService } from './../../services/auth-service.service';
 import { ProfileService } from 'src/app/profile.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { CONFIG } from './../../../environments/environment';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, Sanitizer } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Adress } from 'src/app/adress';
 import { Details } from 'src/app/details';
 import { DetailsService } from 'src/app/details.service';
 import { Users } from 'src/app/users';
 import { ProfileadmineService } from './profileadmin.service';
+import Swal from 'sweetalert2';
+import { MustMatch } from 'src/app/components/pages/changermdp/MustMatch';
 
 @Component({
   selector: 'app-profile',
@@ -19,9 +22,10 @@ import { ProfileadmineService } from './profileadmin.service';
 export class ProfileComponent implements OnInit {
 
   adresses
-  formadresse: FormGroup
-   formdetail : FormGroup
-   form : FormGroup
+  formadresse: FormGroup;
+  resetPasswordForm:FormGroup;
+   formdetail : FormGroup;
+   form : FormGroup;
  
    adress: Adress = new Adress();
    detail : Details = new Details();
@@ -30,7 +34,10 @@ export class ProfileComponent implements OnInit {
    userr
    email
   
- 
+   type_input: boolean;
+   type_input3: boolean;
+   type_input2: any;
+   
    
    edit: boolean = false;
    submitted: boolean = false;
@@ -56,7 +63,7 @@ export class ProfileComponent implements OnInit {
  
  
 
-  constructor(private profileadminservice:ProfileadmineService,private profileService:ProfileService, private detailsservice: DetailsService, private httpClient:HttpClient, private sanitizer: DomSanitizer) { }
+  constructor(private profileadminservice:ProfileadmineService,private profileService:ProfileService, private detailsservice: DetailsService, private httpClient:HttpClient, private sanitizer: DomSanitizer, private authService:AuthServiceService,private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
     this.email = localStorage.getItem('email');
@@ -89,12 +96,27 @@ export class ProfileComponent implements OnInit {
       region :new FormControl ('',[Validators.required]),
 
     });
-    
-  
-    
-    }
+    this.resetPasswordForm = this.formBuilder.group({
+     
+      passwordAct: ['', Validators.required],
+      passwordNew: ['', Validators.required],
+      passwordConf: ['', Validators.required]
 
+    }, {
+      validator: MustMatch('passwordNew', 'passwordConf')
+    });
+  }
     
+    
+
+    successSwal(){
+      Swal.fire({
+        icon: 'success',
+        title: 'Votre profile est modifié avec succés',
+        text: ''
+      })
+    }  
+
 getUserByEmail(email){
   
   this.profileadminservice.getUserByEmail(email).subscribe(
@@ -201,6 +223,38 @@ getProfileImg(id) {
     this.thumbnailTest = true;
  });
 }
+submitForm() {
+  this.submitted=true;
+  if (this.resetPasswordForm.invalid) {
+    return;
+  }
+this.profileadminservice.change_password(this.resetPasswordForm.value).subscribe(
+  (msg) => {
+    console.log(msg)
+  },
+  (error) => {
+    console.log(error)
+  },
+  () => { 
+   this.authService. logout();
+  })  
+  }
+  changeInput1() {
+    this.type_input = !this.type_input;
+  }
+  changeInput2() {
+    this.type_input2 = !this.type_input2;
+  }
+  changeInput3() {
+    this.type_input3 = !this.type_input3;
+  }
+  successSwal1(){
+    Swal.fire({
+      icon: 'success',
+      title: 'Votre mot de passeS est modifié avec succés',
+      text: ''
+    })
+  }
 
 
   

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Adress } from 'src/app/adress';
 import { Details } from 'src/app/details';
-import { GestionadherentsService } from '../gestionadherents/gestionadherents.service';
 import { Gestionadherents1Service } from './gestionadherent1.service';
 
 @Component({
@@ -13,21 +12,29 @@ import { Gestionadherents1Service } from './gestionadherent1.service';
 })
 export class Gestionadherent1Component implements OnInit {
   formadresse:FormGroup ;
-  listadress : Adress[];
+  listadress : Adress;
   
 
-  listdetail : Details[];
+  listdetail : Details;
   formdetail : FormGroup;
  
-  id;
+  idUser:any;
 
   edit: boolean = false;
   
   
 
-  constructor( private route:Router, private gestionadherent1service : Gestionadherents1Service ) { }
+  constructor( private route:Router, private gestionadherent1service : Gestionadherents1Service ,private router:ActivatedRoute) { }
 
   ngOnInit(): void {
+this.router.params.subscribe(
+()=>{
+  this.idUser=this.router.snapshot.paramMap.get('id');
+}
+)
+    this. getAdressById(this.idUser);
+    this.getDetailById(this.idUser);
+
     this.formadresse =new FormGroup ({
       id:new FormControl('',[Validators.required]),
       city_name:new FormControl ('',[Validators.required]),
@@ -39,7 +46,7 @@ export class Gestionadherent1Component implements OnInit {
     
     });
 
-    this.getall();
+   
     this.listadress;
 
     this.formdetail =new FormGroup ({
@@ -48,19 +55,20 @@ export class Gestionadherent1Component implements OnInit {
       profession:new FormControl ('', [Validators.required]),
       sexe : new FormControl ('',[Validators.required]),
       statut_social :new FormControl ('',[Validators.required]),
-    
       nationalite :new FormControl ('',[Validators.required]),
 
     });
     this.listdetail;
-    this.getalldetail();
+    
 
 
 
   }
-  getall(){
-    this.gestionadherent1service.getAdresse().subscribe(
-      (response)=>{
+  getAdressById(id){
+    console.log('eee',id);
+    
+    this.gestionadherent1service.getAdresse(id).subscribe(
+      (response:any)=>{
         this.listadress=response;
       console.log("adress",this.listadress);
     }
@@ -68,9 +76,11 @@ export class Gestionadherent1Component implements OnInit {
       
   }
 
-  getalldetail(){
-    this.gestionadherent1service.getDetails().subscribe(
-      (response)=>{
+  getDetailById(id){
+    
+    
+    this.gestionadherent1service.getDetails(id).subscribe(
+      (response:any)=>{
         this.listdetail=response;
       console.log("detaail",this.listdetail);
     }
@@ -82,16 +92,19 @@ export class Gestionadherent1Component implements OnInit {
     this.gestionadherent1service.deleteAdress(id).subscribe(
       (res =>{
         alert("adresse est supprimée");
-        this.getall();
+        this.getAdressById(this.idUser);
       })
     );
   }
+  
+
+  
 
   deleteDetailById(id){
     this.gestionadherent1service.deleteDetail(id).subscribe(
       (res =>{
         alert("detail est supprimé");
-        this.getalldetail();
+        this.getDetailById(this.idUser);
       })
     );
   }

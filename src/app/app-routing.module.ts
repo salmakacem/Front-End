@@ -77,7 +77,7 @@ const routes: Routes = [
     },
    
 
-    {path: 'gestionadherent1', component: Gestionadherent1Component },
+    {path: 'gestionadherent1/:id', component: Gestionadherent1Component },
 
     {path: 'map', component: MapComponent },
   

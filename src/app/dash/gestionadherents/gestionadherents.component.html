@@ -40,9 +40,9 @@
 
 
                             <div class="row">
-
+                                <!-- [(ngModel)]="searchText" ; let hero of heroes | filter:searchText -->
                                 <div class="mainLoginInput">
-                                    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Recherche adhérent">
+                                    <input class="form-control" type="text" name="search" autocomplete="off" placeholder="&#61442;  Recherche adhérent">
                                 </div>
                                 <div class="col--12">
                                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
@@ -64,7 +64,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor=" let use of listuser ; let hero of heroes | filter:searchText">
+                                        <tr *ngFor=" let use of listuser ">
 
                                             <td>{{use.id}}</td>
                                             <td>{{use.firstName}}</td>
@@ -78,7 +78,7 @@
                                                 <div>
                                                     <div class="btn-group">
                                                         <div class="container-fluid">
-                                                            <button (click)="deleteUserById(use)" (click)="confirmSwal(use.id)" type="button" class="btn btn-primary"><i
+                                                            <button (click)="deleteUserById(use)" type="button" class="btn btn-primary"><i
                                                                     class="fa fa-trash"></i></button>
                                                         </div>
 
@@ -87,7 +87,7 @@
                                                                 <i class="fa fa-wrench" aria-hidden="true"></i>
                                                             </button></div>
                                                         <div class="container-fluid">
-                                                            <button type="button" class="btn btn-primary" a routerLink="/gestionadherent1" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Details</button>
+                                                            <button type="button" class="btn btn-primary" [routerLink]="['/gestionadherent1/',use.id]" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Details</button>
                                                         </div>
                                                     </div>
                                                 </div>

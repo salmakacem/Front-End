@@ -13,21 +13,26 @@ import { CONFIG } from "src/environments/environment";
     constructor(private http:HttpClient){}
 
 
-    getAdresse() : Observable<Adress[]>{
+    getAdresse(id) : Observable<Adress[]>{
+      console.log(id);
       const  token = localStorage.getItem('token');
       const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
-      return this.http.get<Adress[]>(CONFIG.URL +'adress/GetAll/',{ headers: headers });
+      return this.http.get<Adress[]>(CONFIG.URL +'adress/getadress/'+id,{ headers: headers });
 
     }
 
-    getDetails() : Observable<Details[]> {
+    getDetails(id) : Observable<Details[]> {
+     
+      
       const  token = localStorage.getItem('token');
       const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
-      return this.http.get<Details[]>(CONFIG.URL +'user-details/GetAll/',{ headers: headers });
+      return this.http.get<Details[]>(CONFIG.URL +'user-details/detailByIdUser/'+id,{ headers: headers });
 
     }
 
     deleteAdress(adress:Adress) : Observable<Adress[]>{
+    console.log(adress.id);
+    
       const  token = localStorage.getItem('token');
       const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
       return this.http.delete<Adress[]>(CONFIG.URL+'adress/delete/'+adress.id,{ headers: headers });

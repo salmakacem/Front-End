@@ -71,11 +71,12 @@
 
                                             <th>Description </th>
 
-                                            <th>Statut </th>
 
                                             <th>Adresse</th>
 
                                             <th>Date</th>
+                                            <!-- <th>Heure de début </th>
+                                            <th>Heure de début</th> -->
 
                                             <th>Affiche</th>
 
@@ -96,13 +97,15 @@
                                             <td> {{even.nom_event}}</td>
 
                                             <td>{{even.descriptionEvent}}</td>
-
-                                            <td>{{even.statut}}</td>
                                             <td>{{even.adressevent}}</td>
                                             <td>
                                                 {{even.date | date: 'yyyy-MM-dd'}}
 
                                             </td>
+                                            <!-- <td>{{even.debut | date: 'HH:mm'}}</td>
+                                            <td>{{even.debut| date: 'HH:mm'}}</td> -->
+
+
                                             <td>
 
 
@@ -118,7 +121,7 @@
                                                 <div class="btn-group">
                                                     <div class="container-fluid"><button class="btn btn-primary" (click)="deleteEventById(even)" (click)="confirmSwal(even.id)" ngbTooltip="supprimer" type="button"><i class="fa fa-trash"
                                                                 aria-hidden="true"></i></button></div>
-                                                    <div class="container-fluid"><button type="button" class="btn btn-primary" id="b1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    <div class="container-fluid"><button type="button" (click)="editevent(even)" class="btn btn-primary" id="b1" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                             <i class="fa fa-wrench" aria-hidden="true"></i>
                                                         </button></div>
                                                 </div>
@@ -175,17 +178,25 @@
 
                                                                 <form class="user" [formGroup]="form">
                                                                     <div class="form-group row">
-                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="date" formControlName="date" name="date"></div>
-                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Nom" formControlName="nom_event" name="nom_event"></div>
+                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" id="exampleFirstName" name="date" type="date" placeholder="yyyy-MM-dd" formControlName="date" [value]="form.get('date').value | date:'yyyy-MM-dd'"></div>
+                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Titre" formControlName="nom_event" name="nom_event"></div>
                                                                     </div>
                                                                     <div class="form-group row">
                                                                         <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="descriptionEvent" formControlName="descriptionEvent" name="descriptionEvent">
                                                                         </div>
-                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Statut" formControlName="statut" name="statut"></div>
+                                                                        <!-- <div class="col-sm-6">
+
+                                                                            <input class="form-control form-control-user" type="time" min="08:00" max="00:00" id="exampleFirstName" formControlName="debut" name="debut" [value]="form.get('debut').value | date : 'HH:mm' ">
+                                                                        </div> -->
 
 
                                                                     </div>
                                                                     <div class="form-group row">
+                                                                        <!-- <div class="col-sm-6 mb-3 mb-sm-0">
+
+                                                                            <input class="form-control form-control-user" type="time" min="08:00" max="00:00" id="exampleFirstName" formControlName="fin" name="fin" [value]="form.get('fin').value | date : 'HH:mm' ">
+                                                                        </div> -->
+
                                                                         <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="adressevent" formControlName="adressevent" name="adressevent"></div>
 
                                                                     </div>
@@ -197,7 +208,7 @@
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" (click)="successSwal2()" data-bs-dismiss="modal">Fermer</button>
-                                                                <button type="button" (click)="successSwal1()" class="btn btn-primary" (click)="updateUserr()">Enregistrer</button>
+                                                                <button type="button" (click)="successSwal1()" class="btn btn-primary" (click)="updateEvents()">Enregistrer</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -285,10 +296,12 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="form-row">
-
+                                                                    <!-- <div class="form-row">
                                                                         <div class="col">
-                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Statut :</label>
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Heure de début :</label>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Heure de fin :</label>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
@@ -298,15 +311,27 @@
                                                                                     <div class="input-group-prepend">
                                                                                         <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                                                                                     </div>
-                                                                                    <input class="form-control text-dark" name="Statut" formControlName="statut" placeholder="Nom" type="text">
+                                                                                    <input class="form-control text-dark" formControlName="debut" name="debut" placeholder="HH:mm" type="time" [value]="form.get('debut').value | date : 'HH:mm' ">
                                                                                     <div class="invalid-feedback">
                                                                                         Ce champs est obligatoire
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" type="time" formControlName="fin" name="fin" placeholder="HH:mm" [value]="form.get('fin').value | date : 'HH:mm' ">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div> 
+                                                                    </div>-->
 
                                                                 </form>
                                                             </div>
@@ -328,7 +353,7 @@
                                                             </div>
 
                                                             <div class="text-center" *ngIf="selected">
-                                                                <button type="submit" class="btn btn-primary my-4 " (click)="onUploadc()" (click)="getProfileImg(idSelected)" (click)="add_event()"><span
+                                                                <button type="submit" class="btn btn-primary my-4 " (click)="onUploadc()" (click)="getProfileImg" (click)="add_event()"><span
                                                                 class="btn-inner--icon"><i class="fa fa-plus"></i></span>
                                                               Ajouter évènement
                                                             </button>

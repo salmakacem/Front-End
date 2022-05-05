@@ -33,6 +33,7 @@ import { CONFIG } from 'src/environments/environment';
       const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
       return this.http.delete<Users[]>(CONFIG.URL+'users/del/'+user.id,{ headers: headers });
     }
+ 
       
 
       updateUser(users:Users) {

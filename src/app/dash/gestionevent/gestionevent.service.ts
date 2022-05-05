@@ -13,13 +13,6 @@ import { Event } from "src/app/event";
     constructor(private http:HttpClient){}
 
 
-    getAdress() : Observable<Adress[]>{
-        const  token = localStorage.getItem('token');
-        const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
-        return this.http.get<Adress[]>(CONFIG.URL +'adress/GetAll/',{ headers: headers });
-  
-      }
-
   ajouterevent(event){
     console.log(event);
     
@@ -27,47 +20,30 @@ import { Event } from "src/app/event";
   const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
    return this.http.post(CONFIG.URL+'event/save',event,{ headers: headers });
 }
-      deleteAdresse(id){
-        const  token = localStorage.getItem('token');
-        const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
-        return this.http.delete<Adress[]>(CONFIG.URL +'adress/GetAll/'+id,{ headers: headers });
-        
-      }
 
  
-   
-         getEvent(){
+getEvent(): Observable<Event[]>{
         const  token = localStorage.getItem('token');
         const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
-        return this.http.get(CONFIG.URL +'event/',{ headers: headers });
+        return this.http.get<Event[]>(CONFIG.URL +'event/get',{ headers: headers });
   
-      }
+}
   
       deleteEvent(event:Event) : Observable<Event[]>{
         const  token = localStorage.getItem('token');
         const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
-       return this.http.delete<Event[]>(CONFIG.URL+'event/delete/'+ event.id,{ headers: headers });
+       
+       return this.http.delete<Event[]>(CONFIG.URL+'event/delete/'+event.id,{ headers: headers});
       }
    
-  
-      updateevent(event){
+      updateevent(event:Event) {
+        const  token = localStorage.getItem('token');
+        const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
+        return this.http.put(CONFIG.URL+'event/updat/'+event.id,event,{ headers: headers,responseType: 'text' });
 
-        // const users = JSON.parse(localStorage.getItem('currentUser'));
-        let headers = new HttpHeaders();
-        headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-    
-        const token = localStorage.getItem('token');
-        headers = headers.set("Authorization", 'Bearer ' + token);
-        
-        return this.http.put(CONFIG.URL + 'event/updat/'+event.id,event,{ headers: headers, responseType: 'text' });
-        }
-        updateUser(event:Event) {
-          const  token = localStorage.getItem('token');
-          const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
-          return this.http.put(CONFIG.URL+'event/updat/'+event.id,event,{ headers: headers });
-  
-        }
-      
+      } 
+
+     
   
       upload_photo(data,id){
         const  token = localStorage.getItem('token');

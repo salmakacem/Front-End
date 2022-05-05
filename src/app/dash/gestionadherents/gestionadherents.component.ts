@@ -17,15 +17,15 @@ import { GestionadherentsService } from './gestionadherents.service';
   styleUrls: ['./gestionadherents.component.scss']
 })
 export class GestionadherentsComponent implements OnInit {
-  title = 'Angular Search Using ng2-search-filter';
-  searchText;
-  heroes = [
-    { id: 4, firstName: 'marwen', lastName: 'sghaier',email:'marwen@dipower.fr',telephone:'234444' },
-    { id: 3, firstName: 'SELMA', lastName: 'aaa',email:'aaaa',telephone:'aaaa' },
-    { id: 44, firstName: 'RRRRR', lastName: 'RRRRRRRR',email:'RRRRRRRR',telephone:'RRRRRRR' },
+  // title = 'Angular Search Using ng2-search-filter';
+  // searchText;
+  // heroes = [
+  //   { id: 4, firstName: 'marwen', lastName: 'sghaier',email:'marwen@dipower.fr',telephone:'234444' },
+  //   { id: 3, firstName: 'SELMA', lastName: 'aaa',email:'aaaa',telephone:'aaaa' },
+  //   { id: 44, firstName: 'RRRRR', lastName: 'RRRRRRRR',email:'RRRRRRRR',telephone:'RRRRRRR' },
    
 
-  ];
+  // ];
   
   listuser:Users[];
   formuser: FormGroup;
@@ -73,10 +73,12 @@ getAllUser(){
   );
 }
 deleteUserById(id){
-  let resp = this.gestionadherentsservice.deleteUser(id);
-    
-     // alert("adhérent est supprimé");
+  this.gestionadherentsservice.deleteUser(id).subscribe(
+    (res =>{
+      alert("adresse est supprimée");
       this.getAllUser();
+    })
+  );
 }
 
 editUser(user){

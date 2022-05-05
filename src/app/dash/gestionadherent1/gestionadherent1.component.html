@@ -71,20 +71,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor=" let adres of listadress ">
-                                            <td>{{adres.id}}</td>
-                                            <td>{{adres.region}}</td>
-                                            <td>{{adres.city_name}}</td>
-                                            <td>{{adres.home_adress}}</td>
-                                            <td>{{adres.work_adress}}</td>
-                                            <td>{{adres.zip}}</td>
-                                            <td>{{adres.etats}}</td>
+                                        <tr>
+                                            <td>{{listadress?.id}}</td>
+                                            <td>{{listadress?.region}}</td>
+                                            <td>{{listadress?.city_name}}</td>
+                                            <td>{{listadress?.home_adress}}</td>
+                                            <td>{{listadress?.work_adress}}</td>
+                                            <td>{{listadress?.zip}}</td>
+                                            <td>{{listadress?.etats}}</td>
 
                                             <td>
                                                 <div class="btn-group">
-                                                    <div class="container-fluid"><button (click)="deleteAdressById(adres)" type="button" class="btn btn-primary"><i class="fa fa-trash"
+                                                    <div class="container-fluid"><button (click)="deleteAdressById(listadress)" type="button" class="btn btn-primary"><i class="fa fa-trash"
                                                                 aria-hidden="true"></i></button></div>
-                                                    <div class="container-fluid"><button (click)="editAdresse(adres)" type="button" class="btn btn-primary" id="b1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    <div class="container-fluid"><button (click)="editAdresse(listadress)" type="button" class="btn btn-primary" id="b1" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                             <i class="fa fa-wrench" aria-hidden="true"></i>
                                                         </button></div>
 
@@ -161,13 +161,7 @@
                             <div class="row">
                                 <div class="col-md-6 text-nowrap">
                                     <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
-                                        <label>Show&nbsp;<select
-                                                class="form-control form-control-sm custom-select custom-select-sm">
-                                                <option value="10" selected="">10</option>
-                                                <option value="25">25</option>
-                                                <option value="50">50</option>
-                                                <option value="100">100</option>
-                                            </select>&nbsp;</label>
+
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -197,29 +191,29 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor=" let det of listdetail ">
+                                        <tr>
 
-                                            <td>{{det.id}}</td>
+                                            <td>{{listdetail?.id}}</td>
 
-                                            <td>{{det.date_de_naissance}}</td>
-                                            <td>{{det.profession}}</td>
+                                            <td>{{listdetail?.date_de_naissance}}</td>
+                                            <td>{{listdetail?.profession}}</td>
 
-                                            <td>{{det.statut_social}}</td>
-                                            <td>{{det.sexe}}</td>
-                                            <td>{{det.nationalite}}</td>
+                                            <td>{{listdetail?.statut_social}}</td>
+                                            <td>{{listdetail?.sexe}}</td>
+                                            <td>{{listdetail?.nationalite}}</td>
 
 
                                             <td>
                                                 <div>
                                                     <div class="btn-group">
                                                         <div class="container-fluid">
-                                                            <button type="button" (click)="deleteDetailById(det)" class="btn btn-primary"><i
+                                                            <button type="button" (click)="deleteDetailById(listdetail)" class="btn btn-primary"><i
                                                                     class="fa fa-trash"></i></button>
                                                         </div>
 
                                                         <!-- Button trigger modal -->
                                                         <div class="container-fluid">
-                                                            <button type="button" (click)="editDetail(det)" class="btn btn-primary" id="b2" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                                            <button type="button" (click)="editDetail(listdetail)" class="btn btn-primary" id="b2" data-bs-toggle="modal" data-bs-target="#exampleModal1">
                                                                 <i class="fa fa-wrench" aria-hidden="true"></i>
                                                             </button></div>
                                                     </div>

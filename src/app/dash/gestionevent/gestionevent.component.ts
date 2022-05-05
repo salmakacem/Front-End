@@ -16,19 +16,19 @@ export class GestioneventComponent implements OnInit {
   title = 'Angular Search Using ng2-search-filter';
   searchText;
   heroes = [
-    { id: 5, date: '1651051628000', nom_event: 'test',descriptionEvent:'test',statut:'true',adressevent:'tunis' },
-    { id: 16, date: '1543276800000' , nom_event: 'tt',descriptionEvent:'tt',statut:'false',adressevent:'tt'},
-    { id: 12, date: '1543276800000' , nom_event: 'ff',descriptionEvent:'ff',statut:'true',adressevent:'ff'},
-    { id: 12, date: '1543276800000' , nom_event: 'aaa',descriptionEvent:'ff',statut:'true',adressevent:'ff'},
+    // { id: 5, date: '1651051628000', nomevent: 'test',descriptionEvent:'test',statut:'true',adressevent:'tunis' },
+    // { id: 16, date: '1543276800000' , nomevent: 'tt',descriptionEvent:'tt',statut:'false',adressevent:'tt'},
+    // { id: 12, date: '1543276800000' , nomevent: 'ff',descriptionEvent:'ff',statut:'true',adressevent:'ff'},
+    // { id: 12, date: '1543276800000' , nomevent: 'aaa',descriptionEvent:'ff',statut:'true',adressevent:'ff'},
 
   ];
-  formimage: FormGroup;
+
   ajoutevent: FormGroup;
   form: FormGroup;
-  formadresse: FormGroup;
+
 
   formI: FormGroup;
-  listadress : Adress[];
+
   userFile: any;
   namefile="Importer une photo";
   imageSrc: string | ArrayBuffer;
@@ -51,56 +51,37 @@ export class GestioneventComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.formadresse =new FormGroup ({
-      id:new FormControl('',[Validators.required]),
-      city_name:new FormControl ('',[Validators.required]),
-      home_adress:new FormControl ('', [Validators.required]),
-      work_adress : new FormControl ('',[Validators.required]),
-      region :new FormControl ('',[Validators.required]),
-      etats : new FormControl('',[Validators.required]),
-
-    });
+ 
     this.form =new FormGroup ({
-      id : new FormControl('',[Validators.required]),
+    
+      id:new FormControl('',[Validators.required]),
       date:new FormControl ('',[Validators.required]),
       nom_event:new FormControl ('',[Validators.required]),
       descriptionEvent:new FormControl ('',[Validators.required]),
-      statut:new FormControl ('',[Validators.required]),
+      // debut:new FormControl ('',[Validators.required]),
+      // fin:new FormControl ('',[Validators.required]),
       adressevent:new FormControl ('',[Validators.required]),
       
     });
     
     this.listevent;
-    this.listadress;
-    this.getall();
+   
+
     this.getAllEvent();
  
   }
-  get date() {
-    return this.form.get('date');
-  }
-  get nom_event() {
-    return this.form.get('nom_event');
-  }
 
-  get descriptionEvent() {
-    return this.form.get('descriptionEvent');
-  }
   
-  get adressevent() {
-    return this.form.get('adressevent');
-  }
-  
-  
+
   getAllEvent(){
     this.gestioneventservice.getEvent().subscribe(
-      (response:any)=>{
+      (response)=>{
         
-          this.event=response;
+        
         this.listevent=response;
         console.log(this.listevent);
-      },error=>console.log(error));
-   ;
+      }
+    );
   }
 
 
@@ -112,38 +93,6 @@ export class GestioneventComponent implements OnInit {
       this.getAllEvent();
   }
   
-
-  AnnulerUpdateUser() {
-    this.edit = false;
-  
-  }
-  
-
-  editUser(user){
-    console.log("tttt",user);
-    this.form.patchValue(user)
-    
-  
-  }
-  
-  updateUserr(){
-    console.log(this.form.value);
-    
-    this.gestioneventservice.updateUser(this.form.value).subscribe(
-      (msg) => {
-        console.log(msg)
-      },
-      (error) => {
-        console.log(error)
-      
-      },
-      () => {
-       
-        this.edit = false;
-        this.ngOnInit();
-      }
-    );
-  }
   
   successSwal(){
     Swal.fire({
@@ -172,18 +121,32 @@ export class GestioneventComponent implements OnInit {
       window.location.reload();
     })
   }
-  getall(){
-    this.gestioneventservice.getAdress().subscribe(
-      (response)=>{
-        this.listadress=response;
-      console.log("userrr",this.listadress);
-    }
-      );
-      
+
+ 
+    
+
+  
+
+  editevent(event){
+    console.log("ggg",event);
+    this.form.patchValue(event)
+    
+
   }
 
-  deleteAdress(){
+  updateEvents(){
+    console.log(this.form.value);
     
+    this.gestioneventservice.updateevent(this.form.value).subscribe(
+      (res) =>{
+        
+        
+        console.log("ddd")
+        
+       
+      }
+     
+    )
   }
 
   add_event() {
@@ -245,7 +208,7 @@ getProfileImg(id) {
     console.log( );
     if (imagetable.picByte ==null) {
       this.thumbnailTest = false;
-      this.idSelected=id;
+      //this.idSelected=id;
     }else{
       this.thumbnailTest = true;
     

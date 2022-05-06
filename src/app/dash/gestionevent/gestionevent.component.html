@@ -75,6 +75,8 @@
                                             <th>Adresse</th>
 
                                             <th>Date</th>
+
+                                            <th>Durée de l'évènement</th>
                                             <!-- <th>Heure de début </th>
                                             <th>Heure de début</th> -->
 
@@ -102,6 +104,7 @@
                                                 {{even.date | date: 'yyyy-MM-dd'}}
 
                                             </td>
+                                            <td>{{even.duree}}</td>
                                             <!-- <td>{{even.debut | date: 'HH:mm'}}</td>
                                             <td>{{even.debut| date: 'HH:mm'}}</td> -->
 
@@ -145,11 +148,11 @@
                                                                             <label class="custom-file-label" for="customFileLang">image selectionée</label>
                                                                         </div>
                                                                         <div class="text-center">
-                                                                            <span class=" rounded-circle">
-                                                                  <img class=" rounded-circle"  style="width: 100px;" [src]="imageSrc">
+                                                                            <span>
+                                                                  <img   style="width: 100px;" [src]="imageSrc">
                                                                 </span> </div>
                                                                         <div class="text-center" *ngIf="selected">
-                                                                            <button type="submit" (click)="onUploadc()" (click)="getProfileImg(idSelected)" (click)="successSwal()" class="btn btn-sm btn-primary mt-4">Changer la photo du profil</button>
+                                                                            <button type="submit" (click)="onUploadc(idSelected)" (click)="getProfileImg(idSelected)" (click)="successSwal()" class="btn btn-sm btn-primary mt-4">Changer la photo du profil</button>
                                                                         </div>
 
 
@@ -172,7 +175,7 @@
                                                             <div class="modal-header">
                                                                 <h5 class="modal-title" id="exampleModalLabel">Modifier Evénements
                                                                 </h5>
-                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                <button type="button" (click)="closeEvent()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body">
 
@@ -183,6 +186,10 @@
                                                                     </div>
                                                                     <div class="form-group row">
                                                                         <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="descriptionEvent" formControlName="descriptionEvent" name="descriptionEvent">
+                                                                        </div>
+                                                                        <div class="col-sm-6">
+
+                                                                            <input class="form-control form-control-user" type="String" id="exampleFirstName" formControlName="duree" name="duree">
                                                                         </div>
                                                                         <!-- <div class="col-sm-6">
 
@@ -296,6 +303,28 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Durée de l'évènement:</label>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" formControlName="duree" name="duree" placeholder="Durée de l'évènement" type="text">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
                                                                     <!-- <div class="form-row">
                                                                         <div class="col">
                                                                             <label for="exampleFormControlTextarea1" class="text-dark">Heure de début :</label>
@@ -343,8 +372,9 @@
                                                                         <label class="custom-file-label" for="customFileLang">image selectionée</label>
                                                                     </div>
                                                                     <div class="text-center">
-                                                                        <span class=" rounded-circle">
-                                                              <img class=" rounded-circle"  style="width: 100px;" [src]="imageSrc">
+                                                                        <span class="">
+                                                              <img class=""  style="max-width: 100%;
+                                                              padding: 10%;" [src]="imageSrc">
                                                             </span> </div>
 
 
@@ -353,7 +383,7 @@
                                                             </div>
 
                                                             <div class="text-center" *ngIf="selected">
-                                                                <button type="submit" class="btn btn-primary my-4 " (click)="onUploadc()" (click)="getProfileImg" (click)="add_event()"><span
+                                                                <button type="submit" class="btn btn-primary my-4 " (click)="getProfileImg" (click)="add_event()"><span
                                                                 class="btn-inner--icon"><i class="fa fa-plus"></i></span>
                                                               Ajouter évènement
                                                             </button>

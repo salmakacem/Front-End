@@ -58,6 +58,7 @@ export class GestioneventComponent implements OnInit {
       date:new FormControl ('',[Validators.required]),
       nom_event:new FormControl ('',[Validators.required]),
       descriptionEvent:new FormControl ('',[Validators.required]),
+      duree:new FormControl ('',[Validators.required]),
       // debut:new FormControl ('',[Validators.required]),
       // fin:new FormControl ('',[Validators.required]),
       adressevent:new FormControl ('',[Validators.required]),
@@ -118,13 +119,15 @@ export class GestioneventComponent implements OnInit {
       title: 'modification annulée',
       text: ''
     }).then(function () {
-      window.location.reload();
+      this.form.reset();
     })
   }
 
  
     
-
+  closeEvent(){
+    this.form.reset();
+  }
   
 
   editevent(event){
@@ -150,10 +153,12 @@ export class GestioneventComponent implements OnInit {
   }
 
   add_event() {
-    console.log("test")
-    let resp = this.gestioneventservice.ajouterevent(this.form.value);
-    resp.subscribe((data) =>
-      this.successSwa1l());
+
+     this.gestioneventservice.ajouterevent(this.form.value).subscribe((data:any) =>
+      {
+        this.onUploadc(data.id) 
+        this.successSwa1l();
+      })
 }
 
 successSwa1l() {
@@ -162,7 +167,7 @@ successSwa1l() {
         '',
         'success'
       ).then(function () {
-        window.location.reload();
+       window.location.reload();
       })
 
 }
@@ -179,13 +184,16 @@ onSelectFile(event) {
       this.selected=true
 }
 
-onUploadc(){ 
+onUploadc(id){ 
   console.log(this.selectedFile);
   const uploadImageData = new FormData();
 
   uploadImageData.set('file', this.selectedFile, this.selectedFile.name);
   console.warn(uploadImageData);
-  this.gestioneventservice.upload_photo(uploadImageData,this.event.id).subscribe(
+console.log(this.idSelected);
+
+  
+  this.gestioneventservice.upload_photo(uploadImageData,id).subscribe(
     () => {
   
     },
@@ -208,7 +216,7 @@ getProfileImg(id) {
     console.log( );
     if (imagetable.picByte ==null) {
       this.thumbnailTest = false;
-      //this.idSelected=id;
+      this.idSelected=id;
     }else{
       this.thumbnailTest = true;
     

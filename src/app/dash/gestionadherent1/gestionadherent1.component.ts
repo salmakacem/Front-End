@@ -32,7 +32,7 @@ this.router.params.subscribe(
   this.idUser=this.router.snapshot.paramMap.get('id');
 }
 )
-    this. getAdressById(this.idUser);
+    
     this.getDetailById(this.idUser);
 
     this.formadresse =new FormGroup ({
@@ -82,6 +82,7 @@ this.router.params.subscribe(
     this.gestionadherent1service.getDetails(id).subscribe(
       (response:any)=>{
         this.listdetail=response;
+        this. getAdressById(response.id);
       console.log("detaail",this.listdetail);
     }
 

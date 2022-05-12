@@ -31,12 +31,11 @@ export class AdresseComponent implements OnInit {
      this.adressform=  new FormGroup({
        
       city_name:new FormControl('', [Validators.required]),
-     
       home_adress:new FormControl('', [Validators.required]),
-      region :new FormControl('', [Validators.required]),
+      gouvernorat :new FormControl('', [Validators.required]),
       work_adress: new FormControl('', [Validators.required]),
       zip :new FormControl('', [Validators.required]),
-      etats:new FormControl('', [Validators.required]),
+      
     });
     
 

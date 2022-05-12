@@ -3,6 +3,7 @@ import { Details } from './../../../details';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-details',
@@ -15,16 +16,21 @@ export class DetailsComponent implements OnInit {
   details:Details = new Details();
   imgURL:any;
   userFile;
- 
+ submitted:false;
 
-  constructor(private detailsService: DetailsService , private router: Router) { }
- 
+  constructor(private detailsService: DetailsService , private router: Router,private sanitizer: DomSanitizer) { }
+  username;
+  selectedFile: File;
+  thumbnail: any;
+  thumbnailTest: any;
+  message: any;
+  email: String;
+  imageName:any;
   ngOnInit(): void {
     this.DetailsForm = new FormGroup({ 
       
       nationalite :new FormControl('', [Validators.required]),
       profession  :new FormControl('', [Validators.required]),
-      cin  :new FormControl('', [Validators.required]),
       sexe  :new FormControl('', [Validators.required]),
       date_de_naissance  :new FormControl('', [Validators.required]),
       statut_social :new FormControl('', [Validators.required]),
@@ -46,24 +52,49 @@ export class DetailsComponent implements OnInit {
     },error=>alert("does not work"));
  
   }
-  // onSelectFile(event){
-  //   if(event.target.files.length > 0)
-  //   {
-  //     const file =event.target.files[0];
-  //     this.userFile =file;
-  //     this.f['profile'].setValue(file);
-  //     var mimeType=event.target.files[0].type;
-  //     if(mimeType.match(/image\/*/)==null){
-  //       this.message="only images supported";
-  //       return;
-  //     }
-  //     var reader = new FileReader();
-  //     this.imagePath=file;
-  //     reader.readAsDataURL(file);
-  //     reader.onload= (_event)=>{
-  //       this.imgURL = reader.result;
-  //     }
-  //   }
+
+  public onFileChanged(event) {
+    this.selectedFile = event.target.files[0];
+  }
+
+  onUpload() {
+    this.detailsService.UploadImage(this.selectedFile)
+    .subscribe(
+      (res) => {
+
+        console.log(res);
+      
+       
+      },
+      error => {
+        console.log(error);
+        
+      });
+
+     
+  }
+  getProfileImg() {
+    
+    this.detailsService.getImg().subscribe((imagetable) => {
+      let retrievedImage = 'data:image/jpeg;base64,' + imagetable;
+      this.thumbnail = this.sanitizer.bypassSecurityTrustUrl(retrievedImage);
+    }, error => {
+      this.thumbnail = '';
+      this.thumbnailTest = true
+      console.log("error" + error);
+    });
+  }
+  
+  // getImage() {
+    
+  //   this.detailsService.getImage().subscribe((imagetable) => {
+  //     let retrievedImage = 'data:image/jpeg;base64,' + imagetable;
+  //     this.thumbnail = this.sanitizer.bypassSecurityTrustUrl(retrievedImage);
+  //   }, error => {
+  //     this.thumbnail = '';
+  //     this.thumbnailTest = true
+  //     console.log("error" + error);
+  //   });
   // }
 
 }

@@ -1,4 +1,4 @@
-<div class="bg-gradient-primary">
+<!-- <div class="bg-gradient-primary">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 col-lg-6 col-xl-6">
@@ -99,6 +99,100 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div> -->
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form class="login100-form validate-form" [formGroup]="adressform" (ngSubmit)="saveadress()">
+                <span class="login100-form-logo">
+            <img src="assets/img/logo.png" class="user-image2" alt="User Image" />
+          </span>
+                <span class="login100-form-title p-b-34 p-t-27">
+          </span>
+
+
+
+
+                <div class="wrap-input100 validate-input pass">
+                    <input type="text" class="form-control input100" formControlName="city_name" [(ngModel)]="adress.city_name" id="city_name" aria-describedby="phoneHelp" placeholder="Nom de ville" name="city_name">
+                    <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                    <small class="text-danger" *ngIf="submitted && adressform.get('lastName').hasError('required')">Champ est obligatoire.</small>
+
+
+
+
+                </div>
+                <div class="wrap-input100 validate-input pass">
+                    <input type="text" class="form-control input100" formControlName="work_adress" [(ngModel)]="adress.work_adress" id="work_adress" aria-describedby="phoneHelp" placeholder="Adresse de travail" name="work_adress">
+                    <span class="focus-input100" data-placeholder="&#xf207;"></span>
+
+                    <small class="text-danger" *ngIf="submitted && adressform.get('firstName').hasError('required')">champ obligatoire.</small>
+
+                </div>
+
+
+
+
+                <div class="wrap-input100 validate-input pass">
+                    <input type="text" id="home_adress" class="form-control input100" id="home_adress" formControlName="home_adress" [(ngModel)]="adress.home_adress" placeholder="Adresse de maison" name="home_adress">
+                    <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                    <small class="text-danger" *ngIf="submitted && adressform.get('email').hasError('required')">champ obligatoire.</small>
+                </div>
+
+                <div class="wrap-input100 validate-input pass">
+                    <input type="text" id="zip" class="form-control input100" name="zip" formControlName="zip" id="zip" [(ngModel)]="adress.zip" placeholder="ZIP" name="zip">
+                    <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                    <small class="text-danger" *ngIf="submitted && adressform.get('password').hasError('required')">champ obligatoire.</small>
+
+                </div>
+
+
+
+                <label for="inputState" class="form-label">Gouvernorat</label>
+                <select id="etats" class="form-select" formControlName="gouvernorat" [(ngModel)]="adress.gouvernorat">
+                    <small class="text-danger" *ngIf="submitted && adressform.get('gouvernorat').hasError('required')">champ obligatoire.</small>
+                    
+<option selected>Ariana</option>
+<option>Béja</option>
+<option>Ben Arous</option>
+<option>Bizerte</option>
+<option>Gabès</option>
+<option>Gafsa</option>
+<option>Jendouba</option>
+<option>Kairouan</option>
+<option>Kasserine</option>
+<option>Kébili</option>
+<option>Le Kef</option>
+<option>Mahdia</option>
+<option>La Manouba</option>
+<option>Médenine</option>
+<option>Monastir</option>
+<option>Nabeul</option>
+<option>Sfax</option>
+<option>Sidi Bouzid</option>
+<option>Siliana</option>
+<option>Sousse</option>
+<option>Tataouine</option>
+<option>Tozeur</option>
+<option>Tunis</option>
+<option>Zaghouan</option>
+</select>
+
+
+                <br>
+
+
+                <div class="container-login100-form-btn">
+
+
+                    <button type="submit" class="login100-form-btn">S'inscrire</button>
+                    <button type="button" class="login100-form-btn" routerLink="/details">Retourner</button>
+                    <!-- (click)="onUpload()" -->
+                </div>
+
+            </form>
         </div>
     </div>
 </div>

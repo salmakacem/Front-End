@@ -8,7 +8,7 @@
 // };
 export const CONFIG = {
   production: false,
-  URL: 'http://localhost:8083/api/v1/',
+  URL: 'http://localhost:8090/api/v1/',
   
   firebase: {
     apiKey: 'AIzaSyB8djvaircxX1lHIz4GsgVEhrz91O5mBzA',

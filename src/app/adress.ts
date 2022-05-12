@@ -4,10 +4,10 @@ export class Adress {
         city_name: string;
         
         home_adress: string;
-        region: string;
+        gouvernorat: string;
         work_adress:string;
         zip: string;
-        etats:string;
+     
 
       
 }

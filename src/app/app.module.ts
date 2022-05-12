@@ -14,7 +14,6 @@ import { ServiceComponent } from './components/pages/service/service.component';
 import { ServiceTwoComponent } from './components/pages/service-two/service-two.component';
 import { ServiceThreeComponent } from './components/pages/service-three/service-three.component';
 import { ServiceDetailsComponent } from './components/pages/service-details/service-details.component';
-
 import { BlogRightSidebarComponent } from './components/pages/blog-right-sidebar/blog-right-sidebar.component';
 import { PricingComponent } from './components/pages/pricing/pricing.component';
 import { RecentProjectComponent } from './components/pages/recent-project/recent-project.component';
@@ -57,6 +56,11 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { CONFIG } from 'src/environments/environment';
 import { MessagingService } from './service/messaging.service';
+import { ValidercodeComponent } from './validercode/validercode.component';
+import { SearchFilterPipe } from './search-filter.pipe';
+
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 
 @NgModule({
@@ -89,14 +93,20 @@ import { MessagingService } from './service/messaging.service';
     ProfileComponent,
     GestionadherentsComponent,
     GestioneventComponent,
-    ProfileeComponent,
     ForgotloginComponent,
     ChangermdpComponent,
     ProfileeComponent,
     Gestionadherent1Component,
     MapComponent,
     ChatComponent,
-    
+
+    ValidercodeComponent,
+
+    SearchFilterPipe,
+
+
+
+
   ],
   imports: [
     NgbModule,
@@ -105,17 +115,24 @@ import { MessagingService } from './service/messaging.service';
     AppRoutingModule,
     HttpClientModule,
 
+
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
     ToastrModule.forRoot(),
+
     AngularFireModule,
     AngularFireMessagingModule,
     AngularFireAuthModule,
     AngularFireDatabaseModule,
 
-    
-AngularFireModule.initializeApp(CONFIG.firebase),
+
+    AngularFireModule.initializeApp(CONFIG.firebase),
+
+    Ng2SearchPipeModule,
+
+
+
 
   ],
   //providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },],

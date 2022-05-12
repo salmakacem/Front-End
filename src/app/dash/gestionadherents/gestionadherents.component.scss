@@ -1,6 +1,67 @@
+@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
+.mainLoginInput {
+    height: 40px;
+    padding: 0px;
+    font-size: 30px;
+    margin: 5px 0;
+}
+
+.mainLoginInput::-webkit-input-placeholder {
+    font-family: FontAwesome;
+    font-weight: normal;
+    overflow: visible;
+    vertical-align: top;
+    display: inline-block !important;
+    padding-left: 5px;
+    padding-top: 2px;
+    color: hsl(9, 40%, 60%);
+}
+
+.mainLoginInput:-moz-placeholder {
+    font-family: FontAwesome;
+    font-weight: normal;
+    overflow: visible;
+    vertical-align: top;
+    display: inline-block !important;
+    padding-left: 5px;
+    padding-top: 2px;
+    color: hsl(9, 40%, 60%);
+}
+
+.mainLoginInput:-ms-input-placeholder {
+    font-family: FontAwesome;
+    font-weight: normal;
+    overflow: visible;
+    vertical-align: top;
+    display: inline-block !important;
+    padding-left: 5px;
+    padding-top: 2px;
+    color: hsl(9, 40%, 60%);
+}
+
+.container {
+    padding-top: 50px;
+    padding-bottom: 10px;
+    color: #405065;
+}
+
+.search-hero {
+    max-width: 500px;
+    padding-bottom: 50px;
+    margin: auto;
+}
+
+.form-control {
+    box-shadow: 0 10px 40px 0 #B0C1D9;
+}
+
+.form-control::placeholder {
+    font-family: FontAwesome;
+}
+
 .bg-gradient-primary {
     background-color: rgb(219, 45, 45);
-    background-image: linear-gradient(180deg,#fff 10%,rgb(252, 17, 17));
+    background-image: linear-gradient(180deg, #fff 10%, rgb(252, 17, 17));
     background-size: cover;
 }
 
@@ -21,7 +82,7 @@
     z-index: 1;
 }
 
-.text-ligh{
+.text-ligh {
     color: rgb(251, 251, 251);
 }
 
@@ -31,15 +92,16 @@
     border-color: #edc5c2;
 }
 
-
 #wrapper #content-wrapper #content {
     background-color: #fbfbfb;
     width: 100%;
     overflow-x: hidden;
 }
+
 .text-primary {
     color: #db4739!important;
 }
+
 .text-dark {
     color: #a38b89!important;
 }
@@ -47,10 +109,3 @@
 .bg-white {
     background-color: #fbfbfb!important;
 }
-
-
-
-                   
-               
-     
-		

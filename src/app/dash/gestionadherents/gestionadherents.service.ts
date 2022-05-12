@@ -24,7 +24,7 @@ import { CONFIG } from 'src/environments/environment';
     getUser() : Observable<Users[]> {
       const  token = localStorage.getItem('token');
       const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
-      return this.http.get<Users[]>(CONFIG.URL +'users/GetAllU/',{ headers: headers });
+      return this.http.get<Users[]>(CONFIG.URL +'users/GetAllU',{ headers: headers });
 
     }
 
@@ -33,6 +33,7 @@ import { CONFIG } from 'src/environments/environment';
       const  headers  = new HttpHeaders().set("Authorization", 'Bearer ' + token);
       return this.http.delete<Users[]>(CONFIG.URL+'users/del/'+user.id,{ headers: headers });
     }
+ 
       
 
       updateUser(users:Users) {

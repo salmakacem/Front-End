@@ -12,22 +12,17 @@
 
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link active" a routerLink="/dashbord" routerLinkActive="active"
-                            [routerLinkActiveOptions]="{exact: true}"><i
+                    <li class="nav-item"><a class="nav-link active" a routerLink="/dashbord" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i
                                 class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-                    <li class="nav-item"><a class="nav-link active" a routerLink="/profile" routerLinkActive="active"
-                            [routerLinkActiveOptions]="{exact: true}"><i
+                    <li class="nav-item"><a class="nav-link active" a routerLink="/profile" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i
                                 class="fas fa-user"></i><span>Profile</span></a></li>
-                    <li class="nav-item"><a class="nav-link active" a routerLink="/gestionevent"
-                            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i
+                    <li class="nav-item"><a class="nav-link active" a routerLink="/gestionevent" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i
                                 class="fas fa-table"></i><span>Géstion des Evénements</span></a></li>
-                    <li class="nav-item"><a class="nav-link active" a routerLink="/gestionadherents"
-                            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i
+                    <li class="nav-item"><a class="nav-link active" a routerLink="/gestionadherents" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i
                                 class="fas fa-table"></i><span>Géstion des adhérents</span></a></li>
 
                 </ul>
-                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0"
-                        id="sidebarToggle" type="button"></button></div>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
             </div>
         </nav>
 
@@ -40,106 +35,436 @@
                     <div class="card shadow">
 
                         <div class="card-header py-3">
-                            <p class="text-primary m-0 font-weight-bold">Evénements info</p>
+                            <p class="text-primary m-0 font-weight-bold">Gestion événements</p>
+                            <div class="container-fluid"><button type="button" class="btn btn-primary" id="b2" data-bs-toggle="modal" data-bs-target="#exampleModal2">Ajouter évènement
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                </button></div>
+
                         </div>
-                        <div class="card-body" style="width: 700px;">
+                        <div class="card-body" style="width: 1000px;">
                             <div class="row">
                                 <div class="col-md-6 text-nowrap">
                                     <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
-                                        <label>Show&nbsp;<select
-                                                class="form-control form-control-sm custom-select custom-select-sm">
-                                                <option value="10" selected="">10</option>
-                                                <option value="25">25</option>
-                                                <option value="50">50</option>
-                                                <option value="100">100</option>
-                                            </select>&nbsp;</label></div>
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="text-md-right dataTables_filter" id="dataTable_filter"><label><input
-                                                type="search" class="form-control form-control-sm"
-                                                aria-controls="dataTable" placeholder="Search"></label></div>
+                                    <div class="mainLoginInput">
+                                        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Recherche évènement">
+                                    </div>
                                 </div>
+                                <div class="col--12">
+                                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                                    </div>
+                                </div>
+
                             </div>
-                            <div class="table-responsive table mt-2" style="display: inline;" id="dataTable" role="grid"
-                                aria-describedby="dataTable_info">
+                            <div class="table-responsive table mt-2" style="display: inline;" id="dataTable" role="grid" aria-describedby="dataTable_info">
                                 <table class="table my-0" id="dataTable">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th>Id</th>
 
 
-                                            <th>Image</th>
+
+                                            <th>Titre</th>
 
 
-                                            <th>nom_de_event</th>
+                                            <th>Description </th>
 
+
+                                            <th>Adresse</th>
 
                                             <th>Date</th>
 
-                                            <th>Actions</th>
+                                            <th>Durée de l'évènement</th>
+                                            <!-- <th>Heure de début </th>
+                                            <th>Heure de début</th> -->
+
+                                            <th>Affiche</th>
+
+
+                                            <th></th>
 
 
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        <tr *ngFor=" let even of listevent  ; let hero of heroes | filter:searchText">
 
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
 
-                                            <td></td>
+                                            <td>
+                                                {{even.id}}
+                                            </td>
+
+                                            <td> {{even.nom_event}}</td>
+
+                                            <td>{{even.descriptionEvent}}</td>
+                                            <td>{{even.adressevent}}</td>
+                                            <td>
+                                                {{even.date | date: 'yyyy-MM-dd'}}
+
+                                            </td>
+                                            <td>{{even.duree}}</td>
+                                            <!-- <td>{{even.debut | date: 'HH:mm'}}</td>
+                                            <td>{{even.debut| date: 'HH:mm'}}</td> -->
+
+
+                                            <td>
+
+
+                                                <div class="container-fluid">
+                                                    <button type="button" class="btn btn-primary" id="b1" data-bs-toggle="modal" (click)="getProfileImg(even.id)" data-bs-target="#modalPhoto">
+                                                    <i class="fas fa-file-image" id="1" aria-hidden="true"></i>
+                                                </button></div>
+
+                                            </td>
+
 
                                             <td>
                                                 <div class="btn-group">
-                                                    <div class="container-fluid"><button class="btn btn-primary"
-                                                            type="button"><i class="fa fa-trash"
+                                                    <div class="container-fluid"><button class="btn btn-primary" (click)="deleteEventById(even)" (click)="confirmSwal(even.id)" ngbTooltip="supprimer" type="button"><i class="fa fa-trash"
                                                                 aria-hidden="true"></i></button></div>
-                                                    <div class="container-fluid"><button type="button"
-                                                            class="btn btn-primary" id="b1" data-bs-toggle="modal"
-                                                            data-bs-target="#exampleModal">
+                                                    <div class="container-fluid"><button type="button" (click)="editevent(even)" class="btn btn-primary" id="b1" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                             <i class="fa fa-wrench" aria-hidden="true"></i>
                                                         </button></div>
                                                 </div>
-
-                                                <!-- Modal -->
-                                                <div class="modal fade" id="exampleModal" tabindex="-1"
-                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal fade" id="modalPhoto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Modifier
-                                                                    Evénements</h5>
-                                                                <button type="button" class="btn-close"
-                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                <h5 class="modal-title" id="exampleModalLabel1">Ajouter une affiche
+                                                                </h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body">
+                                                                <div *ngIf="thumbnailTest">
+                                                                    <img style="max-width: 70%;margin-left: 15%;" [src]="thumbnail">
+                                                                </div>
+                                                                <div class="card-body px-lg-5 py-lg-5" *ngIf="!thumbnailTest">
 
-                                                                <form class="user">
-                                                                    <div class="form-group row">
-                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input
-                                                                                class="form-control form-control-user"
-                                                                                type="text" id="exampleFirstName"
-                                                                                placeholder="nom_de_event"
-                                                                                name="nom_event"></div>
-                                                                        <div class="col-sm-6"><input
-                                                                                class="form-control form-control-user"
-                                                                                type="text" id="exampleFirstName"
-                                                                                placeholder="Date" name="date"></div>
+                                                                    <form role="form" [formGroup]="">
+                                                                        <div class="custom-file hedha">
+                                                                            <input type="file" class="custom-file-input" accept="image/*" (change)="onSelectFile($event)" id="customFileLang" lang="en">
+                                                                            <label class="custom-file-label" for="customFileLang">image selectionée</label>
+                                                                        </div>
+                                                                        <div class="text-center">
+                                                                            <span>
+                                                                  <img  style="max-width: 70%;margin-left: 15%;" [src]="imageSrc">
+                                                                </span> </div>
+                                                                        <div class="text-center" *ngIf="selected">
+                                                                            <button type="submit" (click)="onUploadc(idSelected)" (click)="getProfileImg(idSelected)" (click)="successSwal()" class="btn btn-sm btn-primary mt-4">Changer la photo du profil</button>
+                                                                        </div>
+
+
+                                                                    </form>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Modifier Evénements
+                                                                </h5>
+                                                                <button type="button" (click)="closeEvent()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="card-body px-lg-5 py-lg-5">
+
+                                                                <form class="user" [formGroup]="form">
+
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Titre :</label>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Description :</label>
+                                                                        </div>
                                                                     </div>
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" name="nom_event" formControlName="nom_event" placeholder="Titre" type="text">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" placeholder="Description" name="descriptionEvent" formControlName="descriptionEvent" type="text">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Date :</label>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Duree :</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" type="date" placeholder="yyyy-MM-dd" formControlName="date" [value]="form.get('date').value | date:'yyyy-MM-dd'">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" placeholder="Duree" name="duree" formControlName="duree" type="text">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Adresse :</label>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" name="adressevent" formControlName="adressevent" placeholder="Adresse" type="text">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+
+
 
 
 
                                                                 </form>
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">Fermer</button>
-                                                                <button type="button"
-                                                                    class="btn btn-primary">Enregistrer</button>
+                                                                <button type="button" class="btn btn-secondary" (click)="successSwal2()" data-bs-dismiss="modal">Fermer</button>
+                                                                <button type="button" (click)="successSwal1()" class="btn btn-primary" (click)="updateEvents()">Enregistrer</button>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                </div>
+                                                <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <div class="text-muted text-center">
+                                                                    <h3>Ajouter un nouveau évènement</h3>
+                                                                </div>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="card-body px-lg-5 py-lg-5">
+                                                                <form role="form" [formGroup]="form">
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Titre :</label>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Description de l'évènement :</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" name="nom_event" formControlName="nom_event" placeholder="Titre" type="text">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" placeholder="Description de l'évènement " name="descriptionEvent" formControlName="descriptionEvent" type="text">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Adresse :</label>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Date de l'évènement :</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" formControlName="adressevent" name="adressevent" placeholder="Adresse" type="text">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" type="date" placeholder="yyyy-MM-dd" formControlName="date" [value]="form.get('date').value | date:'yyyy-MM-dd'">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Durée de l'évènement:</label>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" formControlName="duree" name="duree" placeholder="Durée de l'évènement" type="text">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <!-- <div class="form-row">
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Heure de début :</label>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Heure de fin :</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" formControlName="debut" name="debut" placeholder="HH:mm" type="time" [value]="form.get('debut').value | date : 'HH:mm' ">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" type="time" formControlName="fin" name="fin" placeholder="HH:mm" [value]="form.get('fin').value | date : 'HH:mm' ">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div> 
+                                                                    </div>-->
+
+                                                                </form>
+                                                            </div>
+                                                            <div class="card-body px-lg-5 py-lg-5">
+
+                                                                <form role="form" [formGroup]="">
+                                                                    <div class="custom-file hedha">
+                                                                        <input type="file" class="custom-file-input" accept="image/*" (change)="onSelectFile($event)" id="customFileLang" lang="en">
+                                                                        <label class="custom-file-label" for="customFileLang">image selectionée</label>
+                                                                    </div>
+                                                                    <div class="text-center">
+                                                                        <span class="">
+                                                              <img class=""  style="max-width: 100%;
+                                                              padding: 10%;" [src]="imageSrc">
+                                                            </span> </div>
+
+
+
+                                                                </form>
+                                                            </div>
+
+                                                            <div class="text-center" *ngIf="selected">
+                                                                <button type="submit" class="btn btn-primary my-4 " (click)="getProfileImg" (click)="add_event()"><span
+                                                                class="btn-inner--icon"><i class="fa fa-plus"></i></span>
+                                                              Ajouter évènement
+                                                            </button>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
                                                 </div>
                                             </td>
 
@@ -152,171 +477,19 @@
                         </div>
                     </div>
                     <br><br>
-                    <div class="card shadow">
 
-                        <div class="card-header py-3">
-                            <p class="text-primary m-0 font-weight-bold">Adresse info</p>
-                        </div>
-                        <div class="card-body" style="width: 700px;">
-                            <div class="row">
-                                <div class="col-md-6 text-nowrap">
-                                    <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
-                                        <label>Show&nbsp;<select
-                                                class="form-control form-control-sm custom-select custom-select-sm">
-                                                <option value="10" selected="">10</option>
-                                                <option value="25">25</option>
-                                                <option value="50">50</option>
-                                                <option value="100">100</option>
-                                            </select>&nbsp;</label></div>
-                                </div>
-
-                            <div class="col-md-6">
-                                <div class="text-md-right dataTables_filter" id="dataTable_filter"><label><input
-                                            type="search" class="form-control form-control-sm"
-                                            aria-controls="dataTable" placeholder="Search"></label></div>
-                            </div>
-                        </div>
-                        <div class="table-responsive table mt-2" style="display: inline;" id="dataTable" role="grid"
-                            aria-describedby="dataTable_info">
-                            <table class="table my-0" id="dataTable">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-
-                                        <th>Région</th>
-                                        <th>Nom_de_ville</th>
-                                        <th>Adresse_de_maison</th>
-                                        <th>Adresse_de_travail</th>
-
-                                        <th>ZIP</th>
-                                        <th>Etats</th>
-
-                                        <th>Actions</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor=" let adres of listadress ">
-                                        <td>{{adres.id}}</td>
-                                        <td>{{adres.region}}</td>
-                                        <td>{{adres.city_name}}</td>
-                                        <td>{{adres.home_adress}}</td>
-                                        <td>{{adres.work_adress}}</td>
-                                        <td>{{adres.zip}}</td>
-                                        <td>{{adres.etats}}</td>
-                                        <td>
-                                            <div>
-                                                <div class="btn-group">
-                                                    <div class="container-fluid"><button class="btn btn-primary"
-                                                            type="button"><i class="fa fa-trash"></i></button></div>
-
-                                                    <!-- Button trigger modal -->
-                                                    <div class="container-fluid"><button type="button"
-                                                            class="btn btn-primary" id="b1" data-bs-toggle="modal"
-                                                            data-bs-target="#exampleModal1">
-                                                            <i class="fa fa-wrench" id="1" aria-hidden="true"></i>
-                                                        </button></div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="exampleModal1" tabindex="-1"
-                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel1">Modifier
-                                                                Adresse</h5>
-                                                            <button type="button" class="btn-close"
-                                                                data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-
-                                                            <form class="user">
-                                                                <div class="form-group row">
-                                                                    <div class="col-sm-6 mb-3 mb-sm-0"><input
-                                                                            class="form-control form-control-user"
-                                                                            type="text" id="exampleFirstName"
-                                                                            placeholder="Pays" name="pays"></div>
-                                                                    <div class="col-sm-6"><input
-                                                                            class="form-control form-control-user"
-                                                                            type="text" id="exampleFirstName"
-                                                                            placeholder="Région" name="région"></div>
-                                                                </div>
-                                                                <div class="form-group row">
-                                                                    <div class="col-sm-6 mb-3 mb-sm-0"><input
-                                                                            class="form-control form-control-user"
-                                                                            type="text" id="exampleFirstName"
-                                                                            placeholder="Nom_de_ville"
-                                                                            name="nom_de_ville"></div>
-                                                                    <div class="col-sm-6"><input
-                                                                            class="form-control form-control-user"
-                                                                            type="text" id="exampleFirstName"
-                                                                            placeholder="Adresse_de_maison"
-                                                                            name="adresse_de_maison"></div>
-                                                                </div>
-
-                                                                <div class="form-group row">
-                                                                    <div class="col-sm-6 mb-3 mb-sm-0"><input
-                                                                            class="form-control form-control-user"
-                                                                            type="password" id="examplePasswordInput"
-                                                                            placeholder="Adresse_de_travail"
-                                                                            name="adresse_de_travail"></div>
-                                                                    <div class="col-sm-6"><input
-                                                                            class="form-control form-control-user"
-                                                                            type="password"
-                                                                            id="exampleRepeatPasswordInput"
-                                                                            placeholder="ZIP" name="zip"></div>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-bs-dismiss="modal">Fermer</button>
-                                                            <button type="button"
-                                                                class="btn btn-primary">Enregistrer</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </td>
-
-
-                                    </tr>
-
-
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                </div>
                     <br>
 
                     <div class="row">
                         <div class="col-md-6 align-self-center">
 
                         </div>
-                        <div class="col-md-6">
-                            <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
-                                <ul class="pagination">
-                                    <li class="page-item disabled"><a class="page-link" href="#"
-                                            aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span
-                                                aria-hidden="true">»</span></a></li>
-                                </ul>
-                            </nav>
-                        </div>
+
                     </div>
-                
 
 
+                    <!-- Modal -->
 
-            </div>
-        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
-    </div>
+                </div>
+            </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+        </div>

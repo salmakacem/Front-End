@@ -1,0 +1,8 @@
+if (self.CavalryLogger) { CavalryLogger.start_js_script(document.currentScript); }/*FB_PKG_DELIM*/
+
+__d("CometComposerMediaAttachmentPendingMediaStates",["$InternalEnum"],(function(a,b,c,d,e,f){"use strict";a=b("$InternalEnum").Mirrored(["NEW","QUEUED","UPLOADING"]);c=a;f["default"]=c}),66);
+__d("cometComposerValidateNoMediaCurrentlyUploading",["fbt","CometComposerMediaAttachmentPendingMediaStates"],(function(a,b,c,d,e,f,g,h){"use strict";function a(a){return(a.mediaAttachments||[]).some(function(a){return new Set(c("CometComposerMediaAttachmentPendingMediaStates").members()).has(a.state)})?h._(/*FBT_CALL*/"Vous ne pouvez pas publier tant qu\u2019un contenu multim\u00e9dia est en cours d\u2019importation"/*FBT_CALL*/):null}g["default"]=a}),98);
+__d("EventCometComposerContext",["react"],(function(a,b,c,d,e,f,g){"use strict";a=d("react");b=a.createContext({errorMetadata:null,isSaving:!1,mode:"create"});g["default"]=b}),98);
+__d("MediaManagerEventFalcoEvent",["FalcoLoggerInternal","getFalcoLogPolicy_DO_NOT_USE"],(function(a,b,c,d,e,f){"use strict";a=b("getFalcoLogPolicy_DO_NOT_USE")("308");c=b("FalcoLoggerInternal").create("media_manager_event",a);e.exports=c}),null);
+__d("XCometPageCommunityTabControllerRouteBuilder",["jsRouteBuilder"],(function(a,b,c,d,e,f,g){a=c("jsRouteBuilder")("/{vanity}/community/",Object.freeze({ref:""}),void 0);b=a;g["default"]=b}),98);
+__d("CometPageResharesComposerQuery_facebookRelayOperation",[],(function(a,b,c,d,e,f){e.exports="7835985769752717"}),null);

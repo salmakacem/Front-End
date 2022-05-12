@@ -17,15 +17,15 @@ import { GestionadherentsService } from './gestionadherents.service';
   styleUrls: ['./gestionadherents.component.scss']
 })
 export class GestionadherentsComponent implements OnInit {
-  // title = 'Angular Search Using ng2-search-filter';
-  // searchText;
-  // heroes = [
-  //   { id: 4, firstName: 'marwen', lastName: 'sghaier',email:'marwen@dipower.fr',telephone:'234444' },
-  //   { id: 3, firstName: 'SELMA', lastName: 'aaa',email:'aaaa',telephone:'aaaa' },
-  //   { id: 44, firstName: 'RRRRR', lastName: 'RRRRRRRR',email:'RRRRRRRR',telephone:'RRRRRRR' },
+  title = 'Angular Search Using ng2-search-filter';
+  searchText;
+  heroes = [
+    { id: 39, firstName: 'marwen', lastName: 'sghaier',email:'marwen@dipower.fr',telephone:'50111234' },
+    { id: 13, firstName: 'Selma', lastName: 'Kacem',email:'selma.kacem@istic.ucar.tn',telephone:'50214550' },
+    { id: 11, firstName: 'ahmed', lastName: 'nefzi',email:'ahmednefzi@gmail.com',telephone:'90877611' },
    
-
-  // ];
+    			
+  ];
   
   listuser:Users[];
   formuser: FormGroup;
@@ -73,12 +73,13 @@ getAllUser(){
   );
 }
 deleteUserById(id){
-  this.gestionadherentsservice.deleteUser(id).subscribe(
-    (res =>{
-      alert("adresse est supprimée");
+  let resp=this.gestionadherentsservice.deleteUser(id);
+  resp.subscribe((data)=> this.user=data);
+   
+
       this.getAllUser();
-    })
-  );
+  
+  
 }
 
 editUser(user){
@@ -112,7 +113,7 @@ updateUserr(){
 successSwal(){
   Swal.fire({
     icon: 'success',
-    title: 'Votre profile est modifié avec succés',
+    title: 'Adhérent modifié avec succés',
     text: ''
   }).then(function () {
     window.location.reload();
@@ -139,9 +140,9 @@ confirmSwal(id) {
     reverseButtons: true
   }).then((result) => {
     if (result.isConfirmed) {
-      this.deleteUserById(id);
+  
       swalWithBootstrapButtons.fire(
-        'Fiche supprimée!',
+        'Adhérent supprimée!',
         '',
         'success'
       )

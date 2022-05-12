@@ -16,10 +16,12 @@ export class GestioneventComponent implements OnInit {
   title = 'Angular Search Using ng2-search-filter';
   searchText;
   heroes = [
-    // { id: 5, date: '1651051628000', nomevent: 'test',descriptionEvent:'test',statut:'true',adressevent:'tunis' },
-    // { id: 16, date: '1543276800000' , nomevent: 'tt',descriptionEvent:'tt',statut:'false',adressevent:'tt'},
-    // { id: 12, date: '1543276800000' , nomevent: 'ff',descriptionEvent:'ff',statut:'true',adressevent:'ff'},
-    // { id: 12, date: '1543276800000' , nomevent: 'aaa',descriptionEvent:'ff',statut:'true',adressevent:'ff'},
+    { id: 1, date: '1654120800000', nom_event: 'The guinguette',descriptionEvent:'Évènement musicale',duree:'2H',adressevent:'Le pirate Sidi Bou' },
+    { id: 2, date: '1658181600000' , nom_event: 'Summer sport party',descriptionEvent:'Evènement sportif',duree:'5H',adressevent:'Cité olympique el menzah'},
+    { id: 3, date: '1662674400000' , nom_event: 'Forum de lassociation',descriptionEvent:'Forum de lassociation',duree:'10H => 18H',adressevent:'Tunis'},
+ 
+    { id: 63, date: '1651442400000' , nom_event: 'Le printemps des petits lecteurs',descriptionEvent:'Evenement culturel',duree:'Une semaine',adressevent:'Centre culturel menzah 6'},
+ 
 
   ];
 
@@ -90,7 +92,7 @@ export class GestioneventComponent implements OnInit {
   deleteEventById(id){
    let resp= this.gestioneventservice.deleteEvent(id);
       resp.subscribe((data) => this.event= data);
-        
+   
       this.getAllEvent();
   }
   
@@ -155,9 +157,10 @@ export class GestioneventComponent implements OnInit {
   add_event() {
 
      this.gestioneventservice.ajouterevent(this.form.value).subscribe((data:any) =>
+    
       {
         this.onUploadc(data.id) 
-        this.successSwa1l();
+    this.successSwa1l();
       })
 }
 
@@ -253,7 +256,7 @@ confirmSwal(id) {
     if (result.isConfirmed) {
       this.deleteEventById(id);
       swalWithBootstrapButtons.fire(
-        'Fiche supprimée!',
+        'Evènement supprimé!',
         '',
         'success'
       )

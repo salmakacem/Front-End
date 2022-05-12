@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Adress } from 'src/app/adress';
 import { Details } from 'src/app/details';
 import { Gestionadherents1Service } from './gestionadherent1.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-gestionadherent1',
@@ -23,6 +24,7 @@ export class Gestionadherent1Component implements OnInit {
   edit: boolean = false;
   
   
+  
 
   constructor( private route:Router, private gestionadherent1service : Gestionadherents1Service ,private router:ActivatedRoute) { }
 
@@ -30,19 +32,19 @@ export class Gestionadherent1Component implements OnInit {
 this.router.params.subscribe(
 ()=>{
   this.idUser=this.router.snapshot.paramMap.get('id');
+  
 }
 )
-    
-    this.getDetailById(this.idUser);
+this.getDetailById(this.idUser);
 
     this.formadresse =new FormGroup ({
       id:new FormControl('',[Validators.required]),
       city_name:new FormControl ('',[Validators.required]),
       home_adress:new FormControl ('', [Validators.required]),
       work_adress : new FormControl ('',[Validators.required]),
-      region :new FormControl ('',[Validators.required]),
+      gouvernorat :new FormControl ('',[Validators.required]),
       zip : new FormControl('',[Validators.required]),
-      etats : new FormControl('',[Validators.required]),
+      
     
     });
 
@@ -92,10 +94,11 @@ this.router.params.subscribe(
   deleteAdressById(id){
     this.gestionadherent1service.deleteAdress(id).subscribe(
       (res =>{
-        alert("adresse est supprimée");
+      
         this.getAdressById(this.idUser);
       })
     );
+    
   }
   
 
@@ -104,7 +107,7 @@ this.router.params.subscribe(
   deleteDetailById(id){
     this.gestionadherent1service.deleteDetail(id).subscribe(
       (res =>{
-        alert("detail est supprimé");
+     
         this.getDetailById(this.idUser);
       })
     );
@@ -125,8 +128,7 @@ this.router.params.subscribe(
     this.gestionadherent1service.updateDetail(this.formdetail.value).subscribe(
       (res) =>{
         
-        alert("detail est modifié");
-        console.log("ddd")
+      this.successSwal();
         
        
       }
@@ -144,12 +146,108 @@ this.router.params.subscribe(
     console.log(this.formadresse.value);
     this.gestionadherent1service.updateAdresse(this.formadresse.value).subscribe(
       (res) => {
-        alert("adresse est modifié");
-        console.log("aaaa")
+      
       }
     )
 
   }
 
-  
+  successSwal() {
+    Swal.fire(
+      'Adhérent modifié',
+      '',
+      'success'
+    ).then(function () {
+     window.location.reload();
+    })
+
+}
+successSwal1() {
+  Swal.fire(
+    'Adresse modifiée',
+    '',
+    'success'
+  ).then(function () {
+   window.location.reload();
+  })
+
+}
+confirmSwal(id) {
+
+  const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: 'btn btn-success',
+      cancelButton: 'btn btn-danger'
+    },
+    buttonsStyling: false
+  })
+
+  swalWithBootstrapButtons.fire({
+    title: 'Vous êtes sûre ?',
+    text: "",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Oui, supprimer',
+    cancelButtonText: 'Non, annulée',
+    reverseButtons: true
+  }).then((result) => {
+    if (result.isConfirmed) {
+      this.deleteDetailById(id);
+      swalWithBootstrapButtons.fire(
+        'Détail supprimé!',
+        '',
+        'success'
+      )
+
+    } else if (
+      /* Read more about handling dismissals below */
+      result.dismiss === Swal.DismissReason.cancel
+    ) {
+      swalWithBootstrapButtons.fire(
+        'Action annulée',
+        '',
+        'error'
+      )
+    }
+  })
+}
+confirmSwalAdress(id) {
+
+  const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: 'btn btn-success',
+      cancelButton: 'btn btn-danger'
+    },
+    buttonsStyling: false
+  })
+
+  swalWithBootstrapButtons.fire({
+    title: 'Vous êtes sûre ?',
+    text: "",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Oui, supprimer',
+    cancelButtonText: 'Non, annulée',
+    reverseButtons: true
+  }).then((result) => {
+    if (result.isConfirmed) {
+      this.deleteAdressById(id);
+      swalWithBootstrapButtons.fire(
+        'Adresse supprimée!',
+        '',
+        'success'
+      )
+
+    } else if (
+      /* Read more about handling dismissals below */
+      result.dismiss === Swal.DismissReason.cancel
+    ) {
+      swalWithBootstrapButtons.fire(
+        'Action annulée',
+        '',
+        'error'
+      )
+    }
+  })
+}
 }

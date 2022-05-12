@@ -29,60 +29,235 @@
             <div id="content">
 
                 <div class="container-fluid">
-                    <h3 class="text-dark mb-4">Membres</h3>
+                    <h3 class="text-dark mb-4" style="margin-top: 5%;">Membres</h3>
+                    <div class="container-fluid">
+                        <div class="card shadow">
+
+                            <div class="card-header py-3">
+                                <p class="text-primary m-0 font-weight-bold">Détails</p>
+                            </div>
+                            <div class="card-body" style="width: 700px;">
+
+
+
+                                <div class="table-responsive table mt-2" style="display: inline;" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                                    <table class="table my-0" id="dataTable">
+                                        <thead>
+                                            <tr>
+                                                <th>Id</th>
+
+                                                <th>Date_de_naissance</th>
+                                                <th>Profession</th>
+                                                <th>Statut_social</th>
+
+                                                <th>Sexe</th>
+
+                                                <th>Nationalité</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+
+                                                <td>{{listdetail?.id}}</td>
+
+                                                <td>{{listdetail?.date_de_naissance | date: 'yyyy-MM-dd'}}</td>
+                                                <td>{{listdetail?.profession}}</td>
+
+                                                <td>{{listdetail?.statut_social}}</td>
+                                                <td>{{listdetail?.sexe}}</td>
+                                                <td>{{listdetail?.nationalite}}</td>
+
+
+                                                <td>
+                                                    <div>
+                                                        <div class="btn-group">
+                                                            <div class="container-fluid">
+                                                                <button type="button" (click)="deleteDetailById(listdetail)" (click)="confirmSwal(listdetail.id)" class="btn btn-primary"><i
+                                                                        class="fa fa-trash"></i></button>
+                                                            </div>
+
+                                                            <!-- Button trigger modal -->
+                                                            <div class="container-fluid">
+                                                                <button type="button" (click)="editDetail(listdetail)" class="btn btn-primary" id="b2" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                                                    <i class="fa fa-wrench" aria-hidden="true"></i>
+                                                                </button></div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel1">Modifier Détail
+                                                                    </h5>
+
+                                                                </div>
+                                                                <div class="card-body px-lg-5 py-lg-5">
+
+                                                                    <form class="user" [formGroup]="formdetail">
+
+                                                                        <div class="form-row">
+                                                                            <div class="col">
+                                                                                <label for="exampleFormControlTextarea1" class="text-dark">Profession :</label>
+                                                                            </div>
+                                                                            <div class="col">
+                                                                                <label for="exampleFormControlTextarea1" class="text-dark">Sexe :</label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-row">
+                                                                            <div class="col">
+                                                                                <div class="form-group mb-3">
+                                                                                    <div class="input-group input-group-alternative">
+                                                                                        <div class="input-group-prepend">
+                                                                                            <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                        </div>
+                                                                                        <input class="form-control text-dark" name="profession" formControlName="profession" placeholder="Profession" type="text">
+                                                                                        <div class="invalid-feedback">
+                                                                                            Ce champs est obligatoire
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col">
+                                                                                <div class="form-group mb-3">
+                                                                                    <div class="input-group input-group-alternative">
+                                                                                        <div class="input-group-prepend">
+                                                                                            <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                        </div>
+                                                                                        <input class="form-control text-dark" placeholder="Sexe" name="sexe" formControlName="sexe" type="text">
+                                                                                        <div class="invalid-feedback">
+                                                                                            Ce champs est obligatoire
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-row">
+                                                                            <div class="col">
+                                                                                <label for="exampleFormControlTextarea1" class="text-dark">Statut social :</label>
+                                                                            </div>
+                                                                            <div class="col">
+                                                                                <label for="exampleFormControlTextarea1" class="text-dark">Nationalité :</label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-row">
+                                                                            <div class="col">
+                                                                                <div class="form-group mb-3">
+                                                                                    <div class="input-group input-group-alternative">
+                                                                                        <div class="input-group-prepend">
+                                                                                            <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                        </div>
+                                                                                        <input class="form-control text-dark" name="statut_social" formControlName="statut_social" placeholder="Statut social" type="text">
+                                                                                        <div class="invalid-feedback">
+                                                                                            Ce champs est obligatoire
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col">
+                                                                                <div class="form-group mb-3">
+                                                                                    <div class="input-group input-group-alternative">
+                                                                                        <div class="input-group-prepend">
+                                                                                            <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                        </div>
+                                                                                        <input class="form-control text-dark" placeholder="Nationalité" name="nationalite" formControlName="nationalite" type="text">
+                                                                                        <div class="invalid-feedback">
+                                                                                            Ce champs est obligatoire
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-row">
+                                                                            <div class="col">
+                                                                                <label for="exampleFormControlTextarea1" class="text-dark">Date de naissance :</label>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="form-row">
+                                                                            <div class="col">
+                                                                                <div class="form-group mb-3">
+                                                                                    <div class="input-group input-group-alternative">
+                                                                                        <div class="input-group-prepend">
+                                                                                            <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                        </div>
+                                                                                        <input class="form-control text-dark" type="date" placeholder="yyyy-MM-dd" formControlName="date_de_naissance" [value]="formdetail.get('date_de_naissance').value | date:'yyyy-MM-dd'">
+                                                                                        <div class="invalid-feedback">
+                                                                                            Ce champs est obligatoire
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+
+                                                                        </div>
+
+                                                                    </form>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                                                    <button type="button" (click)=" updateDetails()" class="btn btn-primary">Enregistrer</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+
+                                                </td>
+
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <br><br>
+
                     <div class="card shadow">
                         <div class="card-header py-3">
                             <p class="text-primary m-0 font-weight-bold">Adresses </p>
                         </div>
                         <div class="card-body" style="width: 700px;">
-                            <div class="row">
-                                <div class="col-md-6 text-nowrap">
-                                    <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
-                                        <label>Show&nbsp;<select
-                                                class="form-control form-control-sm custom-select custom-select-sm">
-                                                <option value="10" selected="">10</option>
-                                                <option value="25">25</option>
-                                                <option value="50">50</option>
-                                                <option value="100">100</option>
-                                            </select>&nbsp;</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="text-md-right dataTables_filter" id="dataTable_filter"><label><input
-                                                type="search" class="form-control form-control-sm"
-                                                aria-controls="dataTable" placeholder="Search"></label></div>
-                                </div>
-                            </div>
+
                             <div class="table-responsive table mt-2" style="display: inline;" id="dataTable" role="grid" aria-describedby="dataTable_info">
                                 <table class="table" id="dataTable">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th>Id</th>
 
-                                            <th>Région</th>
-                                            <th>Nom_de_ville</th>
+                                            <th>Gouvernorat</th>
+                                            <th>Ville</th>
                                             <th>Adresse_de_maison</th>
                                             <th>Adresse_de_travail</th>
 
-                                            <th>ZIP</th>
-                                            <th>Etas</th>
-                                            <th>Actions</th>
+                                            <th>Zip</th>
+
+
 
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>{{listadress?.id}}</td>
-                                            <td>{{listadress?.region}}</td>
+                                            <td>{{listadress?.gouvernorat}}</td>
                                             <td>{{listadress?.city_name}}</td>
                                             <td>{{listadress?.home_adress}}</td>
                                             <td>{{listadress?.work_adress}}</td>
                                             <td>{{listadress?.zip}}</td>
-                                            <td>{{listadress?.etats}}</td>
+
 
                                             <td>
                                                 <div class="btn-group">
-                                                    <div class="container-fluid"><button (click)="deleteAdressById(listadress)" type="button" class="btn btn-primary"><i class="fa fa-trash"
+                                                    <div class="container-fluid"><button (click)="deleteAdressById(listadress)" (click)="confirmSwalAdress(listadress.id)" type="button" class="btn btn-primary"><i class="fa fa-trash"
                                                                 aria-hidden="true"></i></button></div>
                                                     <div class="container-fluid"><button (click)="editAdresse(listadress)" type="button" class="btn btn-primary" id="b1" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                             <i class="fa fa-wrench" aria-hidden="true"></i>
@@ -98,29 +273,113 @@
                                                                 </h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
-                                                            <div class="modal-body">
+                                                            <div class="card-body px-lg-5 py-lg-5">
 
                                                                 <form class="user" [formGroup]="formadresse">
-                                                                    <div class="form-group row">
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Ville :</label>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Gouvernorat :</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" type="text" placeholder="Ville" formControlName="city_name" name="city_name">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" placeholder="Gouvernorat" name="gouvernorat" formControlName="gouvernorat" type="text">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Adresse de travail :</label>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Adresse de maison :</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" type="text" placeholder="Adresse de travail" formControlName="work_adress" name="work_adress">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" placeholder="Adresse de maison" name="home_adress" formControlName="home_adress" type="text">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
 
-                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Région" name="region" formControlName="region"></div>
-                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Etats" name="etats" formControlName="etats"></div>
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Zip :</label>
+                                                                        </div>
+
                                                                     </div>
-                                                                    <div class="form-group row">
-                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Nom_de_ville" name="city_name" formControlName="city_name"></div>
-                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Adresse_de_maison" name="home_adress" formControlName="home_adress"></div>
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" type="text" placeholder="Zip" formControlName="zip" name="zip">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
                                                                     </div>
 
-                                                                    <div class="form-group row">
-                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="examplePasswordInput" placeholder="Adresse_de_travail" name="work_adress" formControlName="work_adress"></div>
-                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleRepeatPasswordInput" placeholder="ZIP" name="zip" formControlName="zip"></div>
-                                                                    </div>
+
+
                                                                 </form>
 
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                                                                <button type="button" class="btn btn-primary" (click)=" updateAdress()">Enregistrer</button>
+                                                                <button type="button" class="btn btn-primary" (click)=" updateAdress()" (click)=" successSwal1()">Enregistrer</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -147,131 +406,8 @@
                 </div>
 
 
-                <br><br>
-
-                <div class="container-fluid">
-                    <div class="card shadow">
-
-                        <div class="card-header py-3">
-                            <p class="text-primary m-0 font-weight-bold">Détails</p>
-                        </div>
-                        <div class="card-body" style="width: 700px;">
 
 
-                            <div class="row">
-                                <div class="col-md-6 text-nowrap">
-                                    <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="text-md-right dataTables_filter" id="dataTable_filter"><label><input
-                                                type="search" class="form-control form-control-sm"
-                                                aria-controls="dataTable" placeholder="Search"></label></div>
-                                </div>
-                                <div class="col--12">
-                                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="table-responsive table mt-2" style="display: inline;" id="dataTable" role="grid" aria-describedby="dataTable_info">
-                                <table class="table my-0" id="dataTable">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-
-                                            <th>Date_de_naissance</th>
-                                            <th>Profession</th>
-                                            <th>Statut_social</th>
-
-                                            <th>Sexe</th>
-
-                                            <th>Nationalité</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-
-                                            <td>{{listdetail?.id}}</td>
-
-                                            <td>{{listdetail?.date_de_naissance}}</td>
-                                            <td>{{listdetail?.profession}}</td>
-
-                                            <td>{{listdetail?.statut_social}}</td>
-                                            <td>{{listdetail?.sexe}}</td>
-                                            <td>{{listdetail?.nationalite}}</td>
-
-
-                                            <td>
-                                                <div>
-                                                    <div class="btn-group">
-                                                        <div class="container-fluid">
-                                                            <button type="button" (click)="deleteDetailById(listdetail)" class="btn btn-primary"><i
-                                                                    class="fa fa-trash"></i></button>
-                                                        </div>
-
-                                                        <!-- Button trigger modal -->
-                                                        <div class="container-fluid">
-                                                            <button type="button" (click)="editDetail(listdetail)" class="btn btn-primary" id="b2" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                                                                <i class="fa fa-wrench" aria-hidden="true"></i>
-                                                            </button></div>
-                                                    </div>
-                                                </div>
-
-                                                <!-- Modal -->
-                                                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel1">Modifier Détail
-                                                                </h5>
-
-                                                            </div>
-                                                            <div class="modal-body">
-
-                                                                <form class="user" [formGroup]="formdetail">
-
-                                                                    <div class="form-group row">
-                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Date_de_naissance" name="date_de_naissance" formControlName="date_de_naissance"></div>
-                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Profession" name="profession" formControlName="profession"></div>
-                                                                    </div>
-
-                                                                    <div class="form-group row">
-                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="examplePasswordInput" placeholder="Sexe" name="sexe" formControlName="sexe"></div>
-                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleRepeatPasswordInput" placeholder="Nationalité" name="nationalite" formControlName="nationalite"></div>
-                                                                    </div>
-
-                                                                    <div class="form-group row">
-
-                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Statut_social" name="statut_social" formControlName="statut_social"></div>
-                                                                    </div>
-                                                                </form>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                                                                <button type="button" (click)=" updateDetails()" class="btn btn-primary">Enregistrer</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-
-
-                                            </td>
-
-                                        </tr>
-
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
             </div>
         </div>
     </div>

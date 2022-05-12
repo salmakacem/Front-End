@@ -30,30 +30,36 @@
 
 
                 <div class="container-fluid">
-                    <h3 class="text-dark mb-4">Membres</h3>
+                    <h3 class="text-dark mb-4">Gestion des adhérents</h3>
                     <div class="card shadow">
 
                         <div class="card-header py-3">
-                            <p class="text-primary m-0 font-weight-bold">Adhérents info</p>
+                            <p class="text-primary m-0 font-weight-bold">Liste des adhérents</p>
                         </div>
-                        <div class="card-body" style="width: 700px;">
+                        <div class="card-body" style="width: 1000px;">
 
 
                             <div class="row">
-                                <!-- [(ngModel)]="searchText" ; let hero of heroes | filter:searchText -->
-                                <div class="mainLoginInput">
-                                    <input class="form-control" type="text" name="search" autocomplete="off" placeholder="&#61442;  Recherche adhérent">
+                                <div class="col-md-6 text-nowrap">
+                                    <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mainLoginInput">
+                                        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Recherche adhérent">
+                                    </div>
                                 </div>
                                 <div class="col--12">
                                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
                                     </div>
                                 </div>
+
                             </div>
                             <div class="table-responsive table mt-2" style="display: inline;" id="dataTable" role="grid" aria-describedby="dataTable_info">
                                 <table class="table my-0" id="dataTable">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th>Id</th>
                                             <th>Nom</th>
                                             <th>Prénom</th>
                                             <th>Email</th>
@@ -64,7 +70,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor=" let use of listuser ">
+                                        <tr *ngFor=" let use of listuser let hero of heroes | filter:searchText">
 
                                             <td>{{use.id}}</td>
                                             <td>{{use.firstName}}</td>
@@ -78,7 +84,7 @@
                                                 <div>
                                                     <div class="btn-group">
                                                         <div class="container-fluid">
-                                                            <button (click)="deleteUserById(use)" type="button" class="btn btn-primary"><i
+                                                            <button (click)="deleteUserById(use)" type="button" class="btn btn-primary" (click)=" confirmSwal(id)"><i
                                                                     class="fa fa-trash"></i></button>
                                                         </div>
 
@@ -101,18 +107,83 @@
                                                                 </h5>
 
                                                             </div>
-                                                            <div class="modal-body">
 
+                                                            <div class="card-body px-lg-5 py-lg-5">
                                                                 <form class="user" [formGroup]="formuser">
-                                                                    <div class="form-group row">
-                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Nom" formControlName="firstName" name="firstName"></div>
-                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Prénom" formControlName="lastName" name="lastName"></div>
-                                                                    </div>
-                                                                    <div class="form-group row">
-                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="email" id="exampleFirstName" placeholder="email" formControlName="email" name="email">
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Nom :</label>
                                                                         </div>
-                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="tel" id="exampleFirstName" placeholder="telephone" formControlName="telephone" name="telephone"></div>
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Prénom :</label>
+                                                                        </div>
                                                                     </div>
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" name="firstName" formControlName="firstName" placeholder="Nom" type="text">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" placeholder="Prénom" name="lastName" formControlName="lastName" type="text">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Email :</label>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Télèphone :</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-row">
+
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" placeholder="Email" name="email" formControlName="email" type="text">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" name="telephone" formControlName="telephone" placeholder="Télèphone" type="text">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
 
 
 
@@ -149,18 +220,7 @@
                         <div class="col-md-6 align-self-center">
 
                         </div>
-                        <div class="col-md-6">
-                            <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
-                                <ul class="pagination">
-                                    <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span
-                                                aria-hidden="true">»</span></a></li>
-                                </ul>
-                            </nav>
-                        </div>
+
                     </div>
                 </div>
 

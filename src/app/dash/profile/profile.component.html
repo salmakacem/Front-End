@@ -407,7 +407,7 @@
                                                     <div class="col">
                                                         <p class="proile-rating">Profession : <span style="color: black;">{{detais?.profession}}</span></p>
 
-                                                        <p class="proile-rating">Date de naissance : <span style="color: black;">{{detais?.date_de_naissance}}</span></p>
+                                                        <p class="proile-rating">Date de naissance : <span style="color: black;">{{detais?.date_de_naissance| date: 'yyyy-MM-dd'}}</span></p>
                                                         <p class="proile-rating">Statut social: <span style="color: black;">{{detais?.statut_social}}</span></p>
                                                         <p class="proile-rating">Sexe: <span style="color: black;">{{detais?.sexe}}</span></p>
                                                         <p class="proile-rating">Nationalité: <span style="color: black;">{{detais?.nationalite}}</span></p>
@@ -432,7 +432,7 @@
 
                                                         <p class="proile-rating">Adresse de maison : <span style="color: black;">{{adresses?.home_adress}}</span></p>
                                                         <p class="proile-rating">Adresse de travail: <span style="color: black;">{{adresses?.work_adress}}</span></p>
-                                                        <p class="proile-rating">Région: <span style="color: black;">{{adresses?.region}}</span></p>
+                                                        <p class="proile-rating">Gouvernorat: <span style="color: black;">{{adresses?.gouvernorat}}</span></p>
                                                     </div>
                                                 </div>
                                             </form>

@@ -122,7 +122,7 @@
 
                                             </a>
                                         </div>
-                                        <img class="" [src]="imageSrc"></a>
+                                    </a>
                                     <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in">
 
                                         <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
@@ -398,7 +398,7 @@
                                                     <div class="col">
                                                         <p class="proile-rating">Profession : <span style="color: black;">{{details?.profession}}</span></p>
 
-                                                        <p class="proile-rating">Date de naissance : <span style="color: black;">{{details?.date_de_naissance}}</span></p>
+                                                        <p class="proile-rating">Date de naissance : <span style="color: black;">{{details?.date_de_naissance| date: 'yyyy-MM-dd'}}</span></p>
                                                         <p class="proile-rating">Statut social: <span style="color: black;">{{details?.statut_social}}</span></p>
                                                         <p class="proile-rating">Sexe: <span style="color: black;">{{details?.sexe}}</span></p>
                                                         <p class="proile-rating">Nationalité: <span style="color: black;">{{details?.nationalite}}</span></p>
@@ -418,7 +418,7 @@
 
                                                         <p class="proile-rating">Adresse de maison : <span style="color: black;">{{adresse?.home_adress}}</span></p>
                                                         <p class="proile-rating">Adresse de travail: <span style="color: black;">{{adresse?.work_adress}}</span></p>
-                                                        <p class="proile-rating">Région: <span style="color: black;">{{adresse?.region}}</span></p>
+                                                        <p class="proile-rating">Gouvernorat: <span style="color: black;">{{adresse?.gouvernorat}}</span></p>
                                                     </div>
                                                 </div>
                                             </form>

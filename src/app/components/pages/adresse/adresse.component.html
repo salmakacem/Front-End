@@ -147,17 +147,12 @@
                     <small class="text-danger" *ngIf="submitted && adressform.get('password').hasError('required')">champ obligatoire.</small>
 
                 </div>
-                <div class="wrap-input100 validate-input pass">
-                    <input type="text" id="region" class="form-control input100" formControlName="region" id="region" [(ngModel)]="adress.region" placeholder="region" name="region">
-                    <span class="focus-input100" data-placeholder="&#xf191;"></span>
-                    <small class="text-danger" *ngIf="submitted && adressform.get('password').hasError('required')">champ obligatoire.</small>
-
-                </div>
 
 
-                <label for="inputState" class="form-label">Etats</label>
-                <select id="etats" class="form-select" formControlName="etats" [(ngModel)]="adress.etats">
-                    <small class="text-danger" *ngIf="submitted && adressform.get('etats').hasError('required')">champ obligatoire.</small>
+
+                <label for="inputState" class="form-label">Gouvernorat</label>
+                <select id="etats" class="form-select" formControlName="gouvernorat" [(ngModel)]="adress.gouvernorat">
+                    <small class="text-danger" *ngIf="submitted && adressform.get('gouvernorat').hasError('required')">champ obligatoire.</small>
                     
 <option selected>Ariana</option>
 <option>Béja</option>

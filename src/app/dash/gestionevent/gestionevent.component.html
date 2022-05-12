@@ -66,7 +66,7 @@
 
 
 
-                                            <th>Nom</th>
+                                            <th>Titre</th>
 
 
                                             <th>Description </th>
@@ -132,13 +132,13 @@
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel1">photo
+                                                                <h5 class="modal-title" id="exampleModalLabel1">Ajouter une affiche
                                                                 </h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body">
                                                                 <div *ngIf="thumbnailTest">
-                                                                    <img [src]="thumbnail">
+                                                                    <img style="max-width: 70%;margin-left: 15%;" [src]="thumbnail">
                                                                 </div>
                                                                 <div class="card-body px-lg-5 py-lg-5" *ngIf="!thumbnailTest">
 
@@ -149,7 +149,7 @@
                                                                         </div>
                                                                         <div class="text-center">
                                                                             <span>
-                                                                  <img   style="width: 100px;" [src]="imageSrc">
+                                                                  <img  style="max-width: 70%;margin-left: 15%;" [src]="imageSrc">
                                                                 </span> </div>
                                                                         <div class="text-center" *ngIf="selected">
                                                                             <button type="submit" (click)="onUploadc(idSelected)" (click)="getProfileImg(idSelected)" (click)="successSwal()" class="btn btn-sm btn-primary mt-4">Changer la photo du profil</button>
@@ -177,36 +177,105 @@
                                                                 </h5>
                                                                 <button type="button" (click)="closeEvent()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
-                                                            <div class="modal-body">
+                                                            <div class="card-body px-lg-5 py-lg-5">
 
                                                                 <form class="user" [formGroup]="form">
-                                                                    <div class="form-group row">
-                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" id="exampleFirstName" name="date" type="date" placeholder="yyyy-MM-dd" formControlName="date" [value]="form.get('date').value | date:'yyyy-MM-dd'"></div>
-                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Titre" formControlName="nom_event" name="nom_event"></div>
-                                                                    </div>
-                                                                    <div class="form-group row">
-                                                                        <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="descriptionEvent" formControlName="descriptionEvent" name="descriptionEvent">
+
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Titre :</label>
                                                                         </div>
-                                                                        <div class="col-sm-6">
-
-                                                                            <input class="form-control form-control-user" type="String" id="exampleFirstName" formControlName="duree" name="duree">
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Description :</label>
                                                                         </div>
-                                                                        <!-- <div class="col-sm-6">
-
-                                                                            <input class="form-control form-control-user" type="time" min="08:00" max="00:00" id="exampleFirstName" formControlName="debut" name="debut" [value]="form.get('debut').value | date : 'HH:mm' ">
-                                                                        </div> -->
-
+                                                                    </div>
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" name="nom_event" formControlName="nom_event" placeholder="Titre" type="text">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" placeholder="Description" name="descriptionEvent" formControlName="descriptionEvent" type="text">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Date :</label>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Duree :</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" type="date" placeholder="yyyy-MM-dd" formControlName="date" [value]="form.get('date').value | date:'yyyy-MM-dd'">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" placeholder="Duree" name="duree" formControlName="duree" type="text">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Adresse :</label>
+                                                                        </div>
 
                                                                     </div>
-                                                                    <div class="form-group row">
-                                                                        <!-- <div class="col-sm-6 mb-3 mb-sm-0">
-
-                                                                            <input class="form-control form-control-user" type="time" min="08:00" max="00:00" id="exampleFirstName" formControlName="fin" name="fin" [value]="form.get('fin').value | date : 'HH:mm' ">
-                                                                        </div> -->
-
-                                                                        <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="adressevent" formControlName="adressevent" name="adressevent"></div>
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <div class="form-group mb-3">
+                                                                                <div class="input-group input-group-alternative">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                                                    </div>
+                                                                                    <input class="form-control text-dark" name="adressevent" formControlName="adressevent" placeholder="Adresse" type="text">
+                                                                                    <div class="invalid-feedback">
+                                                                                        Ce champs est obligatoire
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
 
                                                                     </div>
+
 
 
 
@@ -233,10 +302,10 @@
                                                                 <form role="form" [formGroup]="form">
                                                                     <div class="form-row">
                                                                         <div class="col">
-                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Nom :</label>
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Titre :</label>
                                                                         </div>
                                                                         <div class="col">
-                                                                            <label for="exampleFormControlTextarea1" class="text-dark">descriptionEvent :</label>
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Description de l'évènement :</label>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
@@ -246,7 +315,7 @@
                                                                                     <div class="input-group-prepend">
                                                                                         <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                                                                                     </div>
-                                                                                    <input class="form-control text-dark" name="nom_event" formControlName="nom_event" placeholder="Nom" type="text">
+                                                                                    <input class="form-control text-dark" name="nom_event" formControlName="nom_event" placeholder="Titre" type="text">
                                                                                     <div class="invalid-feedback">
                                                                                         Ce champs est obligatoire
                                                                                     </div>
@@ -259,7 +328,7 @@
                                                                                     <div class="input-group-prepend">
                                                                                         <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                                                                                     </div>
-                                                                                    <input class="form-control text-dark" placeholder="Prénom" name="descriptionEvent" formControlName="descriptionEvent" type="text">
+                                                                                    <input class="form-control text-dark" placeholder="Description de l'évènement " name="descriptionEvent" formControlName="descriptionEvent" type="text">
                                                                                     <div class="invalid-feedback">
                                                                                         Ce champs est obligatoire
                                                                                     </div>
@@ -269,10 +338,10 @@
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col">
-                                                                            <label for="exampleFormControlTextarea1" class="text-dark">adressevent :</label>
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Adresse :</label>
                                                                         </div>
                                                                         <div class="col">
-                                                                            <label for="exampleFormControlTextarea1" class="text-dark">date :</label>
+                                                                            <label for="exampleFormControlTextarea1" class="text-dark">Date de l'évènement :</label>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
@@ -282,7 +351,7 @@
                                                                                     <div class="input-group-prepend">
                                                                                         <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                                                                                     </div>
-                                                                                    <input class="form-control text-dark" formControlName="adressevent" name="adressevent" placeholder="Nom" type="text">
+                                                                                    <input class="form-control text-dark" formControlName="adressevent" name="adressevent" placeholder="Adresse" type="text">
                                                                                     <div class="invalid-feedback">
                                                                                         Ce champs est obligatoire
                                                                                     </div>
@@ -415,18 +484,7 @@
                         <div class="col-md-6 align-self-center">
 
                         </div>
-                        <div class="col-md-6">
-                            <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
-                                <ul class="pagination">
-                                    <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span
-                                                aria-hidden="true">»</span></a></li>
-                                </ul>
-                            </nav>
-                        </div>
+
                     </div>
 
 

@@ -36,6 +36,17 @@ import { Gestionadherent1Component } from './dash/gestionadherent1/gestionadhere
 
 import { MapComponent } from './map/map.component';
 
+import { ChatComponent } from './chat/chat.component';
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -71,6 +82,27 @@ const routes: Routes = [
     {path: 'gestionadherent1', component: Gestionadherent1Component },
 
     {path: 'map', component: MapComponent },
+
+    {path: 'chat', component: ChatComponent},
+
+
+  
+   
+
+   
+
+    
+
+
+   
+
+
+    
+    
+
+    
+
+    
   
 
 

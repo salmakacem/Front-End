@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "6cca1550-e981-4bca-be84-1d856a6067c1"
+  },
   "version": 1, 
   "newProjectRoot": "projects",
   "projects": {
@@ -23,6 +26,10 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
+
+              
+              "src/firebase-messaging-sw.js", 
+              "src/manifest.json" ,
                 "src/favicon.ico",
                 "src/assets",
                 {

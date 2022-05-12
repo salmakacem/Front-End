@@ -1,0 +1,120 @@
+
+
+
+<section style="background-color: #fff;">
+  <div class="container py-5">
+
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-8 col-lg-6 col-xl-4" >
+
+        <div class="card">
+          <div class="card-header d-flex justify-content-between align-items-center p-3"
+            style="border-top: 4px solid #b45e5e;">
+            <h5 class="mb-0">Messagerie</h5>
+            <div class="d-flex flex-row align-items-center">
+              
+              <div class="settings-tray coloor">
+                <div class="friend-drawer no-gutters friend-drawer--grey coloor">
+                  
+                  <span class="settings-tray--right">
+                    
+                    <i class="fas fa-video" (click)="openModal(classic2,'modal_mini', 'lg');"></i>
+                    <ng-template #classic2 let-c="close" let-d="dismiss">
+                      <div class="modal-content" >
+                        <div class="modal-body p-0">
+                          <div class="card bg-secondary shadow border-0">
+                            <div class="card-header bg-white">
+                              <div class="text-muted text-center">
+                                <h3>Appel Video</h3>
+                              </div>
+                            </div>
+                            <div class="card-body text-center">
+                              <img [src]="picuser" *ngIf="!reponse" class="profile-image img1" >
+                              <video  id="videoElement"  class="videoCaller" [ngClass]="{'noResponseClass': reponse == false  }"></video>
+                              <hr>
+                            
+                                <video  id="myVideo" class="videoCaller"></video>
+
+                              <br>
+
+                              <div class="finirAppel text-center" (click)="c('Close click');closeCall()"><i class="fas fa-phone-slash"></i></div>
+                              <div class="noVideo text-center" *ngIf="apVideo==false " (click)="returnVideo()"><i class="fas fa-video"></i></div>
+                              <div class="screen text-center" *ngIf="apScreen " (click)="shareScreen()"><i class="fas fa-desktop"></i></div>
+                              <div class="screen text-center" *ngIf="!apScreen"(click)="closeScreenShare()"><img src="../../../assets/img/icons/common/stop_screen_share_white_24x24.png"></div>
+                              <div class="noVideo text-center" *ngIf="apVideo==true " (click)="closeVideo()"><i class="fas fa-video-slash"></i></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="card-body" data-mdb-perfect-scrollbar="true" style="position: relative; height: 400px">
+            <div class="input-group mb-0">
+              
+              <div class="chat-panel" >
+                <main class="chat">
+                  
+                          <div class="card">
+                              <ul class="list-group list-group-flush">
+                                  <li class="list-group-item" *ngFor="let chatMessage of webSocketService.chatMessages">
+                                      <strong style="color: #b45e5e;">{{chatMessage.user}}  : </strong>
+                                      <span>{{chatMessage.message}}</span>
+                                  </li>
+                              </ul>
+                          
+                  </div>
+                </main>
+              </div>
+            </div>
+          </div>
+                      
+
+            
+
+            
+           
+              
+
+            
+            
+
+            
+            
+
+          </div>
+          <div class="card-footer text-muted d-flex justify-content-start align-items-center p-3">
+            
+                        <form (ngSubmit)="sendMessage(sendForm)" #sendForm="ngForm">
+                          
+                    
+                            <div class="chat-send row">
+                                <div class="col-2">
+                                    <input type="text" class="form-control" name="user" id="input-user" ngModel>
+                                </div>
+                                <div class="col-8">
+                                    <input id="1" type="text" class="form-control" name="message" id="input-message" ngModel>
+                                </div>
+                                <div class="col-2">
+                                  <button  type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                                    
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+                
+              
+    </div>
+  </div>
+
+
+              
+  
+
+  
+</section>

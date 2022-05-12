@@ -7,14 +7,14 @@
           "type": "Point",
           "coordinates": [
 
-            9.537499,
-            33.886917
+            10.164723,
+            36.866537
           ]
         },
         "properties": {
-          "state": "Tunisie",
+         
           "name": "Ariana",
-          "population": 199518
+          "nb_adhérent": 14
         }
       },
      
@@ -30,9 +30,125 @@
           ]
         },
         "properties": {
-          "state": "Tunisie",
+         
           "name": "Nabeul",
-          "population": 191049
+          "nb_adhérent": 16
+        }
+      },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            
+            10.086327,
+            36.809328
+          ]
+        },
+        "properties": {
+       
+          "name": "Manouba",
+          "nb_adhérent": 22
+        }
+      },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            
+            10.608395,
+            35.825603
+          ]
+        },
+        "properties": {
+         
+          "name": "Sousse",
+          "nb_adhérent": 15
+        }
+      },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            
+            10.091924,
+            35.675914
+          ]
+        },
+        "properties": {
+         
+          "name": "kerouan",
+          "nb_adhérent": 19
+        }
+      },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            
+            10.766163,
+            34.747847
+          ]
+        },
+        "properties": {
+         
+          "name": "Sfax",
+          "nb_adhérent": 20
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+
+            8.709579,
+            36.167965
+          ]
+        },
+        "properties": {
+         
+          "name": "Kef",
+          "nb_adhérent": 14
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+
+            11.045721,
+            35.502446
+          ]
+        },
+        "properties": {
+        
+          "name": "Mahdia",
+          "nb_adhérent": 15
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+
+            10.811289,
+            35.764252
+          ]
+        },
+        "properties": {
+         
+          "name": "monastir",
+          "nb_adhérent": 14
         }
       }
       

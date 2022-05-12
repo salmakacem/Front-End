@@ -3,7 +3,11 @@ import { Router, NavigationStart, NavigationCancel, NavigationEnd } from '@angul
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { filter } from 'rxjs/operators';
 
+import { MessagingService } from './service/messaging.service';
+
 declare let $: any;
+
+
 
 @Component({
     selector: 'app-root',
@@ -20,37 +24,24 @@ export class AppComponent implements OnInit {
     [x: string]: any;
     location: any;
     routerSubscription: any;
-   
+    title = 'push-notification';
+    message;
 
-    constructor(private router: Router) {
+
+    constructor(private router: Router, private messagingService: MessagingService) {
     }
 
-    
 
-    ngOnInit(){
-        this.recallJsFuntions();
-      
+
+
+
+    ngOnInit() {
+       //this.recallJsFuntions();
+
+        this.messagingService.requestPermission();
+        this.messagingService.receiveMessage();
+        this.message = this.messagingService.currentMessage;
+
     }
 
-  
-
-    recallJsFuntions() {
-        this.router.events
-        .subscribe((event) => {
-            if ( event instanceof NavigationStart ) {
-                $('.loader-content').fadeIn('slow');
-            }
-        });
-        this.routerSubscription = this.router.events
-        .pipe(filter(event => event instanceof NavigationEnd || event instanceof NavigationCancel))
-        .subscribe(event => {
-            $.getScript('../assets/js/custom.js');
-            $('.loader-content').fadeOut('slow');
-            this.location = this.router.url;
-            if (!(event instanceof NavigationEnd)) {
-                return;
-            }
-            window.scrollTo(0, 0);
-        });
-    }
 }

@@ -4,6 +4,7 @@ import * as L from 'leaflet';
 import { MarkerService } from './marker.service';
 
 
+
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
 const iconUrl = 'assets/marker-icon.png';
 const shadowUrl = 'assets/marker-shadow.png';
@@ -28,6 +29,7 @@ L.Marker.prototype.options.icon = iconDefault;
 export class MapComponent implements AfterViewInit  {
 
   private map;
+  private states;
 
   constructor(private markerService:MarkerService) { }
 
@@ -38,12 +40,14 @@ export class MapComponent implements AfterViewInit  {
       zoom: 3
     });
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 8,
-      minZoom: 3,
+      maxZoom: 18,
+      minZoom: 7,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     });
 
     tiles.addTo(this.map);
+
+    
   }
 
 
@@ -51,6 +55,7 @@ export class MapComponent implements AfterViewInit  {
   ngAfterViewInit(): void {
     this.initMap();
     this.markerService.makeCapitalMarkers(this.map);
+    
   }
 
 }

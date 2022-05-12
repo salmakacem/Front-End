@@ -46,12 +46,17 @@ import { PopupService } from './map/popup.service';
 import { ToastrModule } from 'ngx-toastr';
 import { ForgotloginComponent } from './components/pages/forgotlogin/forgotlogin.component';
 import { ChangermdpComponent } from './components/pages/changermdp/changermdp.component';
+import { ChatComponent } from './chat/chat.component';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-
-
-
-
+//fire base
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { CONFIG } from 'src/environments/environment';
+import { MessagingService } from './service/messaging.service';
 
 
 @NgModule({
@@ -68,7 +73,7 @@ import { ChangermdpComponent } from './components/pages/changermdp/changermdp.co
     ServiceTwoComponent,
     ServiceThreeComponent,
     ServiceDetailsComponent,
-  
+
     BlogRightSidebarComponent,
     PricingComponent,
     RecentProjectComponent,
@@ -79,7 +84,7 @@ import { ChangermdpComponent } from './components/pages/changermdp/changermdp.co
     RegisterComponent,
     DetailsComponent,
     AdresseComponent,
-   
+
     DashbordComponent,
     ProfileComponent,
     GestionadherentsComponent,
@@ -87,35 +92,35 @@ import { ChangermdpComponent } from './components/pages/changermdp/changermdp.co
     ProfileeComponent,
     ForgotloginComponent,
     ChangermdpComponent,
-    
-
-
     ProfileeComponent,
     Gestionadherent1Component,
     MapComponent,
-
-   
-   
-
-
+    ChatComponent,
+    
   ],
   imports: [
+    NgbModule,
+
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-   
+
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
     ToastrModule.forRoot(),
+    AngularFireModule,
+    AngularFireMessagingModule,
+    AngularFireAuthModule,
+    AngularFireDatabaseModule,
 
-  
-       
+    
+AngularFireModule.initializeApp(CONFIG.firebase),
 
   ],
   //providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },],
-  providers: [MarkerService,
-    PopupService ],
+  providers: [MarkerService, MessagingService,
+    PopupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
